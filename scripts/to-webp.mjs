@@ -5,19 +5,29 @@ import { readdir, stat } from "node:fs/promises";
 import path from "node:path";
 
 const DIR = path.join(process.cwd(), "public", "images");
-// Numbers referenced in lib/site.ts (all "_c_MartinMathes (2).jpg").
-const USED = ["57", "05", "85", "73", "36", "29", "01", "17", "12"];
+// Source number (in "_c_MartinMathes (2).jpg") -> web-safe slug referenced in lib/site.ts.
+const USED = {
+  "57": "hero",
+  "05": "interior",
+  "85": "bar",
+  "73": "event",
+  "36": "food",
+  "29": "terrace",
+  "01": "facade",
+  "17": "food-two",
+  "12": "drink",
+};
 
 const files = await readdir(DIR);
 let done = 0;
-for (const num of USED) {
+for (const [num, slug] of Object.entries(USED)) {
   const src = files.find((f) => f === `20260604_dasGlockenspiel_${num}_c_MartinMathes (2).jpg`);
   if (!src) {
     console.warn(`! missing source for ${num}`);
     continue;
   }
   const from = path.join(DIR, src);
-  const to = from.replace(/\.jpg$/i, ".webp");
+  const to = path.join(DIR, `${slug}.webp`);
   const before = (await stat(from)).size;
   await sharp(from)
     .resize({ width: 2000, withoutEnlargement: true })
@@ -26,7 +36,7 @@ for (const num of USED) {
   const after = (await stat(to)).size;
   done += 1;
   console.log(
-    `${src} -> ${(before / 1024).toFixed(0)}KB → ${(after / 1024).toFixed(0)}KB webp`,
+    `${src} -> ${slug}.webp  ${(before / 1024).toFixed(0)}KB → ${(after / 1024).toFixed(0)}KB`,
   );
 }
-console.log(`\nConverted ${done}/${USED.length} images.`);
+console.log(`\nConverted ${done}/${Object.keys(USED).length} images.`);

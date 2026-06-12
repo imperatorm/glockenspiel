@@ -1,13 +1,13 @@
 export const assets = {
-  hero: "/images/20260604_dasGlockenspiel_57_c_MartinMathes%20(2).webp",
-  interior: "/images/20260604_dasGlockenspiel_05_c_MartinMathes%20(2).webp",
-  bar: "/images/20260604_dasGlockenspiel_85_c_MartinMathes%20(2).webp",
-  event: "/images/20260604_dasGlockenspiel_73_c_MartinMathes%20(2).webp",
-  food: "/images/20260604_dasGlockenspiel_36_c_MartinMathes%20(2).webp",
-  terrace: "/images/20260604_dasGlockenspiel_29_c_MartinMathes%20(2).webp",
-  facade: "/images/20260604_dasGlockenspiel_01_c_MartinMathes%20(2).webp",
-  foodTwo: "/images/20260604_dasGlockenspiel_17_c_MartinMathes%20(2).webp",
-  drink: "/images/20260604_dasGlockenspiel_12_c_MartinMathes%20(2).webp",
+  hero: "/images/hero.webp",
+  interior: "/images/interior.webp",
+  bar: "/images/bar.webp",
+  event: "/images/event.webp",
+  food: "/images/food.webp",
+  terrace: "/images/terrace.webp",
+  facade: "/images/facade.webp",
+  foodTwo: "/images/food-two.webp",
+  drink: "/images/drink.webp",
 };
 
 export const menuFlipbook = {
