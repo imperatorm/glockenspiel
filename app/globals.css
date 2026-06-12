@@ -191,7 +191,7 @@ body.is-scrolled .site-nav {
   display: block;
   width: 1.35rem;
   height: 2.05rem;
-  background: url("/logo/glocke_w.svg") center / contain no-repeat;
+  background: var(--v2-glocke) center / contain no-repeat;
 }
 
 .hero-section {
@@ -2454,8 +2454,7 @@ body.veil-lock {
   --v2-ink-rgb: 21, 18, 22;
   --v2-paper: #fff8ee;
   --v2-line: rgba(var(--v2-ink-rgb), 0.18);
-  --v2-glocke: url("/logo/glocke_b.svg");
-  --v2-logo: url("/logo/glockenspiel_b.svg");
+  /* --v2-glocke / --v2-logo injected in layout.tsx with the mount-path prefix */
 }
 
 [data-theme="dark"] {
@@ -2464,8 +2463,6 @@ body.veil-lock {
   --v2-ink: #fff8ee;
   --v2-ink-rgb: 255, 248, 238;
   --v2-paper: #1d181d;
-  --v2-glocke: url("/logo/glocke_w.svg");
-  --v2-logo: url("/logo/glockenspiel_w.svg");
 }
 
 .v2-shell {

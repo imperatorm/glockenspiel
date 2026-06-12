@@ -5,7 +5,7 @@ import { V2Footer } from "@/components/v2/V2Footer";
 import { V2HoursPill } from "@/components/v2/V2HoursPill";
 import { V2Map } from "@/components/v2/V2Map";
 import { V2Topbar } from "@/components/v2/V2Topbar";
-import { assets, content, imageAlt, menuFlipbook, siteConfig } from "@/lib/site";
+import { assets, content, imageAlt, menuFlipbook, siteConfig, withBase } from "@/lib/site";
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -20,7 +20,7 @@ const structuredData = {
   priceRange: "€€",
   servesCuisine: ["Tapas", "Bar food", "Cocktails"],
   acceptsReservations: true,
-  hasMenu: `${siteConfig.siteUrl}/drinks`,
+  hasMenu: `${siteConfig.siteUrl}${withBase("/drinks")}`,
   sameAs: [siteConfig.instagram],
   address: {
     "@type": "PostalAddress",
@@ -50,10 +50,10 @@ const nights = [
 ];
 
 const thumbs = [
-  { image: assets.bar, alt: imageAlt.bar, label: "Signature Drinks", icon: "/images/icons/cocktails.png" },
-  { image: assets.food, alt: imageAlt.food, label: "Tapas", icon: "/images/icons/tapas.png" },
-  { image: assets.interior, alt: imageAlt.interior, label: "Klassiker", icon: "/images/icons/wine.png" },
-  { image: assets.terrace, alt: imageAlt.terrace, label: "Champagner", icon: "/images/icons/star.png" },
+  { image: assets.bar, alt: imageAlt.bar, label: "Signature Drinks", icon: withBase("/images/icons/cocktails.png") },
+  { image: assets.food, alt: imageAlt.food, label: "Tapas", icon: withBase("/images/icons/tapas.png") },
+  { image: assets.interior, alt: imageAlt.interior, label: "Klassiker", icon: withBase("/images/icons/wine.png") },
+  { image: assets.terrace, alt: imageAlt.terrace, label: "Champagner", icon: withBase("/images/icons/star.png") },
 ];
 
 function Wordmark() {
@@ -115,7 +115,7 @@ export default function Home() {
             <p className="eyebrow reveal">{content.menu.eyebrow}</p>
             <h2 data-split>Signature Cocktails, Champagner, Weine und Premium Spirits.</h2>
             <p className="reveal">{content.menu.body}</p>
-            <a className="v2-button v2-button--cream reveal" href="/drinks">
+            <a className="v2-button v2-button--cream reveal" href={withBase("/drinks")}>
               Zur Getränkekarte
             </a>
           </div>
@@ -254,10 +254,10 @@ export default function Home() {
           <p className="v2-small reveal">{content.hero.bodyTwo}</p>
           <p className="v2-small reveal">{content.experience.body[2]}</p>
           <div className="v2-about-links reveal">
-            <a className="v2-button" href="/private-events">
+            <a className="v2-button" href={withBase("/private-events")}>
               Private Events
             </a>
-            <a className="v2-button" href="/corporate-events">
+            <a className="v2-button" href={withBase("/corporate-events")}>
               Corporate Events
             </a>
           </div>

@@ -2,6 +2,7 @@ import { ScrollOrchestrator } from "@/components/ScrollOrchestrator";
 import { V2Footer } from "@/components/v2/V2Footer";
 import { V2Topbar } from "@/components/v2/V2Topbar";
 import type { LegalPageContent } from "@/lib/legal";
+import { withBase } from "@/lib/site";
 
 type V2LegalPageProps = {
   page: LegalPageContent;
@@ -14,7 +15,7 @@ export function V2LegalPage({ page }: V2LegalPageProps) {
       <V2Topbar variant="sub" ctaLabel="Reservieren" />
 
       <section className="v2-hero v2-subhero">
-        <a className="v2-back reveal" href="/">
+        <a className="v2-back reveal" href={withBase("/")}>
           Zurück zur Startseite
         </a>
         <p className="v2-eyebrow reveal">{page.eyebrow}</p>

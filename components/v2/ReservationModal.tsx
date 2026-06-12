@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { content, siteConfig } from "@/lib/site";
+import { content, siteConfig, withBase } from "@/lib/site";
 
 const OCCASIONS = ["Reservierung", "Privates Event", "Corporate Event", "Sonstiges"];
 
@@ -76,7 +76,7 @@ export function ReservationModal() {
     setSendState("sending");
     setErrorMessage("");
     try {
-      const response = await fetch("/api/reserve", {
+      const response = await fetch(withBase("/api/reserve"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),

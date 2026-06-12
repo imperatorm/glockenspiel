@@ -1,4 +1,5 @@
 import { ThemeSwitch } from "@/components/v2/ThemeSwitch";
+import { withBase } from "@/lib/site";
 
 type V2TopbarProps = {
   variant?: "home" | "sub";
@@ -25,7 +26,7 @@ export function V2Topbar({ variant = "home", ctaLabel, ctaOccasion }: V2TopbarPr
     <header className="v2-topbar">
       <nav aria-label="Hauptnavigation">
         {links.map(([text, url]) => (
-          <a href={url} key={text}>
+          <a href={withBase(url)} key={text}>
             {text}
           </a>
         ))}

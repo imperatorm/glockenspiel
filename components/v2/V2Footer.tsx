@@ -1,5 +1,5 @@
 import { V2Logo } from "@/components/v2/V2Logo";
-import { siteConfig } from "@/lib/site";
+import { siteConfig, withBase } from "@/lib/site";
 
 export function V2Footer() {
   return (
@@ -15,8 +15,8 @@ export function V2Footer() {
           <a href={siteConfig.instagram} target="_blank" rel="noreferrer">
             Instagram
           </a>
-          <a href="/datenschutz">Datenschutz</a>
-          <a href="/cookies">Cookies</a>
+          <a href={withBase("/datenschutz")}>Datenschutz</a>
+          <a href={withBase("/cookies")}>Cookies</a>
         </div>
       </div>
     </footer>

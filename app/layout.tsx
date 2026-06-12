@@ -3,7 +3,7 @@ import type { Viewport } from "next";
 import { Cursor } from "@/components/Cursor";
 import { Veil } from "@/components/Veil";
 import { ReservationModal } from "@/components/v2/ReservationModal";
-import { assets, siteConfig } from "@/lib/site";
+import { assets, BASE_PATH, siteConfig } from "@/lib/site";
 import "locomotive-scroll/locomotive-scroll.css";
 import "./globals.css";
 
@@ -81,6 +81,14 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <script
           dangerouslySetInnerHTML={{
             __html: `try{var t=localStorage.getItem("glocken-theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}`,
+          }}
+        />
+        {/* Logo backgrounds reference /public via the mount-path prefix (CSS url() can't read env). */}
+        <style
+          dangerouslySetInnerHTML={{
+            __html:
+              `:root{--v2-glocke:url("${BASE_PATH}/logo/glocke_b.svg");--v2-logo:url("${BASE_PATH}/logo/glockenspiel_b.svg")}` +
+              `[data-theme="dark"]{--v2-glocke:url("${BASE_PATH}/logo/glocke_w.svg");--v2-logo:url("${BASE_PATH}/logo/glockenspiel_w.svg")}`,
           }}
         />
       </head>

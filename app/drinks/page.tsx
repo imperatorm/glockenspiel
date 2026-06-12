@@ -5,7 +5,7 @@ import { V2Flipbook } from "@/components/v2/V2Flipbook";
 import { V2Footer } from "@/components/v2/V2Footer";
 import { V2HoursPill } from "@/components/v2/V2HoursPill";
 import { V2Topbar } from "@/components/v2/V2Topbar";
-import { assets, content, imageAlt, menuFlipbook, siteConfig } from "@/lib/site";
+import { assets, content, imageAlt, menuFlipbook, siteConfig, withBase } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Getränkekarte — Drinks & Winter Menu",
@@ -48,7 +48,7 @@ export default function DrinksPage() {
       <V2Topbar variant="sub" ctaLabel="Reservieren" />
 
       <section className="v2-hero v2-subhero">
-        <a className="v2-back reveal" href="/">
+        <a className="v2-back reveal" href={withBase("/")}>
           Zurück zur Startseite
         </a>
         <p className="v2-eyebrow reveal">{content.menu.eyebrow}</p>

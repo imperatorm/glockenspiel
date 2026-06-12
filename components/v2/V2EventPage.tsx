@@ -4,7 +4,7 @@ import { V2Footer } from "@/components/v2/V2Footer";
 import { V2HoursPill } from "@/components/v2/V2HoursPill";
 import { V2Map } from "@/components/v2/V2Map";
 import { V2Topbar } from "@/components/v2/V2Topbar";
-import { eventPages, siteConfig } from "@/lib/site";
+import { eventPages, siteConfig, withBase } from "@/lib/site";
 
 type EventPageData = (typeof eventPages)[keyof typeof eventPages];
 
@@ -64,7 +64,7 @@ export function V2EventPage({ page }: V2EventPageProps) {
       <V2Topbar variant="sub" ctaLabel="Anfragen" ctaOccasion={occasion} />
 
       <section className="v2-hero v2-subhero">
-        <a className="v2-back reveal" href="/#ueber">
+        <a className="v2-back reveal" href={withBase("/#ueber")}>
           Zurück zur Startseite
         </a>
         <p className="v2-eyebrow reveal">{page.eyebrow}</p>
@@ -79,7 +79,7 @@ export function V2EventPage({ page }: V2EventPageProps) {
             modalTarget="reserve"
             occasion={occasion}
           />
-          <a className="v2-button" href="/drinks">
+          <a className="v2-button" href={withBase("/drinks")}>
             {page.secondaryCta}
           </a>
         </div>

@@ -1,17 +1,26 @@
+// Webflow Cloud mounts the app at a path ("/app"). Static files and routes are
+// served under that prefix, so every hand-authored absolute URL (img src, CSS
+// url(), internal <a href>, client fetch) must include it. Next only auto-prefixes
+// next/link|image|script. Default to "/app"; local dev overrides to "" via .env.development.
+export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "/app";
+
+export const withBase = (path: string): string =>
+  path.startsWith("/") ? `${BASE_PATH}${path}` : path;
+
 export const assets = {
-  hero: "/images/hero.webp",
-  interior: "/images/interior.webp",
-  bar: "/images/bar.webp",
-  event: "/images/event.webp",
-  food: "/images/food.webp",
-  terrace: "/images/terrace.webp",
-  facade: "/images/facade.webp",
-  foodTwo: "/images/food-two.webp",
-  drink: "/images/drink.webp",
+  hero: withBase("/images/hero.webp"),
+  interior: withBase("/images/interior.webp"),
+  bar: withBase("/images/bar.webp"),
+  event: withBase("/images/event.webp"),
+  food: withBase("/images/food.webp"),
+  terrace: withBase("/images/terrace.webp"),
+  facade: withBase("/images/facade.webp"),
+  foodTwo: withBase("/images/food-two.webp"),
+  drink: withBase("/images/drink.webp"),
 };
 
 export const menuFlipbook = {
-  pdfUrl: "/menu/glockenspiel-karte.pdf",
+  pdfUrl: withBase("/menu/glockenspiel-karte.pdf"),
   pageCount: 6,
 };
 
