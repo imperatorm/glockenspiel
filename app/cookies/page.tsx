@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { LegalPageTemplate } from "@/components/LegalPageTemplate";
+import { V2LegalPage } from "@/components/v2/V2LegalPage";
 import { cookiePolicy } from "@/lib/legal";
 import { siteConfig } from "@/lib/site";
 
@@ -16,5 +16,5 @@ export const metadata: Metadata = {
 };
 
 export default function CookiesPage() {
-  return <LegalPageTemplate page={cookiePolicy} />;
+  return <V2LegalPage page={cookiePolicy} />;
 }

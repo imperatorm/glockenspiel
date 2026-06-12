@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { EventPageTemplate } from "@/components/EventPageTemplate";
+import { V2EventPage } from "@/components/v2/V2EventPage";
 import { eventPages, siteConfig } from "@/lib/site";
 
 const page = eventPages.corporate;
@@ -26,5 +26,5 @@ export const metadata: Metadata = {
 };
 
 export default function CorporateEventsPage() {
-  return <EventPageTemplate page={page} />;
+  return <V2EventPage page={page} />;
 }

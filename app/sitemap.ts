@@ -11,6 +11,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
+      url: `${siteConfig.siteUrl}/drinks`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
       url: `${siteConfig.siteUrl}/${eventPages.private.slug}`,
       lastModified: new Date(),
       changeFrequency: "monthly",

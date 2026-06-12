@@ -41,7 +41,7 @@ export function MenuFlipbook({ pdfUrl, pageCount }: MenuFlipbookProps) {
         </strong>
       </div>
 
-      <div className="flipbook-stage" aria-live="polite">
+      <div className="flipbook-stage" aria-live="polite" data-cursor="Blättern">
         <button className="flipbook-hit flipbook-hit--prev" type="button" onClick={goPrev} aria-label="Vorherige Seite" />
         <div className="flipbook-spine" aria-hidden="true" />
         <div className="flipbook-page flipbook-page--active" key={`active-${page}`}>

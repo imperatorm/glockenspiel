@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import type { Viewport } from "next";
+import { Cursor } from "@/components/Cursor";
+import { Veil } from "@/components/Veil";
+import { ReservationModal } from "@/components/v2/ReservationModal";
 import { assets, siteConfig } from "@/lib/site";
+import "locomotive-scroll/locomotive-scroll.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -70,8 +74,22 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="de-AT">
-      <body>{children}</body>
+    <html lang="de-AT" suppressHydrationWarning>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var t=localStorage.getItem("glocken-theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}`,
+          }}
+        />
+      </head>
+      <body>
+        <Veil />
+        {children}
+        <ReservationModal />
+        <Cursor />
+      </body>
     </html>
   );
 }

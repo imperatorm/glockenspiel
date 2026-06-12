@@ -1,10 +1,13 @@
 export const assets = {
-  hero: "https://cdn.prod.website-files.com/675fdd2b6490b82fd61f8719/685132f24203b28e29d5965d_Glockenspiel_6.25-3%20(Custom).jpg",
-  interior: "https://cdn.prod.website-files.com/675fdd2b6490b82fd61f8719/685132ec3bbbf16ea23b7d31_Glockenspiel_6.25-20%20(Large).jpg",
-  bar: "https://cdn.prod.website-files.com/675fdd2b6490b82fd61f8719/685132f16ec79f5da6caa44c_Glockenspiel_6.25-12%20(Large).jpg",
-  event: "https://cdn.prod.website-files.com/675fdd2b6490b82fd61f8719/685132ed384f2785c92b8757_Glockenspiel_6.25-26%20(Large).jpg",
-  food: "https://cdn.prod.website-files.com/675fdd2b6490b82fd61f8719/685132ef604f34166804e4b5_Glockenspiel_6.25-10%20(Large).jpg",
-  terrace: "https://cdn.prod.website-files.com/675fdd2b6490b82fd61f8719/685132ee0f1d73890b591bb4_Glockenspiel_6.25-4%20(Large).jpg",
+  hero: "/images/20260604_dasGlockenspiel_57_c_MartinMathes%20(2).webp",
+  interior: "/images/20260604_dasGlockenspiel_05_c_MartinMathes%20(2).webp",
+  bar: "/images/20260604_dasGlockenspiel_85_c_MartinMathes%20(2).webp",
+  event: "/images/20260604_dasGlockenspiel_73_c_MartinMathes%20(2).webp",
+  food: "/images/20260604_dasGlockenspiel_36_c_MartinMathes%20(2).webp",
+  terrace: "/images/20260604_dasGlockenspiel_29_c_MartinMathes%20(2).webp",
+  facade: "/images/20260604_dasGlockenspiel_01_c_MartinMathes%20(2).webp",
+  foodTwo: "/images/20260604_dasGlockenspiel_17_c_MartinMathes%20(2).webp",
+  drink: "/images/20260604_dasGlockenspiel_12_c_MartinMathes%20(2).webp",
 };
 
 export const menuFlipbook = {
@@ -13,43 +16,56 @@ export const menuFlipbook = {
 };
 
 export const imageAlt = {
-  hero: "Terrasse und Eingang vom Das Glockenspiel in der Kitzb\u00fcheler Altstadt",
-  interior: "Cocktails und Bar-Atmosph\u00e4re im Das Glockenspiel Kitzb\u00fchel",
-  bar: "Signature Drinks an der Bar im Das Glockenspiel Kitzb\u00fchel",
-  event: "Eingangsbereich und Event-Atmosph\u00e4re im Das Glockenspiel Kitzb\u00fchel",
-  food: "Tapas und kleine Gerichte zum Teilen im Das Glockenspiel Kitzb\u00fchel",
-  terrace: "Au\u00dfenbereich vom Das Glockenspiel in Kitzb\u00fchel",
+  hero: "Abendstimmung vor dem Das Glockenspiel in der Kitzbüheler Altstadt",
+  interior: "Eingang vom Das Glockenspiel mit Außenbar und Vespa",
+  bar: "Gäste an der Bar im Das Glockenspiel bei Nacht",
+  event: "Live-Event mit DJ vor dem Das Glockenspiel in Kitzbühel",
+  food: "Tapas und Wein im Das Glockenspiel Kitzbühel",
+  terrace: "Volle Terrasse vom Das Glockenspiel in der Hinterstadt",
+  facade: "Das Glockenspiel Haus in der Hinterstadt 13, Kitzbühel",
+  foodTwo: "Flammkuchen und kleine Gerichte zum Teilen im Das Glockenspiel",
+  drink: "Aperitif und Snack auf der Terrasse vom Das Glockenspiel",
 };
 
 export const siteConfig = {
-  name: "Das Glockenspiel Kitzb\u00fchel",
+  name: "Das Glockenspiel Kitzbühel",
   shortName: "Glockenspiel",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://www.dasglockenspiel.at",
-  title: "Bar Glockenspiel Kitzb\u00fchel - Tapas, Drinks & Live-Musik",
+  title: "Bar Glockenspiel Kitzbühel - Tapas, Drinks & Live-Musik",
   description:
-    "Das Glockenspiel in Kitzb\u00fchel: Bar, Tapas, Signature Drinks, Musik und Events mitten in der Altstadt. Jetzt Tisch reservieren oder Event anfragen.",
+    "Das Glockenspiel in Kitzbühel: Bar, Tapas, Signature Drinks, Musik und Events mitten in der Altstadt. Jetzt Tisch reservieren oder Event anfragen.",
   phone: "+43 664 46 80 742",
   email: "info@dasglockenspiel.at",
   instagram: "https://www.instagram.com/glockenspielbar/",
   address: {
     street: "Hinterstadt 13",
     postalCode: "6370",
-    city: "Kitzb\u00fchel",
+    city: "Kitzbühel",
     country: "AT",
   },
 };
 
+const googleMapsKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY || "AIzaSyBojwSQsCc_NyzwTzgCope7gU-je08K4X8";
+
+export const maps = {
+  embedUrl: `https://www.google.com/maps/embed/v1/place?key=${googleMapsKey}&q=Das+Glockenspiel,+Hinterstadt+13,+6370+Kitzb%C3%BChel&zoom=17`,
+  directionsUrl:
+    "https://www.google.com/maps/dir/?api=1&destination=Das+Glockenspiel,+Hinterstadt+13,+6370+Kitzb%C3%BChel",
+};
+
 export const nav = ["Home", "Drinks", "Events", "Musik", "Kontakt"];
+
+export const marqueeItems = ["Drinks", "Bites", "Beats", "Kitzbühel", "Aperitivo", "Late Night"];
 
 export const content = {
   hero: {
-    eyebrow: "Das Glockenspiel",
+    eyebrow: "Bar · Tapas · Café — Hinterstadt 13, Kitzbühel",
     title: "Drinks. Bites. Beats.",
-    kicker: "Der Ort fuer gute Abende in Kitzbuehel.",
+    kicker: "Der Ort für gute Abende in Kitzbühel.",
     body:
       "Ein schneller Drink nach dem Skitag. Ein langer Abend mit Freunden. Ein Tisch, der spontan zum Mittelpunkt wird.",
     bodyTwo:
-      "Signature Cocktails, kleine Gerichte zum Teilen, Champagner, Weine und Premium Spirits. Fuer Abende, die genau so verlaufen, wie sie sollen.",
+      "Signature Cocktails, kleine Gerichte zum Teilen, Champagner, Weine und Premium Spirits. Für Abende, die genau so verlaufen, wie sie sollen.",
     primary: "Tisch reservieren",
     secondary: "Events entdecken",
   },
@@ -67,66 +83,66 @@ export const content = {
       image: assets.food,
     },
     {
-      title: "Cafe",
+      title: "Café",
       text:
-        "Der Ort, an dem der Nachmittag langsam in den Abend kippt. Ein Espresso, ein Glas, ein Tisch mitten in Kitzbuehel.",
+        "Der Ort, an dem der Nachmittag langsam in den Abend kippt. Ein Espresso, ein Glas, ein Tisch mitten in Kitzbühel.",
       image: assets.terrace,
     },
   ],
   experience: {
     eyebrow: "Das Erlebnis",
-    title: "Komm vorbei. Bleib laenger.",
+    title: "Komm vorbei. Bleib länger.",
     body: [
-      "Nach einem Tag am Berg. Nach dem Dinner. Oder einfach, weil du weisst, dass hier etwas los ist.",
+      "Nach einem Tag am Berg. Nach dem Dinner. Oder einfach, weil du weißt, dass hier etwas los ist.",
       "Im Glockenspiel trifft man sich auf einen Drink, auf zwei oder auf einen Abend, der nicht geplant war.",
       "Die Musik passt. Die Stimmung auch. Alles wirkt leicht. Und genau das ist kein Zufall.",
     ],
   },
   concept: {
     eyebrow: "Die Idee dahinter",
-    title: "Inspiriert von Bars in London, Paris, Wien und Muenchen.",
-    island: "Gemacht fuer Kitzbuehel.",
+    title: "Inspiriert von Bars in London, Paris, Wien und München.",
+    island: "Gemacht für Kitzbühel.",
     body:
-      "Hier ist nichts zufaellig. Gastgeber Johannes Lehberger verbindet internationale Einfluesse mit einer Form von Gastlichkeit, die man hier schaetzt: unaufgeregt, aufmerksam und auf den Punkt.",
+      "Hier ist nichts zufällig. Gastgeber Johannes Lehberger verbindet internationale Einflüsse mit einer Form von Gastlichkeit, die man hier schätzt: unaufgeregt, aufmerksam und auf den Punkt.",
   },
   menu: {
-    eyebrow: "Unsere Menues",
+    eyebrow: "Unsere Menüs",
     title: "Drinks & Winter Menu",
     body:
       "Klassische Cocktails, Signature Drinks, Champagner, Weine und Premium Spirits. Dazu kleine Gerichte zum Teilen und Zero Proof Drinks auf gleichem Niveau.",
-    button: "Getraenkekarte ansehen",
+    button: "Getränkekarte ansehen",
   },
   beats: {
     eyebrow: "Beats",
     title: "Wenn der Abend Fahrt aufnimmt.",
     body:
       "Musik ist im Glockenspiel kein Hintergrund. Sie ist Teil der Energie im Raum. Von Aperitivo bis Late Night entwickelt sich auch der Sound mit dem Abend.",
-    cards: ["Aperitivo bis Late Night", "Resident DJs mit Gespuer fuer den Raum", "Leichtigkeit, Dynamik und Stimmung"],
+    cards: ["Aperitivo bis Late Night", "Resident DJs mit Gespür für den Raum", "Leichtigkeit, Dynamik und Stimmung"],
   },
   events: {
     eyebrow: "Events",
-    title: "Anlaesse mit der richtigen Energie.",
+    title: "Anlässe mit der richtigen Energie.",
     cards: [
       {
         type: "Private Events",
-        title: "Fuer Anlaesse, die mehr verdienen als einen grossen Tisch.",
+        title: "Für Anlässe, die mehr verdienen als einen großen Tisch.",
         body:
-          "Geburtstag. After Wedding Drinks. Ein Wochenende mit Freunden in Kitzbuehel. Oder einfach der richtige Moment.",
+          "Geburtstag. After Wedding Drinks. Ein Wochenende mit Freunden in Kitzbühel. Oder einfach der richtige Moment.",
         cta: "Privates Event anfragen",
         href: "/private-events",
       },
       {
         type: "Corporate Events",
-        title: "Business trifft Atmosphaere.",
+        title: "Business trifft Atmosphäre.",
         body:
-          "Teamabend, Kundenevent, Incentive, Networking Format oder exklusiver Abend mit Gaesten, die mehr erwarten als Standard.",
+          "Teamabend, Kundenevent, Incentive, Networking Format oder exklusiver Abend mit Gästen, die mehr erwarten als Standard.",
         cta: "Corporate Event anfragen",
         href: "/corporate-events",
       },
     ],
   },
   final: {
-    eyebrow: "Glockenspiel Kitzbuehel",
+    eyebrow: "Glockenspiel Kitzbühel",
     title: "Heute Abend im Glockenspiel?",
     body:
       "Komm vorbei, reserviere deinen Tisch oder frage dein Event direkt an. Gerade am Wochenende wird es schnell voll.",
@@ -147,26 +163,32 @@ export const eventPages = {
     slug: "private-events",
     eyebrow: "Private Events",
     navLabel: "Private Events",
-    title: "F\u00fcr Anl\u00e4sse, die mehr verdienen als einen gro\u00dfen Tisch.",
-    kicker: "Geburtstag. After Wedding Drinks. Ein Wochenende mit Freunden in Kitzb\u00fchel.",
+    title: "Für Anlässe, die mehr verdienen als einen großen Tisch.",
+    kicker: "Geburtstag. After Wedding Drinks. Ein Wochenende mit Freunden in Kitzbühel.",
     body: [
       "Oder einfach der richtige Moment.",
-      "Von entspanntem Aperitivo bis zu l\u00e4ngeren N\u00e4chten entwickeln wir den passenden Rahmen f\u00fcr Anlass, Gruppengr\u00f6\u00dfe und Stimmung.",
+      "Von entspanntem Aperitivo bis zu längeren Nächten entwickeln wir den passenden Rahmen für Anlass, Gruppengröße und Stimmung.",
     ],
     primaryCta: "Privates Event anfragen",
-    secondaryCta: "Getr\u00e4nkekarte ansehen",
+    secondaryCta: "Getränkekarte ansehen",
     heroImage: assets.food,
     detailImage: assets.interior,
     atmosphereImage: assets.terrace,
-    seoTitle: "Private Events im Glockenspiel Kitzb\u00fchel",
+    seoTitle: "Private Events im Glockenspiel Kitzbühel",
     seoDescription:
-      "Private Events, Geburtstage, After Wedding Drinks und Abende mit Freunden im Das Glockenspiel Kitzb\u00fchel. Jetzt privates Event anfragen.",
+      "Private Events, Geburtstage, After Wedding Drinks und Abende mit Freunden im Das Glockenspiel Kitzbühel. Jetzt privates Event anfragen.",
+    facts: [
+      ["Lage", "Hinterstadt 13, Altstadt"],
+      ["Format", "Aperitivo bis Late Night"],
+      ["Gruppen", "Flexibel, klein bis exklusiv"],
+      ["Antwort", "Rückmeldung innerhalb 24h"],
+    ],
     sections: [
       {
         eyebrow: "Der Rahmen",
-        title: "Entspannt geplant. Pers\u00f6nlich gefeiert.",
+        title: "Entspannt geplant. Persönlich gefeiert.",
         body: [
-          "Ein privater Abend soll sich leicht anf\u00fchlen, auch wenn im Hintergrund vieles zusammenspielt.",
+          "Ein privater Abend soll sich leicht anfühlen, auch wenn im Hintergrund vieles zusammenspielt.",
           "Wir stimmen Drinks, kleine Gerichte, Musik und Ablauf so ab, dass aus einem Anlass ein Abend mit eigener Energie wird.",
         ],
       },
@@ -178,7 +200,7 @@ export const eventPages = {
           "Signature Cocktails, Champagner und Zero Proof Drinks",
           "Kleine Gerichte zum Teilen",
           "Musik und Stimmung passend zum Abend",
-          "Flexible Setups f\u00fcr Gruppen",
+          "Flexible Setups für Gruppen",
           "Ein Ablauf, der leicht wirkt",
         ],
       },
@@ -186,7 +208,7 @@ export const eventPages = {
         eyebrow: "Food & Drinks",
         title: "Teilen, probieren, bleiben.",
         body: [
-          "Kleine Gerichte, die perfekt zum Abend passen. Dazu Klassiker, Signature Drinks, ausgew\u00e4hlte Weine und Premium Spirits.",
+          "Kleine Gerichte, die perfekt zum Abend passen. Dazu Klassiker, Signature Drinks, ausgewählte Weine und Premium Spirits.",
           "Alles ist darauf ausgelegt, dass der Abend in Bewegung bleibt.",
         ],
       },
@@ -210,27 +232,33 @@ export const eventPages = {
     slug: "corporate-events",
     eyebrow: "Corporate Events",
     navLabel: "Corporate Events",
-    title: "Der richtige Rahmen f\u00fcr starke Abende.",
+    title: "Der richtige Rahmen für starke Abende.",
     kicker: "Firmenfeier. Kundenevent. Incentive.",
     body: [
-      "Ein Abend mit G\u00e4sten, die mehr erwarten als Standard.",
-      "Ein Empfang, der funktioniert. Ein Setting, das Gespr\u00e4che entstehen l\u00e4sst. Und ein Abend, der in Erinnerung bleibt.",
+      "Ein Abend mit Gästen, die mehr erwarten als Standard.",
+      "Ein Empfang, der funktioniert. Ein Setting, das Gespräche entstehen lässt. Und ein Abend, der in Erinnerung bleibt.",
     ],
     primaryCta: "Corporate Event anfragen",
-    secondaryCta: "Getr\u00e4nkekarte ansehen",
+    secondaryCta: "Getränkekarte ansehen",
     heroImage: assets.event,
     detailImage: assets.interior,
     atmosphereImage: assets.bar,
-    seoTitle: "Corporate Events im Glockenspiel Kitzb\u00fchel",
+    seoTitle: "Corporate Events im Glockenspiel Kitzbühel",
     seoDescription:
-      "Corporate Events, Firmenfeiern, Kundenevents und Incentives im Das Glockenspiel Kitzb\u00fchel. Planbar, verl\u00e4sslich und auf den Punkt.",
+      "Corporate Events, Firmenfeiern, Kundenevents und Incentives im Das Glockenspiel Kitzbühel. Planbar, verlässlich und auf den Punkt.",
+    facts: [
+      ["Lage", "Hinterstadt 13, Altstadt"],
+      ["Format", "Empfang bis Networking"],
+      ["Planung", "Kurze, klare Abstimmung"],
+      ["Antwort", "Rückmeldung innerhalb 24h"],
+    ],
     sections: [
       {
         eyebrow: "Positionierung",
-        title: "Planbar. Verl\u00e4sslich. Auf den Punkt.",
+        title: "Planbar. Verlässlich. Auf den Punkt.",
         body: [
-          "Ein guter Event wirkt m\u00fchelos, weil er gut vorbereitet ist.",
-          "Im Glockenspiel ist nichts dem Zufall \u00fcberlassen, auch wenn es sich genau so anf\u00fchlt.",
+          "Ein guter Event wirkt mühelos, weil er gut vorbereitet ist.",
+          "Im Glockenspiel ist nichts dem Zufall überlassen, auch wenn es sich genau so anfühlt.",
         ],
       },
       {
@@ -239,7 +267,7 @@ export const eventPages = {
         items: [
           "Empfang mit Champagner",
           "Signature Cocktails, Klassiker und Zero Proof Drinks",
-          "Ausgew\u00e4hlte Weine und Premium Spirits",
+          "Ausgewählte Weine und Premium Spirits",
           "Kleine Gerichte zum Teilen",
           "Musik und DJ auf Wunsch",
           "Ein Ablauf, der unaufdringlich ineinandergreift",
@@ -247,26 +275,26 @@ export const eventPages = {
       },
       {
         eyebrow: "Der Ablauf",
-        title: "Einfach in der Abstimmung. Pr\u00e4zise in der Umsetzung.",
+        title: "Einfach in der Abstimmung. Präzise in der Umsetzung.",
         body: [
-          "Kurze Abstimmung im Vorfeld. Schnelle R\u00fcckmeldung. Klare Struktur am Abend.",
-          "Damit ihr euch auf eure G\u00e4ste konzentrieren k\u00f6nnt.",
+          "Kurze Abstimmung im Vorfeld. Schnelle Rückmeldung. Klare Struktur am Abend.",
+          "Damit ihr euch auf eure Gäste konzentrieren könnt.",
         ],
       },
       {
         eyebrow: "Food & Drinks",
-        title: "Qualit\u00e4t, die auff\u00e4llt, ohne laut zu sein",
+        title: "Qualität, die auffällt, ohne laut zu sein",
         body: [
           "Eine kuratierte Auswahl an Champagner, Weinen mit Charakter, Premium Spirits und Zero Proof Drinks auf gleichem Niveau.",
-          "F\u00fcr Abende, bei denen jeder Gast das passende Glas in der Hand hat.",
+          "Für Abende, bei denen jeder Gast das passende Glas in der Hand hat.",
         ],
       },
       {
-        eyebrow: "Atmosph\u00e4re",
-        title: "Der Unterschied liegt im Gef\u00fchl.",
+        eyebrow: "Atmosphäre",
+        title: "Der Unterschied liegt im Gefühl.",
         body: [
-          "Nicht zu laut. Nicht zu steif. Genau die richtige Mischung aus Gespr\u00e4ch, Bewegung und Stimmung.",
-          "Ein Rahmen, der Eindruck hinterl\u00e4sst.",
+          "Nicht zu laut. Nicht zu steif. Genau die richtige Mischung aus Gespräch, Bewegung und Stimmung.",
+          "Ein Rahmen, der Eindruck hinterlässt.",
         ],
       },
     ],

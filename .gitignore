@@ -26,3 +26,10 @@ next-env.d.ts
 # system files
 .DS_Store
 Thumbs.db
+
+# raw image sources — only the optimized .webp are committed
+public/images/*.jpg
+
+# local tooling / downloaded reference material
+.claude/maloot*
+.claude/settings.local.json

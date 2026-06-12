@@ -1,3 +1,5 @@
+import { ScrollOrchestrator } from "@/components/ScrollOrchestrator";
+import { SiteFooter } from "@/components/SiteFooter";
 import { nav, siteConfig } from "@/lib/site";
 import type { LegalPageContent } from "@/lib/legal";
 
@@ -23,6 +25,7 @@ function LegalLogo() {
 export function LegalPageTemplate({ page }: LegalPageTemplateProps) {
   return (
     <main id="top" className="page-shell legal-page-shell">
+      <ScrollOrchestrator />
       <header className="site-nav">
         <LegalLogo />
         <nav aria-label="Hauptnavigation">
@@ -38,13 +41,13 @@ export function LegalPageTemplate({ page }: LegalPageTemplateProps) {
       </header>
 
       <section className="legal-hero">
-        <a className="back-link" href="/#kontakt">
+        <a className="back-link reveal" href="/#kontakt">
           Zurueck zur Website
         </a>
-        <p className="eyebrow">{page.eyebrow}</p>
-        <h1>{page.title}</h1>
-        <p>{page.description}</p>
-        <span>{page.updated}</span>
+        <p className="eyebrow reveal">{page.eyebrow}</p>
+        <h1 data-split>{page.title}</h1>
+        <p className="reveal">{page.description}</p>
+        <span className="reveal">{page.updated}</span>
       </section>
 
       <section className="legal-layout">
@@ -76,15 +79,7 @@ export function LegalPageTemplate({ page }: LegalPageTemplateProps) {
         </div>
       </section>
 
-      <footer className="site-footer">
-        <LegalLogo />
-        <span>2026 Das Glockenspiel</span>
-        <div className="footer-links">
-          <a href="/cookies">Cookies</a>
-          <a href="/datenschutz">Datenschutz</a>
-          <a href="/#kontakt">Kontakt</a>
-        </div>
-      </footer>
+      <SiteFooter />
 
       <nav className="sticky-cta" aria-label="Schnellzugriff">
         <a href="/#kontakt">Kontakt</a>

@@ -1,5 +1,8 @@
+import type { CSSProperties } from "react";
 import { AmbientScene } from "@/components/AmbientScene";
+import { Marquee } from "@/components/Marquee";
 import { ScrollOrchestrator } from "@/components/ScrollOrchestrator";
+import { SiteFooter } from "@/components/SiteFooter";
 import { eventPages, menuFlipbook, nav, siteConfig } from "@/lib/site";
 
 type EventPageData = (typeof eventPages)[keyof typeof eventPages];
@@ -20,6 +23,18 @@ function EventLogo() {
         Spiel
       </span>
     </a>
+  );
+}
+
+function SplitEventTitle({ title }: { title: string }) {
+  return (
+    <h1 aria-label={title}>
+      {title.split(" ").map((word, index) => (
+        <span className="hero-line hero-line--inline" key={`${word}-${index}`}>
+          <span className="hero-word">{word}</span>
+        </span>
+      ))}
+    </h1>
   );
 }
 
@@ -97,13 +112,15 @@ export function EventPageTemplate({ page }: EventPageTemplateProps) {
 
       <section className="event-hero-detail">
         <AmbientScene />
-        <div className="event-hero-detail__image image-lift" style={{ backgroundImage: `url(${page.heroImage})` }} />
+        <div className="event-hero-detail__image image-lift" data-mask style={{ backgroundImage: `url(${page.heroImage})` }}>
+          <span className="event-hero-badge">{page.eyebrow}</span>
+        </div>
         <div className="event-hero-detail__copy">
           <a className="back-link reveal" href="/#events">
-            Zurueck zu Events
+            Zurück zu Events
           </a>
           <p className="eyebrow reveal">{page.eyebrow}</p>
-          <h1>{page.title}</h1>
+          <SplitEventTitle title={page.title} />
           <p className="event-kicker reveal">{page.kicker}</p>
           {page.body.map((paragraph) => (
             <p className="event-hero-body reveal" key={paragraph}>
@@ -121,13 +138,29 @@ export function EventPageTemplate({ page }: EventPageTemplateProps) {
         </div>
       </section>
 
+      <section className="event-facts" aria-label="Eckdaten">
+        {page.facts.map(([label, value]) => (
+          <div className="event-fact panel-card" key={label}>
+            <span>{label}</span>
+            <strong>{value}</strong>
+          </div>
+        ))}
+      </section>
+
+      <Marquee />
+
       <section className="event-story-band">
-        <div className="event-story-image image-lift">
+        <figure className="event-story-image image-lift" data-mask>
           <img src={page.detailImage} alt={`${page.navLabel} im ${siteConfig.name}`} loading="lazy" decoding="async" />
-        </div>
+          <figcaption className="event-story-caption">Hinterstadt 13 — mitten in der Altstadt</figcaption>
+        </figure>
         <div className="event-story-stack">
           {page.sections.map((section, index) => (
-            <article className="event-detail-card panel-card" key={`${section.eyebrow}-${section.title}`}>
+            <article
+              className="event-detail-card panel-card"
+              key={`${section.eyebrow}-${section.title}`}
+              style={{ "--index": index } as CSSProperties}
+            >
               <span className="event-detail-number">0{index + 1}</span>
               <p className="eyebrow">{section.eyebrow}</p>
               <h2>{section.title}</h2>
@@ -148,10 +181,10 @@ export function EventPageTemplate({ page }: EventPageTemplateProps) {
       <section className="event-atmosphere-cta">
         <div className="event-atmosphere-image" style={{ backgroundImage: `url(${page.atmosphereImage})` }} />
         <div className="event-atmosphere-content">
-          <p className="eyebrow">Glockenspiel Kitzbuehel</p>
-          <h2>{page.final.title}</h2>
-          <p>{page.final.body}</p>
-          <div className="event-contact-row">
+          <p className="eyebrow reveal">Glockenspiel Kitzbühel</p>
+          <h2 data-split>{page.final.title}</h2>
+          <p className="reveal">{page.final.body}</p>
+          <div className="event-contact-row reveal">
             <a className="button button-primary" href="/#kontakt">
               {page.final.button}
             </a>
@@ -166,15 +199,7 @@ export function EventPageTemplate({ page }: EventPageTemplateProps) {
         </div>
       </section>
 
-      <footer className="site-footer">
-        <EventLogo />
-        <span>2026 Das Glockenspiel</span>
-        <div className="footer-links">
-          <a href="/cookies">Cookies</a>
-          <a href="/datenschutz">Datenschutz</a>
-          <a href="/#kontakt">Kontakt</a>
-        </div>
-      </footer>
+      <SiteFooter />
 
       <nav className="sticky-cta" aria-label="Schnellzugriff">
         <a href="/#kontakt">Anfragen</a>
