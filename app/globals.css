@@ -2982,6 +2982,44 @@ body.nav-hidden .v2-topbar {
   transform: rotate(-2deg);
 }
 
+/* Subtle idle float — animates the `translate` longhand so it composes with the
+   `transform` rotation (CSS + GSAP scroll-rotate) without fighting it.
+   Desynced per card via negative delays + varied durations for an organic feel. */
+@media (prefers-reduced-motion: no-preference) {
+  .v2-polaroid {
+    animation: v2-polaroid-float 7s ease-in-out -0.5s infinite alternate;
+    will-change: translate;
+  }
+
+  .v2-polaroid:nth-child(2n) {
+    animation-duration: 8.4s;
+    animation-delay: -2.6s;
+  }
+
+  .v2-polaroid:nth-child(3n) {
+    animation-duration: 6.2s;
+    animation-delay: -4.1s;
+  }
+
+  .v2-polaroid:nth-child(4n) {
+    animation-duration: 9.1s;
+    animation-delay: -1.4s;
+  }
+
+  .v2-polaroid:nth-child(5n) {
+    animation-duration: 7.6s;
+    animation-delay: -3.3s;
+  }
+}
+
+@keyframes v2-polaroid-float {
+  from {
+    translate: 0 0.6rem;
+  }
+  to {
+    translate: 0 -0.6rem;
+  }
+}
 
 .v2-about-copy {
   display: grid;
@@ -3631,7 +3669,8 @@ body.nav-hidden .v2-topbar {
 
 .v2-flip-stage {
   position: relative;
-  min-height: clamp(26rem, 56vw, 44rem);
+  /* Taller preview so a full A4 page fits without internal scrolling */
+  min-height: clamp(34rem, 70vw, 56rem);
   perspective: 1600px;
 }
 
@@ -3716,17 +3755,10 @@ body.nav-hidden .v2-topbar {
   background: var(--amber);
 }
 
-.v2-flip-download {
-  justify-self: start;
-  color: rgba(var(--v2-ink-rgb), 0.62);
-  font-size: 0.72rem;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.v2-flip-download:hover {
-  color: var(--amber);
+.v2-flip-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.1rem;
 }
 
 @media (max-width: 920px) {

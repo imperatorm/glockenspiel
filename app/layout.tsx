@@ -5,7 +5,7 @@ import { CookieConsent } from "@/components/CookieConsent";
 import { Cursor } from "@/components/Cursor";
 import { Veil } from "@/components/Veil";
 import { ReservationModal } from "@/components/v2/ReservationModal";
-import { assets, BASE_PATH, siteConfig } from "@/lib/site";
+import { assets, BASE_PATH, siteConfig, withBase } from "@/lib/site";
 import "locomotive-scroll/locomotive-scroll.css";
 import "./globals.css";
 
@@ -46,6 +46,12 @@ export const metadata: Metadata = {
   publisher: siteConfig.name,
   alternates: {
     canonical: "/",
+  },
+  // Referenced through withBase so it resolves under the Webflow Cloud mount path.
+  icons: {
+    icon: [{ url: withBase("/icon.svg"), type: "image/svg+xml" }],
+    shortcut: withBase("/icon.svg"),
+    apple: withBase("/icon.svg"),
   },
   openGraph: {
     type: "website",

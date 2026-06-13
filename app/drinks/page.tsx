@@ -63,14 +63,16 @@ export default function DrinksPage() {
             modalTarget="reserve"
             occasion="Reservierung"
           />
-          <a className="v2-button" href={menuFlipbook.pdfUrl} download>
-            PDF herunterladen
-          </a>
         </div>
       </section>
 
       <section className="v2-flip-section">
         <V2Flipbook pdfUrl={menuFlipbook.pdfUrl} pageCount={menuFlipbook.pageCount} />
+        <div className="v2-flip-actions">
+          <a className="v2-button" href={menuFlipbook.pdfUrl} download>
+            PDF herunterladen
+          </a>
+        </div>
       </section>
 
       <section className="v2-dark">

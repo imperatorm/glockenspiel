@@ -73,10 +73,6 @@ export function V2Flipbook({ pdfUrl, pageCount }: V2FlipbookProps) {
           Weiter
         </button>
       </div>
-
-      <a className="v2-flip-download" href={pdfUrl} download>
-        Karte als PDF herunterladen
-      </a>
     </div>
   );
 }
