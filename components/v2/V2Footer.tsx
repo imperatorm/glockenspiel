@@ -1,3 +1,4 @@
+import { CookieSettingsButton } from "@/components/v2/CookieSettingsButton";
 import { V2Logo } from "@/components/v2/V2Logo";
 import { siteConfig, withBase } from "@/lib/site";
 
@@ -17,6 +18,7 @@ export function V2Footer() {
           </a>
           <a href={withBase("/datenschutz")}>Datenschutz</a>
           <a href={withBase("/cookies")}>Cookies</a>
+          <CookieSettingsButton className="v2-footer-cookie-btn" />
         </div>
       </div>
     </footer>

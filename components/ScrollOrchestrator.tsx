@@ -78,8 +78,14 @@ function initPreviewFollower(cleanups: Array<() => void>) {
     window.addEventListener("mousemove", onMove);
     cleanups.push(() => window.removeEventListener("mousemove", onMove));
 
+    // Visibility is JS-driven (not just CSS :has) so the preview shows reliably.
+    const showFollower = () => follower.classList.add("is-visible");
+    collection.addEventListener("mouseenter", showFollower);
+    cleanups.push(() => collection.removeEventListener("mouseenter", showFollower));
+
     items.forEach((item, index) => {
       const onEnter = () => {
+        follower.classList.add("is-visible");
         const forward = prevIndex === null || index > prevIndex;
         prevIndex = index;
 
@@ -97,6 +103,11 @@ function initPreviewFollower(cleanups: Array<() => void>) {
         const visual = item.querySelector("[data-follower-visual]");
         if (!visual) return;
         const clone = visual.cloneNode(true) as HTMLElement;
+        // Source images sit in a display:none box, so lazy-loading can defer them
+        // indefinitely; force the clone to load eagerly so it's never empty.
+        clone.querySelectorAll("img").forEach((img) => {
+          img.loading = "eager";
+        });
         followerInner.appendChild(clone);
 
         if (!firstEntry) {
@@ -132,6 +143,7 @@ function initPreviewFollower(cleanups: Array<() => void>) {
     });
 
     const onCollectionLeave = () => {
+      follower.classList.remove("is-visible");
       follower.querySelectorAll<HTMLElement>("[data-follower-visual]").forEach((el) => {
         gsap.killTweensOf(el);
         gsap.delayedCall(duration, () => el.remove());

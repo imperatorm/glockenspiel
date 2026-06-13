@@ -137,7 +137,7 @@ export function Veil() {
     <div ref={rootRef} className="veil" data-state="visible" aria-hidden="true">
       <div className="veil-center">
         <p className="veil-eyebrow">Bar · Tapas · Café — Kitzbühel</p>
-        <p className="veil-brand">Das Glockenspiel</p>
+        <span className="veil-logo" role="img" aria-label="Das Glockenspiel" />
       </div>
       <span ref={countRef} className="veil-count">
         000

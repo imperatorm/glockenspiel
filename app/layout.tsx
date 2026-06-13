@@ -1,11 +1,28 @@
 import type { Metadata } from "next";
 import type { Viewport } from "next";
+import { Fraunces, Inter } from "next/font/google";
+import { CookieConsent } from "@/components/CookieConsent";
 import { Cursor } from "@/components/Cursor";
 import { Veil } from "@/components/Veil";
 import { ReservationModal } from "@/components/v2/ReservationModal";
 import { assets, BASE_PATH, siteConfig } from "@/lib/site";
 import "locomotive-scroll/locomotive-scroll.css";
 import "./globals.css";
+
+// Self-hosted at build time (no runtime request to Google → GDPR-friendly).
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  axes: ["opsz"],
+  display: "swap",
+  variable: "--font-fraunces",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
@@ -74,10 +91,8 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="de-AT" suppressHydrationWarning>
+    <html lang="de-AT" className={`${inter.variable} ${fraunces.variable}`} suppressHydrationWarning>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <script
           dangerouslySetInnerHTML={{
             __html: `try{var t=localStorage.getItem("glocken-theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}`,
@@ -97,6 +112,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         {children}
         <ReservationModal />
         <Cursor />
+        <CookieConsent />
       </body>
     </html>
   );

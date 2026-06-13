@@ -1,5 +1,5 @@
-import Script from "next/script";
 import { ScrollOrchestrator } from "@/components/ScrollOrchestrator";
+import { InstagramEmbed } from "@/components/v2/InstagramEmbed";
 import { BtnIcon } from "@/components/v2/BtnIcon";
 import { V2Footer } from "@/components/v2/V2Footer";
 import { V2HoursPill } from "@/components/v2/V2HoursPill";
@@ -67,7 +67,6 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <Script src="https://elfsightcdn.com/platform.js" strategy="afterInteractive" />
       <ScrollOrchestrator />
       <V2Topbar variant="home" />
 
@@ -175,7 +174,7 @@ export default function Home() {
                 {night.cta}
               </a>
               <div data-follower-visual="" className="preview-item__visual" aria-hidden="true">
-                <img src={night.image} alt="" loading="lazy" decoding="async" className="preview-item__visual-img" />
+                <img src={night.image} alt="" decoding="async" className="preview-item__visual-img" />
               </div>
             </div>
           ))}
@@ -208,7 +207,7 @@ export default function Home() {
           </a>
         </div>
         <div className="v2-ig-shell">
-          <div className="elfsight-app-6437bae5-64a3-4fb0-bda2-56e88b6733dc" data-elfsight-app-lazy="" />
+          <InstagramEmbed />
         </div>
       </section>
 
@@ -237,28 +236,61 @@ export default function Home() {
           ))}
         </div>
         <div className="v2-about-copy">
-          <p className="v2-serif" data-split>
-            Gute Musik, gute Drinks und eine Atmosphäre, in der man bleibt. Unsere Abende leben von Klassikern,
-            Signature Drinks und kleinen Gerichten zum Teilen.
-          </p>
-          <p className="v2-small reveal">
-            {content.experience.body[0]} {content.experience.body[1]}
-          </p>
-          <p className="v2-serif" data-split>
-            {content.concept.title} {content.concept.island}
-          </p>
-          <p className="v2-small reveal">{content.concept.body}</p>
-          <p className="v2-serif" data-split>
-            Vom ersten Aperitivo bis zur letzten Runde — jeder Abend findet hier seinen eigenen Rhythmus.
-          </p>
-          <p className="v2-small reveal">{content.hero.bodyTwo}</p>
-          <p className="v2-small reveal">{content.experience.body[2]}</p>
+          <p className="v2-eyebrow reveal">Über uns</p>
+          <div className="v2-about-block">
+            <p className="v2-serif" data-split>
+              Gute Musik, gute Drinks und eine Atmosphäre, in der man bleibt. Unsere Abende leben von Klassikern,
+              Signature Drinks und kleinen Gerichten zum Teilen.
+            </p>
+            <div className="v2-about-block-body">
+              <p className="v2-small reveal">
+                {content.experience.body[0]} {content.experience.body[1]}
+              </p>
+            </div>
+          </div>
+          <div className="v2-about-block">
+            <p className="v2-serif" data-split>
+              {content.concept.title} {content.concept.island}
+            </p>
+            <div className="v2-about-block-body">
+              <p className="v2-small reveal">{content.concept.body}</p>
+            </div>
+          </div>
+          <div className="v2-about-block">
+            <p className="v2-serif" data-split>
+              Vom ersten Aperitivo bis zur letzten Runde — jeder Abend findet hier seinen eigenen Rhythmus.
+            </p>
+            <div className="v2-about-block-body">
+              <p className="v2-small reveal">{content.hero.bodyTwo}</p>
+              <p className="v2-small reveal">{content.experience.body[2]}</p>
+            </div>
+          </div>
           <div className="v2-about-links reveal">
-            <a className="v2-button" href={withBase("/private-events")}>
-              Private Events
+            <a className="v2-event-card" href={withBase("/private-events")}>
+              <span className="v2-event-card-media">
+                <img src={assets.interior} alt="" loading="lazy" decoding="async" />
+              </span>
+              <span className="v2-event-card-body">
+                <span className="v2-event-card-eyebrow">Privat</span>
+                <span className="v2-event-card-title">Private Events</span>
+                <span className="v2-event-card-text">
+                  Geburtstage, Feiern und Anlässe — exklusiv in eigener Runde.
+                </span>
+                <span className="v2-event-card-cta">Mehr erfahren</span>
+              </span>
             </a>
-            <a className="v2-button" href={withBase("/corporate-events")}>
-              Corporate Events
+            <a className="v2-event-card" href={withBase("/corporate-events")}>
+              <span className="v2-event-card-media">
+                <img src={assets.event} alt="" loading="lazy" decoding="async" />
+              </span>
+              <span className="v2-event-card-body">
+                <span className="v2-event-card-eyebrow">Business</span>
+                <span className="v2-event-card-title">Corporate Events</span>
+                <span className="v2-event-card-text">
+                  Firmenfeiern, Teamabende und Empfänge mit Stil.
+                </span>
+                <span className="v2-event-card-cta">Mehr erfahren</span>
+              </span>
             </a>
           </div>
         </div>
