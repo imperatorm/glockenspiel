@@ -33,3 +33,6 @@ public/images/*.jpg
 # local tooling / downloaded reference material
 .claude/maloot*
 .claude/settings.local.json
+
+# Sanity Studio build artifacts
+.sanity/
