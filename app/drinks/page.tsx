@@ -14,6 +14,21 @@ export const metadata: Metadata = {
   alternates: {
     canonical: `${siteConfig.siteUrl}/drinks`,
   },
+  openGraph: {
+    type: "website",
+    url: `${siteConfig.siteUrl}/drinks`,
+    title: "Getränkekarte — Drinks & Winter Menu",
+    description:
+      "Signature Cocktails, Klassiker, Champagner, Weine, Premium Spirits und Zero Proof Drinks im Das Glockenspiel Kitzbühel.",
+    images: [{ url: assets.bar, width: 1200, height: 630, alt: imageAlt.bar }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Getränkekarte — Drinks & Winter Menu",
+    description:
+      "Signature Cocktails, Klassiker, Champagner, Weine, Premium Spirits und Zero Proof Drinks im Das Glockenspiel Kitzbühel.",
+    images: [assets.bar],
+  },
 };
 
 const menuStructuredData = {
@@ -23,11 +38,21 @@ const menuStructuredData = {
   description: content.menu.body,
   url: `${siteConfig.siteUrl}/drinks`,
   inLanguage: "de-AT",
+  hasMenu: `${siteConfig.siteUrl}${menuFlipbook.pdfUrl}`,
   provider: {
     "@type": "BarOrPub",
     name: siteConfig.name,
     "@id": `${siteConfig.siteUrl}/#business`,
   },
+};
+
+const breadcrumbData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.siteUrl },
+    { "@type": "ListItem", position: 2, name: "Getränkekarte", item: `${siteConfig.siteUrl}/drinks` },
+  ],
 };
 
 const thumbs = [
@@ -43,6 +68,10 @@ export default function DrinksPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(menuStructuredData) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbData) }}
       />
       <ScrollOrchestrator />
       <V2Topbar variant="sub" ctaLabel="Reservieren" />

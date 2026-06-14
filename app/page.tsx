@@ -57,7 +57,11 @@ const thumbs = [
 ];
 
 function Wordmark() {
-  return <h1 className="v2-hero-logo" role="img" aria-label="Das Glockenspiel Kitzbühel" />;
+  return (
+    <h1 className="v2-hero-logo">
+      <span className="sr-only">Das Glockenspiel — Bar, Tapas &amp; Café in der Kitzbüheler Altstadt</span>
+    </h1>
+  );
 }
 
 export default function Home() {

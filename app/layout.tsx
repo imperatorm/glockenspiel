@@ -114,6 +114,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         />
       </head>
       <body>
+        <a href="#top" className="skip-link">
+          Zum Inhalt springen
+        </a>
         <Veil />
         {children}
         <ReservationModal />
