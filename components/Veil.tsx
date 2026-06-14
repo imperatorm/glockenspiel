@@ -133,9 +133,6 @@ export function Veil() {
     return () => document.removeEventListener("click", onClick);
   }, [router]);
 
-  // The CMS admin (/keystatic) uses the site's root layout — don't cover it.
-  if (pathname.startsWith("/keystatic")) return null;
-
   return (
     <div ref={rootRef} className="veil" data-state="visible" aria-hidden="true">
       <div className="veil-center">

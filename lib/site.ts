@@ -10,6 +10,7 @@ export const withBase = (path: string): string =>
 // Content edited via Keystatic (/keystatic in `npm run dev`) lives in
 // content/settings/index.json and is imported here so the existing export
 // shapes stay identical for every consumer (client, server, metadata, SSG).
+import homeData from "../content/home.json";
 import settings from "../content/settings.json";
 
 const cmsImages = settings.images;
@@ -72,95 +73,17 @@ export const nav = ["Home", "Drinks", "Events", "Musik", "Kontakt"];
 
 export const marqueeItems = ["Drinks", "Bites", "Beats", "Kitzbühel", "Aperitivo", "Late Night"];
 
+// Home page content (CMS-editable via Sanity → baked to content/home.json).
+export const home = homeData;
+
+// Cross-page bits kept on `content`: the drinks page + structured data read
+// `content.menu`, and several components read `content.hours`.
 export const content = {
-  hero: {
-    eyebrow: "Bar · Tapas · Café — Hinterstadt 13, Kitzbühel",
-    title: "Drinks. Bites. Beats.",
-    kicker: "Der Ort für gute Abende in Kitzbühel.",
-    body:
-      "Ein schneller Drink nach dem Skitag. Ein langer Abend mit Freunden. Ein Tisch, der spontan zum Mittelpunkt wird.",
-    bodyTwo:
-      "Signature Cocktails, kleine Gerichte zum Teilen, Champagner, Weine und Premium Spirits. Für Abende, die genau so verlaufen, wie sie sollen.",
-    primary: "Tisch reservieren",
-    secondary: "Events entdecken",
-  },
-  pillars: [
-    {
-      title: "Bar",
-      text:
-        "Unsere Barkarte ist voll von Klassikern und Signature Drinks, die sauber gemixt, klar serviert und bewusst kuratiert sind.",
-      image: assets.bar,
-    },
-    {
-      title: "Tapas",
-      text:
-        "Kleine Gerichte, die perfekt zum Abend passen. International, alpin akzentuiert und immer zum Teilen gedacht.",
-      image: assets.food,
-    },
-    {
-      title: "Café",
-      text:
-        "Der Ort, an dem der Nachmittag langsam in den Abend kippt. Ein Espresso, ein Glas, ein Tisch mitten in Kitzbühel.",
-      image: assets.terrace,
-    },
-  ],
-  experience: {
-    eyebrow: "Das Erlebnis",
-    title: "Komm vorbei. Bleib länger.",
-    body: [
-      "Nach einem Tag am Berg. Nach dem Dinner. Oder einfach, weil du weißt, dass hier etwas los ist.",
-      "Im Glockenspiel trifft man sich auf einen Drink, auf zwei oder auf einen Abend, der nicht geplant war.",
-      "Die Musik passt. Die Stimmung auch. Alles wirkt leicht. Und genau das ist kein Zufall.",
-    ],
-  },
-  concept: {
-    eyebrow: "Die Idee dahinter",
-    title: "Inspiriert von Bars in London, Paris, Wien und München.",
-    island: "Gemacht für Kitzbühel.",
-    body:
-      "Hier ist nichts zufällig. Gastgeber Johannes Lehberger verbindet internationale Einflüsse mit einer Form von Gastlichkeit, die man hier schätzt: unaufgeregt, aufmerksam und auf den Punkt.",
-  },
   menu: {
-    eyebrow: "Unsere Menüs",
-    title: "Drinks & Winter Menu",
-    body:
-      "Klassische Cocktails, Signature Drinks, Champagner, Weine und Premium Spirits. Dazu kleine Gerichte zum Teilen und Zero Proof Drinks auf gleichem Niveau.",
-    button: "Getränkekarte ansehen",
-  },
-  beats: {
-    eyebrow: "Beats",
-    title: "Wenn der Abend Fahrt aufnimmt.",
-    body:
-      "Musik ist im Glockenspiel kein Hintergrund. Sie ist Teil der Energie im Raum. Von Aperitivo bis Late Night entwickelt sich auch der Sound mit dem Abend.",
-    cards: ["Aperitivo bis Late Night", "Resident DJs mit Gespür für den Raum", "Leichtigkeit, Dynamik und Stimmung"],
-  },
-  events: {
-    eyebrow: "Events",
-    title: "Anlässe mit der richtigen Energie.",
-    cards: [
-      {
-        type: "Private Events",
-        title: "Für Anlässe, die mehr verdienen als einen großen Tisch.",
-        body:
-          "Geburtstag. After Wedding Drinks. Ein Wochenende mit Freunden in Kitzbühel. Oder einfach der richtige Moment.",
-        cta: "Privates Event anfragen",
-        href: "/private-events",
-      },
-      {
-        type: "Corporate Events",
-        title: "Business trifft Atmosphäre.",
-        body:
-          "Teamabend, Kundenevent, Incentive, Networking Format oder exklusiver Abend mit Gästen, die mehr erwarten als Standard.",
-        cta: "Corporate Event anfragen",
-        href: "/corporate-events",
-      },
-    ],
-  },
-  final: {
-    eyebrow: "Glockenspiel Kitzbühel",
-    title: "Heute Abend im Glockenspiel?",
-    body:
-      "Komm vorbei, reserviere deinen Tisch oder frage dein Event direkt an. Gerade am Wochenende wird es schnell voll.",
+    eyebrow: homeData.menu.eyebrow,
+    title: homeData.menu.heading,
+    body: homeData.menu.body,
+    button: homeData.menu.button,
   },
   hours: settings.hours.map((entry) => [entry.day, entry.hours] as [string, string]),
 };

@@ -1,63 +1,76 @@
-# Content editing (Keystatic CMS)
+# Content editing (Sanity CMS)
 
-The site uses **[Keystatic](https://keystatic.com) in local mode** — a git-based CMS.
-Content lives as files in `content/` (committed to the repo). There's **no external
-service, database, or API key**.
-
-## How to edit content
-
-1. Run the site locally:
-   ```bash
-   npm run dev
-   ```
-2. Open the editor: **http://localhost:3000/keystatic**
-3. Edit fields / replace images, then click **Save**. Keystatic writes the change
-   to a file under `content/` (and copies any new images/PDF into `public/`).
-4. Commit the changed files and push — the deploy rebuilds with the new content.
-   ```bash
-   git add content public && git commit -m "Update site content" && git push
-   ```
-
-> The editor only runs in local dev. The deployed site (Webflow Cloud / Cloudflare
-> Workers) has no writable filesystem, so `/keystatic` there just shows a notice and
-> `/api/keystatic` returns 404. Content is read at **build time** and served as static
-> HTML — fast and safe on Workers.
-
-## What's editable today
-
-The **“Einstellungen & Inhalte”** singleton (`content/settings.json`) covers the
-highest-value, cross-site content:
-
-- Business info: name, SEO title/description, phone, email, Instagram, address
-- Opening hours
-- The **Getränkekarte PDF** + page count
-- All **9 brand images** (hero, bar, interior, …) **and their alt text**
-
-These flow into `lib/site.ts` (`siteConfig`, `assets`, `imageAlt`, `menuFlipbook`,
-`content.hours`), so every consumer — pages, metadata, JSON-LD, the reservation
-modal, the hours pill — updates automatically.
-
-## How it's wired
+The client edits content in a **hosted Sanity Studio** (polished UI, media library,
+no local dev needed). The Next site reads that content **at build time** and bakes it
+into `content/*.json`, which the app imports — so the deployed Cloudflare Workers
+runtime stays fetch-free and fully static.
 
 ```
-content/settings.json   ← edited via /keystatic
-        │  (imported directly, bundled at build → no runtime fs)
-        ▼
-lib/site.ts             ← builds siteConfig / assets / imageAlt / menuFlipbook / hours
-        ▼
-pages + components       ← unchanged
+Sanity Studio (hosted)  ──edit──▶  Sanity dataset
+                                        │  npm run build → scripts/sanity-bake.mjs (GROQ fetch)
+                                        ▼
+                                 content/*.json  ──imported by──▶  lib/site.ts ──▶ pages (SSG)
 ```
 
-- `keystatic.config.ts` — the schema (fields shown in the editor).
-- `app/keystatic/*` + `app/api/keystatic/*` — the admin UI + API (dev-only).
-- Images use `withBase()` at render time so they resolve under the `/app` mount.
+**Safe fallback:** if Sanity env vars aren't set (or a fetch fails), the bake is a
+no-op and the site builds from the committed `content/*.json`. So nothing breaks
+before Sanity is connected.
 
-## Extending to page copy (next step)
+## One-time setup
 
-Home / drinks / event / legal page copy currently lives in `lib/site.ts`
-(`content`, `eventPages`) and `lib/legal.ts`, and some strings are inline in the
-page JSX. To make those editable, add singletons/collections to
-`keystatic.config.ts` (e.g. a `home` singleton, an `events` collection, `legal`
-pages), create the matching `content/*.json` files, and read them in the same
-import-the-JSON pattern used for `settings`. The settings singleton is the
-reference implementation.
+1. **Create a project** at [sanity.io/manage](https://www.sanity.io/manage) (free) →
+   copy the **Project ID**. Create a dataset named `production` (public).
+2. **Set env vars** (locally in `.env.local`, and in Webflow Cloud for deploys):
+   ```
+   NEXT_PUBLIC_SANITY_PROJECT_ID=<projectId>
+   NEXT_PUBLIC_SANITY_DATASET=production
+   SANITY_STUDIO_PROJECT_ID=<projectId>
+   SANITY_STUDIO_DATASET=production
+   ```
+3. **Seed** the current content into Sanity (uploads the images + menu PDF, fills both
+   documents). Create an **Editor token** at sanity.io/manage → API → Tokens, then:
+   ```
+   SANITY_API_TOKEN=<token> npm run sanity:seed
+   ```
+   (Or skip and enter content by hand in the Studio.)
+4. **Publish the Studio** so the client can use it from a URL:
+   ```
+   npm run sanity:deploy      # → https://<project>.sanity.studio
+   ```
+   (Run `npm run sanity` for a local Studio at http://localhost:3333 while developing.)
+
+## Day-to-day editing (the client)
+
+1. Open the Studio URL (bookmark it), edit **Einstellungen** or **Startseite**, click
+   **Publish**.
+2. Redeploy the site so the change is baked in:
+   - Best: add a **Sanity webhook** → a Webflow Cloud deploy hook (auto-rebuild on publish).
+   - Or trigger a redeploy in Webflow Cloud manually.
+
+The deploy runs `npm run build` → `sanity-bake` fetches the latest content → static rebuild.
+
+## What's editable
+
+- **Einstellungen** (`siteSettings`): name, SEO title/description, phone, email, Instagram,
+  address, opening hours, the **Getränkekarte PDF**, and all **brand images + alt text**.
+- **Startseite** (`home`): every section's copy — intro, drinks section, statement, the
+  nights list, host caption, Instagram section, the “Über uns” blocks, and the event
+  teaser cards. Images are chosen by key from the Einstellungen → Bilder set.
+
+Both flow into `lib/site.ts` (`siteConfig`, `assets`, `imageAlt`, `menuFlipbook`,
+`content`, `home`), so pages, metadata, JSON-LD, the reservation modal and hours pill all
+update automatically.
+
+## Files
+
+- `sanity.config.ts`, `sanity.cli.ts`, `sanity/` — Studio config + schemas.
+- `scripts/sanity-bake.mjs` — build-time fetch → `content/*.json` (with fallback).
+- `scripts/sanity-seed.mjs` — one-time import of current content into Sanity.
+- `content/*.json` — the baked content the site imports (also the committed fallback).
+
+## Extending to the remaining pages
+
+The event pages (`lib/site.ts` → `eventPages`) and legal pages (`lib/legal.ts`) are still
+in code. To make them editable, add `eventPage` / `legalPage` schema types in
+`sanity/schemaTypes/`, extend `scripts/sanity-bake.mjs` to write `content/events.json` /
+`content/legal.json`, and read those in `lib/site.ts` — the same pattern used for `home`.

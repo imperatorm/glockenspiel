@@ -5,7 +5,10 @@ import { V2Footer } from "@/components/v2/V2Footer";
 import { V2HoursPill } from "@/components/v2/V2HoursPill";
 import { V2Map } from "@/components/v2/V2Map";
 import { V2Topbar } from "@/components/v2/V2Topbar";
-import { assets, content, imageAlt, menuFlipbook, siteConfig, withBase } from "@/lib/site";
+import { assets, home, imageAlt, siteConfig, withBase } from "@/lib/site";
+
+const assetFor = (key: string) => assets[key as keyof typeof assets];
+const altFor = (key: string) => imageAlt[key as keyof typeof imageAlt];
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -40,21 +43,22 @@ const structuredData = {
   ],
 };
 
-const nights = [
-  { name: "Party Saturday", date: "Jeden Samstag", cta: "Ansehen", href: siteConfig.instagram, external: true, image: assets.bar },
-  { name: "Dance into May", date: "30. April", cta: "Ansehen", href: siteConfig.instagram, external: true, image: assets.event },
-  { name: "Mothers Day Lunch", date: "Mai", cta: "Ansehen", href: siteConfig.instagram, external: true, image: assets.food },
-  { name: "Aperitivo Sessions", date: "Do — Sa", cta: "Anfragen", href: `mailto:${siteConfig.email}`, hot: true, image: assets.drink },
-  { name: "Winter zu Besuch", date: "Dezember", cta: "Ansehen", href: siteConfig.instagram, external: true, image: assets.facade },
-  { name: "Resident DJ Nights", date: "Late Night", cta: "Anfragen", href: `mailto:${siteConfig.email}`, image: assets.interior },
-];
+const nights = home.nights.map((night) => ({
+  name: night.name,
+  date: night.date,
+  cta: night.cta,
+  href: night.link === "email" ? `mailto:${siteConfig.email}` : siteConfig.instagram,
+  external: night.link !== "email",
+  hot: Boolean(night.hot),
+  image: assetFor(night.imageKey),
+}));
 
-const thumbs = [
-  { image: assets.bar, alt: imageAlt.bar, label: "Signature Drinks", icon: withBase("/images/icons/cocktails.png") },
-  { image: assets.food, alt: imageAlt.food, label: "Tapas", icon: withBase("/images/icons/tapas.png") },
-  { image: assets.interior, alt: imageAlt.interior, label: "Klassiker", icon: withBase("/images/icons/wine.png") },
-  { image: assets.terrace, alt: imageAlt.terrace, label: "Champagner", icon: withBase("/images/icons/star.png") },
-];
+const thumbs = home.thumbs.map((thumb) => ({
+  image: assetFor(thumb.imageKey),
+  alt: altFor(thumb.imageKey),
+  label: thumb.label,
+  icon: withBase(thumb.icon),
+}));
 
 function Wordmark() {
   return (
@@ -104,22 +108,21 @@ export default function Home() {
           <img className="v2-slide" src={assets.foodTwo} alt="" loading="lazy" decoding="async" />
         </div>
         <p className="v2-serif" data-split>
-          Mitten in der Kitzbüheler Hinterstadt: Das Glockenspiel ist der Ort, an dem gute Abende beginnen — und
-          gerne etwas länger bleiben.
+          {home.intro.text}
         </p>
         <a className="v2-button reveal" href="#ueber">
-          Unsere Geschichte
+          {home.intro.button}
         </a>
       </section>
 
       <section id="drinks" className="v2-dark">
         <div className="v2-dark-grid">
           <div>
-            <p className="eyebrow reveal">{content.menu.eyebrow}</p>
-            <h2 data-split>Signature Cocktails, Champagner, Weine und Premium Spirits.</h2>
-            <p className="reveal">{content.menu.body}</p>
+            <p className="eyebrow reveal">{home.menu.eyebrow}</p>
+            <h2 data-split>{home.menu.heading}</h2>
+            <p className="reveal">{home.menu.body}</p>
             <a className="v2-button v2-button--cream reveal" href={withBase("/drinks")}>
-              Zur Getränkekarte
+              {home.menu.button}
             </a>
           </div>
           <div className="v2-dark-media" data-mask>
@@ -141,7 +144,7 @@ export default function Home() {
 
       <section className="v2-statement">
         <p className="v2-serif" data-split>
-          Ein Ort, an dem jedes Detail Wärme ausstrahlt — durchzogen von einer Energie, die mit der Nacht wächst.
+          {home.statement}
         </p>
       </section>
 
@@ -156,9 +159,9 @@ export default function Home() {
       <section id="musik" className="v2-sets" data-follower-wrap="">
         <div className="v2-sets-side">
           <span className="v2-mark" aria-hidden="true" />
-          <strong className="reveal">Nächte im Glockenspiel</strong>
+          <strong className="reveal">{home.sets.heading}</strong>
           <img className="reveal" src={assets.event} alt={imageAlt.event} loading="lazy" decoding="async" />
-          <p className="v2-small reveal">{content.beats.body}</p>
+          <p className="v2-small reveal">{home.sets.body}</p>
         </div>
         <div className="v2-sets-table" data-follower-collection="">
           <div className="v2-set-tile" aria-hidden="true" />
@@ -186,7 +189,7 @@ export default function Home() {
         <div data-follower-cursor="" className="preview-follower" aria-hidden="true">
           <div data-follower-cursor-inner="" className="preview-follower__inner">
             <div className="preview-follower__label">
-              <div className="preview-follower__label-span">Glockenspiel Nights</div>
+              <div className="preview-follower__label-span">{home.sets.followerLabel}</div>
             </div>
           </div>
         </div>
@@ -194,20 +197,20 @@ export default function Home() {
 
       <section className="v2-host">
         <figure data-mask>
-          <img src={assets.hero} alt={imageAlt.hero} loading="lazy" decoding="async" />
-          <figcaption>Gastgeber Johannes Lehberger — inspiriert von Bars in London, Paris, Wien und München.</figcaption>
+          <img src={assetFor(home.host.imageKey)} alt={altFor(home.host.imageKey)} loading="lazy" decoding="async" />
+          <figcaption>{home.host.caption}</figcaption>
         </figure>
       </section>
 
       <section className="v2-instagram" aria-label="Glockenspiel Instagram Feed">
         <div className="v2-rule" data-rule />
         <div className="v2-ig-head">
-          <p className="v2-eyebrow reveal">Instagram</p>
+          <p className="v2-eyebrow reveal">{home.instagram.eyebrow}</p>
           <h2 className="v2-serif" data-split>
-            Momente aus dem Glockenspiel.
+            {home.instagram.heading}
           </h2>
           <a className="v2-button reveal" href={siteConfig.instagram} target="_blank" rel="noreferrer">
-            @glockenspielbar
+            {home.instagram.button}
           </a>
         </div>
         <div className="v2-ig-shell">
@@ -240,62 +243,35 @@ export default function Home() {
           ))}
         </div>
         <div className="v2-about-copy">
-          <p className="v2-eyebrow reveal">Über uns</p>
-          <div className="v2-about-block">
-            <p className="v2-serif" data-split>
-              Gute Musik, gute Drinks und eine Atmosphäre, in der man bleibt. Unsere Abende leben von Klassikern,
-              Signature Drinks und kleinen Gerichten zum Teilen.
-            </p>
-            <div className="v2-about-block-body">
-              <p className="v2-small reveal">
-                {content.experience.body[0]} {content.experience.body[1]}
+          <p className="v2-eyebrow reveal">{home.about.eyebrow}</p>
+          {home.about.blocks.map((block, index) => (
+            <div className="v2-about-block" key={index}>
+              <p className="v2-serif" data-split>
+                {block.heading}
               </p>
+              <div className="v2-about-block-body">
+                {block.body.map((paragraph, paragraphIndex) => (
+                  <p className="v2-small reveal" key={paragraphIndex}>
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
             </div>
-          </div>
-          <div className="v2-about-block">
-            <p className="v2-serif" data-split>
-              {content.concept.title} {content.concept.island}
-            </p>
-            <div className="v2-about-block-body">
-              <p className="v2-small reveal">{content.concept.body}</p>
-            </div>
-          </div>
-          <div className="v2-about-block">
-            <p className="v2-serif" data-split>
-              Vom ersten Aperitivo bis zur letzten Runde — jeder Abend findet hier seinen eigenen Rhythmus.
-            </p>
-            <div className="v2-about-block-body">
-              <p className="v2-small reveal">{content.hero.bodyTwo}</p>
-              <p className="v2-small reveal">{content.experience.body[2]}</p>
-            </div>
-          </div>
+          ))}
           <div className="v2-about-links reveal">
-            <a className="v2-event-card" href={withBase("/private-events")}>
-              <span className="v2-event-card-media">
-                <img src={assets.interior} alt="" loading="lazy" decoding="async" />
-              </span>
-              <span className="v2-event-card-body">
-                <span className="v2-event-card-eyebrow">Privat</span>
-                <span className="v2-event-card-title">Private Events</span>
-                <span className="v2-event-card-text">
-                  Geburtstage, Feiern und Anlässe — exklusiv in eigener Runde.
+            {home.about.cards.map((card) => (
+              <a className="v2-event-card" href={withBase(card.href)} key={card.href}>
+                <span className="v2-event-card-media">
+                  <img src={assetFor(card.imageKey)} alt="" loading="lazy" decoding="async" />
                 </span>
-                <span className="v2-event-card-cta">Mehr erfahren</span>
-              </span>
-            </a>
-            <a className="v2-event-card" href={withBase("/corporate-events")}>
-              <span className="v2-event-card-media">
-                <img src={assets.event} alt="" loading="lazy" decoding="async" />
-              </span>
-              <span className="v2-event-card-body">
-                <span className="v2-event-card-eyebrow">Business</span>
-                <span className="v2-event-card-title">Corporate Events</span>
-                <span className="v2-event-card-text">
-                  Firmenfeiern, Teamabende und Empfänge mit Stil.
+                <span className="v2-event-card-body">
+                  <span className="v2-event-card-eyebrow">{card.eyebrow}</span>
+                  <span className="v2-event-card-title">{card.title}</span>
+                  <span className="v2-event-card-text">{card.text}</span>
+                  <span className="v2-event-card-cta">Mehr erfahren</span>
                 </span>
-                <span className="v2-event-card-cta">Mehr erfahren</span>
-              </span>
-            </a>
+              </a>
+            ))}
           </div>
         </div>
       </section>
@@ -309,7 +285,7 @@ export default function Home() {
       <section id="besuch" className="v2-invite">
         <span className="v2-mark reveal" aria-hidden="true" />
         <p className="v2-serif" data-split>
-          Komm vorbei — und erlebe, was das Glockenspiel ausmacht.
+          {home.invite.text}
         </p>
         <div className="reveal">
           <BtnIcon

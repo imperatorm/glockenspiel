@@ -1,0 +1,84 @@
+{
+  "intro": {
+    "text": "Mitten in der Kitzbüheler Hinterstadt: Das Glockenspiel ist der Ort, an dem gute Abende beginnen — und gerne etwas länger bleiben.",
+    "button": "Unsere Geschichte"
+  },
+  "menu": {
+    "eyebrow": "Unsere Menüs",
+    "heading": "Signature Cocktails, Champagner, Weine und Premium Spirits.",
+    "body": "Klassische Cocktails, Signature Drinks, Champagner, Weine und Premium Spirits. Dazu kleine Gerichte zum Teilen und Zero Proof Drinks auf gleichem Niveau.",
+    "button": "Zur Getränkekarte"
+  },
+  "thumbs": [
+    { "label": "Signature Drinks", "imageKey": "bar", "icon": "/images/icons/cocktails.png" },
+    { "label": "Tapas", "imageKey": "food", "icon": "/images/icons/tapas.png" },
+    { "label": "Klassiker", "imageKey": "interior", "icon": "/images/icons/wine.png" },
+    { "label": "Champagner", "imageKey": "terrace", "icon": "/images/icons/star.png" }
+  ],
+  "statement": "Ein Ort, an dem jedes Detail Wärme ausstrahlt — durchzogen von einer Energie, die mit der Nacht wächst.",
+  "sets": {
+    "heading": "Nächte im Glockenspiel",
+    "body": "Musik ist im Glockenspiel kein Hintergrund. Sie ist Teil der Energie im Raum. Von Aperitivo bis Late Night entwickelt sich auch der Sound mit dem Abend.",
+    "followerLabel": "Glockenspiel Nights"
+  },
+  "nights": [
+    { "name": "Party Saturday", "date": "Jeden Samstag", "cta": "Ansehen", "link": "instagram", "hot": false, "imageKey": "bar" },
+    { "name": "Dance into May", "date": "30. April", "cta": "Ansehen", "link": "instagram", "hot": false, "imageKey": "event" },
+    { "name": "Mothers Day Lunch", "date": "Mai", "cta": "Ansehen", "link": "instagram", "hot": false, "imageKey": "food" },
+    { "name": "Aperitivo Sessions", "date": "Do — Sa", "cta": "Anfragen", "link": "email", "hot": true, "imageKey": "drink" },
+    { "name": "Winter zu Besuch", "date": "Dezember", "cta": "Ansehen", "link": "instagram", "hot": false, "imageKey": "facade" },
+    { "name": "Resident DJ Nights", "date": "Late Night", "cta": "Anfragen", "link": "email", "hot": false, "imageKey": "interior" }
+  ],
+  "host": {
+    "caption": "Gastgeber Johannes Lehberger — inspiriert von Bars in London, Paris, Wien und München.",
+    "imageKey": "hero"
+  },
+  "instagram": {
+    "eyebrow": "Instagram",
+    "heading": "Momente aus dem Glockenspiel.",
+    "button": "@glockenspielbar"
+  },
+  "about": {
+    "eyebrow": "Über uns",
+    "blocks": [
+      {
+        "heading": "Gute Musik, gute Drinks und eine Atmosphäre, in der man bleibt. Unsere Abende leben von Klassikern, Signature Drinks und kleinen Gerichten zum Teilen.",
+        "body": [
+          "Nach einem Tag am Berg. Nach dem Dinner. Oder einfach, weil du weißt, dass hier etwas los ist. Im Glockenspiel trifft man sich auf einen Drink, auf zwei oder auf einen Abend, der nicht geplant war."
+        ]
+      },
+      {
+        "heading": "Inspiriert von Bars in London, Paris, Wien und München. Gemacht für Kitzbühel.",
+        "body": [
+          "Hier ist nichts zufällig. Gastgeber Johannes Lehberger verbindet internationale Einflüsse mit einer Form von Gastlichkeit, die man hier schätzt: unaufgeregt, aufmerksam und auf den Punkt."
+        ]
+      },
+      {
+        "heading": "Vom ersten Aperitivo bis zur letzten Runde — jeder Abend findet hier seinen eigenen Rhythmus.",
+        "body": [
+          "Signature Cocktails, kleine Gerichte zum Teilen, Champagner, Weine und Premium Spirits. Für Abende, die genau so verlaufen, wie sie sollen.",
+          "Die Musik passt. Die Stimmung auch. Alles wirkt leicht. Und genau das ist kein Zufall."
+        ]
+      }
+    ],
+    "cards": [
+      {
+        "eyebrow": "Privat",
+        "title": "Private Events",
+        "text": "Geburtstage, Feiern und Anlässe — exklusiv in eigener Runde.",
+        "href": "/private-events",
+        "imageKey": "interior"
+      },
+      {
+        "eyebrow": "Business",
+        "title": "Corporate Events",
+        "text": "Firmenfeiern, Teamabende und Empfänge mit Stil.",
+        "href": "/corporate-events",
+        "imageKey": "event"
+      }
+    ]
+  },
+  "invite": {
+    "text": "Komm vorbei — und erlebe, was das Glockenspiel ausmacht."
+  }
+}
