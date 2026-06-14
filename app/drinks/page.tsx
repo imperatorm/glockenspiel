@@ -83,7 +83,7 @@ export default function DrinksPage() {
           </a>
           <p className="v2-eyebrow reveal">{content.menu.eyebrow}</p>
           <h1 className="v2-serif v2-subhero-title" data-split>
-            Food & Drinks Menu.
+            Essen und Trinken.
           </h1>
           <p className="v2-small reveal">{content.menu.body}</p>
           <div className="v2-about-links reveal">

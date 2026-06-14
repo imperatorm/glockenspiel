@@ -82,7 +82,7 @@ export const maps = {
     "https://www.google.com/maps/dir/?api=1&destination=Das+Glockenspiel,+Hinterstadt+13,+6370+Kitzb%C3%BChel",
 };
 
-export const nav = ["Home", "Food & Drinks", "Events", "Musik", "Kontakt"];
+export const nav = ["Home", "Essen und Trinken", "Events", "Musik", "Kontakt"];
 
 export const marqueeItems = ["Drinks", "Bites", "Beats", "Kitzbühel", "Aperitivo", "Late Night"];
 

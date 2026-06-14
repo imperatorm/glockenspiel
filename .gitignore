@@ -36,3 +36,7 @@ public/images/*.jpg
 
 # Sanity Studio build artifacts
 .sanity/
+
+# Local env files with secrets (keep only .env.example tracked)
+.env.development
+.env.production
