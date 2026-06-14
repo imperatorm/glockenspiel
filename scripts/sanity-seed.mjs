@@ -68,6 +68,7 @@ const settingsDoc = {
   menuPdf: await upload("file", settings.menu.pdf),
   menuPageCount: settings.menu.pageCount,
   images,
+  labels: settings.labels,
 };
 
 const homeDoc = {

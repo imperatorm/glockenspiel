@@ -19,6 +19,7 @@ export const siteSettings = defineType({
   groups: [
     { name: "business", title: "Betrieb", default: true },
     { name: "media", title: "Medien" },
+    { name: "labels", title: "Labels" },
   ],
   fields: [
     defineField({ name: "siteName", title: "Name", type: "string", group: "business", validation: (r) => r.required() }),
@@ -64,6 +65,17 @@ export const siteSettings = defineType({
       type: "object",
       group: "media",
       fields: imageKeys.map((k) => defineField({ name: k.name, title: k.title, type: "imageWithAlt" })),
+    }),
+    defineField({
+      name: "labels",
+      title: "Struktur-Labels",
+      type: "object",
+      group: "labels",
+      fields: [
+        defineField({ name: "tagline", title: "Tagline (Topbar & Loader)", type: "string" }),
+        defineField({ name: "heroStrip", title: "Hero-Streifen (3 Wörter)", type: "array", of: [{ type: "string" }] }),
+        defineField({ name: "metaRow", title: "Meta-Zeile", type: "array", of: [{ type: "string" }] }),
+      ],
     }),
   ],
   preview: { prepare: () => ({ title: "Einstellungen" }) },

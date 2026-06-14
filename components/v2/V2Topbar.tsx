@@ -1,5 +1,5 @@
 import { ThemeSwitch } from "@/components/v2/ThemeSwitch";
-import { withBase } from "@/lib/site";
+import { labels, withBase } from "@/lib/site";
 
 type V2TopbarProps = {
   variant?: "home" | "sub";
@@ -31,7 +31,7 @@ export function V2Topbar({ variant = "home", ctaLabel, ctaOccasion }: V2TopbarPr
           </a>
         ))}
       </nav>
-      <span className="v2-topbar-center">Bar · Tapas · Café — Kitzbühel</span>
+      <span className="v2-topbar-center">{labels.tagline}</span>
       <div className="v2-topbar-actions">
         <ThemeSwitch />
         <button

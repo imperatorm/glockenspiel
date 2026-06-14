@@ -5,7 +5,7 @@ import { V2Footer } from "@/components/v2/V2Footer";
 import { V2HoursPill } from "@/components/v2/V2HoursPill";
 import { V2Map } from "@/components/v2/V2Map";
 import { V2Topbar } from "@/components/v2/V2Topbar";
-import { assets, home, imageAlt, siteConfig, withBase } from "@/lib/site";
+import { assets, home, imageAlt, labels, siteConfig, withBase } from "@/lib/site";
 
 const assetFor = (key: string) => assets[key as keyof typeof assets];
 const altFor = (key: string) => imageAlt[key as keyof typeof imageAlt];
@@ -81,19 +81,19 @@ export default function Home() {
       <section className="v2-hero">
         <div className="v2-hero-strip">
           <img src={assets.bar} alt={imageAlt.bar} decoding="async" />
-          <div className="v2-hero-labels" aria-label="Bar, Tapas, Café">
+          <div className="v2-hero-labels" aria-label={labels.heroStrip.join(", ")}>
             <div>
-              <span>Bar</span>
+              <span>{labels.heroStrip[0]}</span>
               <i />
             </div>
             <div>
               <i className="is-amber" />
-              <span>Tapas</span>
+              <span>{labels.heroStrip[1]}</span>
               <i />
             </div>
             <div>
               <i />
-              <span>Café</span>
+              <span>{labels.heroStrip[2]}</span>
             </div>
           </div>
           <img src={assets.terrace} alt={imageAlt.terrace} decoding="async" />
@@ -277,9 +277,9 @@ export default function Home() {
       </section>
 
       <div className="v2-meta-row" aria-hidden="true">
-        <span>Drinks</span>
-        <span>Tapas</span>
-        <span>Late Night</span>
+        {labels.metaRow.map((label) => (
+          <span key={label}>{label}</span>
+        ))}
       </div>
 
       <section id="besuch" className="v2-invite">

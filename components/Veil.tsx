@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import gsap from "gsap";
 import { prefersReducedMotion } from "@/lib/motion";
+import { labels } from "@/lib/site";
 
 declare global {
   interface Window {
@@ -136,7 +137,7 @@ export function Veil() {
   return (
     <div ref={rootRef} className="veil" data-state="visible" aria-hidden="true">
       <div className="veil-center">
-        <p className="veil-eyebrow">Bar · Tapas · Café — Kitzbühel</p>
+        <p className="veil-eyebrow">{labels.tagline}</p>
         <span className="veil-logo" role="img" aria-label="Das Glockenspiel" />
       </div>
       <span ref={countRef} className="veil-count">

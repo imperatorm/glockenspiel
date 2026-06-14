@@ -75,6 +75,18 @@ export const nav = ["Home", "Food & Drinks", "Events", "Musik", "Kontakt"];
 
 export const marqueeItems = ["Drinks", "Bites", "Beats", "Kitzbühel", "Aperitivo", "Late Night"];
 
+// Structural chrome labels (topbar tagline, hero strip, meta row).
+// Defensive defaults so a Sanity doc baked before this field existed can't break the build.
+const rawLabels = settings.labels as
+  | { tagline?: string; heroStrip?: string[]; metaRow?: string[] }
+  | null
+  | undefined;
+export const labels = {
+  tagline: rawLabels?.tagline ?? "Bar · Tapas · Café — Kitzbühel",
+  heroStrip: rawLabels?.heroStrip ?? ["Bar", "Tapas", "Café"],
+  metaRow: rawLabels?.metaRow ?? ["Drinks", "Tapas", "Late Night"],
+};
+
 // Home page content (CMS-editable via Sanity → baked to content/home.json).
 export const home = homeData;
 

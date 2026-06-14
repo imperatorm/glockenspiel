@@ -46,7 +46,8 @@ const SETTINGS_QUERY = `*[_id == "siteSettings"][0]{
     ${["hero", "interior", "bar", "event", "food", "terrace", "facade", "foodTwo", "drink"]
       .map(imageProjection)
       .join(",\n    ")}
-  }
+  },
+  labels{ tagline, heroStrip, metaRow }
 }`;
 
 const HOME_QUERY = `*[_id == "home"][0]{
