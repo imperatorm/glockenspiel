@@ -8,9 +8,12 @@
 // So the site always builds, with or without Sanity configured.
 
 import { createClient } from "@sanity/client";
-import { writeFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+
+const root = join(dirname(fileURLToPath(import.meta.url)), "..");
+loadEnv(root);
 
 const projectId =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_ID ||
@@ -23,7 +26,6 @@ const dataset =
   "production";
 const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION || "2024-10-01";
 
-const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const write = (file, data) => {
   writeFileSync(join(root, "content", file), `${JSON.stringify(data, null, 2)}\n`);
   console.log(`[sanity-bake] wrote content/${file}`);
@@ -76,4 +78,20 @@ try {
 } catch (error) {
   console.error(`[sanity-bake] fetch failed, keeping fallback content: ${error.message}`);
   process.exit(0);
+}
+
+// Minimal .env loader (Node doesn't auto-load .env files; Webflow Cloud sets real
+// env vars so these files just won't exist there). Does not override set vars.
+function loadEnv(dir) {
+  for (const file of [".env.local", ".env"]) {
+    const path = join(dir, file);
+    if (!existsSync(path)) continue;
+    for (const line of readFileSync(path, "utf8").split(/\r?\n/)) {
+      if (/^\s*#/.test(line)) continue;
+      const match = line.match(/^\s*([\w.-]+)\s*=\s*(.*)\s*$/);
+      if (!match) continue;
+      const value = match[2].replace(/^["']|["']$/g, "");
+      if (process.env[match[1]] === undefined) process.env[match[1]] = value;
+    }
+  }
 }
