@@ -69,7 +69,7 @@ export const maps = {
     "https://www.google.com/maps/dir/?api=1&destination=Das+Glockenspiel,+Hinterstadt+13,+6370+Kitzb%C3%BChel",
 };
 
-export const nav = ["Home", "Drinks", "Events", "Musik", "Kontakt"];
+export const nav = ["Home", "Food & Drinks", "Events", "Musik", "Kontakt"];
 
 export const marqueeItems = ["Drinks", "Bites", "Beats", "Kitzbühel", "Aperitivo", "Late Night"];
 
@@ -100,7 +100,7 @@ export const eventPages = {
       "Von entspanntem Aperitivo bis zu längeren Nächten entwickeln wir den passenden Rahmen für Anlass, Gruppengröße und Stimmung.",
     ],
     primaryCta: "Privates Event anfragen",
-    secondaryCta: "Getränkekarte ansehen",
+    secondaryCta: "Food & Drinks",
     heroImage: assets.food,
     detailImage: assets.interior,
     atmosphereImage: assets.terrace,
@@ -169,7 +169,7 @@ export const eventPages = {
       "Ein Empfang, der funktioniert. Ein Setting, das Gespräche entstehen lässt. Und ein Abend, der in Erinnerung bleibt.",
     ],
     primaryCta: "Corporate Event anfragen",
-    secondaryCta: "Getränkekarte ansehen",
+    secondaryCta: "Food & Drinks",
     heroImage: assets.event,
     detailImage: assets.interior,
     atmosphereImage: assets.bar,

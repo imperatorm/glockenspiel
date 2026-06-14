@@ -76,31 +76,32 @@ export default function DrinksPage() {
       <ScrollOrchestrator />
       <V2Topbar variant="sub" ctaLabel="Reservieren" />
 
-      <section className="v2-hero v2-subhero">
-        <a className="v2-back reveal" href={withBase("/")}>
-          Zurück zur Startseite
-        </a>
-        <p className="v2-eyebrow reveal">{content.menu.eyebrow}</p>
-        <h1 className="v2-serif v2-subhero-title" data-split>
-          Drinks & Winter Menu.
-        </h1>
-        <p className="v2-small reveal">{content.menu.body}</p>
-        <div className="v2-about-links reveal">
-          <BtnIcon
-            label="Tisch reservieren"
-            href={`tel:${siteConfig.phone.replaceAll(" ", "")}`}
-            modalTarget="reserve"
-            occasion="Reservierung"
-          />
-        </div>
-      </section>
-
-      <section className="v2-flip-section">
-        <V2Flipbook pdfUrl={menuFlipbook.pdfUrl} pageCount={menuFlipbook.pageCount} />
-        <div className="v2-flip-actions">
-          <a className="v2-button" href={menuFlipbook.pdfUrl} download>
-            PDF herunterladen
+      <section className="v2-hero v2-drinks-hero">
+        <div className="v2-drinks-hero-text">
+          <a className="v2-back reveal" href={withBase("/")}>
+            Zurück zur Startseite
           </a>
+          <p className="v2-eyebrow reveal">{content.menu.eyebrow}</p>
+          <h1 className="v2-serif v2-subhero-title" data-split>
+            Food & Drinks Menu.
+          </h1>
+          <p className="v2-small reveal">{content.menu.body}</p>
+          <div className="v2-about-links reveal">
+            <BtnIcon
+              label="Tisch reservieren"
+              href={`tel:${siteConfig.phone.replaceAll(" ", "")}`}
+              modalTarget="reserve"
+              occasion="Reservierung"
+            />
+          </div>
+        </div>
+        <div className="v2-drinks-hero-flip">
+          <V2Flipbook pdfUrl={menuFlipbook.pdfUrl} pageCount={menuFlipbook.pageCount} />
+          <div className="v2-flip-actions">
+            <a className="v2-button" href={menuFlipbook.pdfUrl} download>
+              PDF herunterladen
+            </a>
+          </div>
         </div>
       </section>
 

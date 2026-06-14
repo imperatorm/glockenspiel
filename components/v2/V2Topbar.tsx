@@ -11,13 +11,13 @@ export function V2Topbar({ variant = "home", ctaLabel, ctaOccasion }: V2TopbarPr
   const links: Array<[string, string]> =
     variant === "home"
       ? [
-          ["Drinks", "/drinks"],
+          ["Food & Drinks", "/drinks"],
           ["Musik", "#musik"],
           ["Über uns", "#ueber"],
         ]
       : [
           ["Home", "/"],
-          ["Drinks", "/drinks"],
+          ["Food & Drinks", "/drinks"],
           ["Musik", "/#musik"],
         ];
   const label = ctaLabel ?? (variant === "home" ? "Reservieren" : "Anfragen");
