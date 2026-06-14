@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { content, siteConfig, withBase } from "@/lib/site";
+import { content, reservation, siteConfig, withBase } from "@/lib/site";
 
-const OCCASIONS = ["Reservierung", "Privates Event", "Corporate Event", "Sonstiges"];
+const OCCASIONS = reservation.occasions;
 
 type SendState = "idle" | "sending" | "success" | "error";
 
@@ -99,42 +99,40 @@ export function ReservationModal() {
       <div data-modal-name="reserve" data-modal-status="not-active" className="modal__card">
         <div className="modal__scroll" data-lenis-prevent="">
           <div className="modal__content">
-            <p className="v2-eyebrow">Das Glockenspiel Kitzbühel</p>
-            <h2 className="modal__h2">Tisch oder Event anfragen.</h2>
+            <p className="v2-eyebrow">{reservation.eyebrow}</p>
+            <h2 className="modal__h2">{reservation.heading}</h2>
 
             {sendState === "success" ? (
               <div className="modal__success">
-                <p className="modal__p modal__p--serif">
-                  Danke! Deine Anfrage ist bei uns gelandet — wir melden uns innerhalb von 24 Stunden.
-                </p>
+                <p className="modal__p modal__p--serif">{reservation.success}</p>
                 <button className="v2-button" type="button" data-modal-close="">
-                  Schließen
+                  {reservation.successButton}
                 </button>
               </div>
             ) : (
               <form className="modal__form" onSubmit={onSubmit}>
                 <label>
-                  Name
-                  <input name="name" required placeholder="Dein Name" autoComplete="name" />
+                  {reservation.fields.name}
+                  <input name="name" required placeholder={reservation.placeholders.name} autoComplete="name" />
                 </label>
                 <label>
-                  E-Mail oder Telefon
-                  <input name="contact" required placeholder="Wie erreichen wir dich?" autoComplete="email" />
+                  {reservation.fields.contact}
+                  <input name="contact" required placeholder={reservation.placeholders.contact} autoComplete="email" />
                 </label>
                 <label>
-                  Datum
+                  {reservation.fields.date}
                   <input name="date" type="date" />
                 </label>
                 <label>
-                  Uhrzeit
+                  {reservation.fields.time}
                   <input name="time" type="time" />
                 </label>
                 <label>
-                  Personen
-                  <input name="guests" type="number" min={1} max={120} placeholder="4" />
+                  {reservation.fields.guests}
+                  <input name="guests" type="number" min={1} max={120} placeholder={reservation.placeholders.guests} />
                 </label>
                 <label>
-                  Anlass
+                  {reservation.fields.occasion}
                   <select name="occasion" value={occasion} onChange={(event) => setOccasion(event.target.value)}>
                     {OCCASIONS.map((item) => (
                       <option key={item} value={item}>
@@ -144,35 +142,35 @@ export function ReservationModal() {
                   </select>
                 </label>
                 <label className="modal__field--full">
-                  Nachricht
-                  <textarea name="message" placeholder="Wünsche, Ablauf, Besonderheiten..." />
+                  {reservation.fields.message}
+                  <textarea name="message" placeholder={reservation.placeholders.message} />
                 </label>
                 {sendState === "error" ? (
                   <p className="modal__error modal__field--full" role="alert">
-                    {errorMessage} Ruf uns gerne direkt an:{" "}
+                    {errorMessage} {reservation.errorPrefix}{" "}
                     <a href={`tel:${siteConfig.phone.replaceAll(" ", "")}`}>{siteConfig.phone}</a>
                   </p>
                 ) : null}
                 <button className="v2-button v2-button--amber modal__field--full" type="submit" disabled={sendState === "sending"}>
-                  {sendState === "sending" ? "Wird gesendet…" : "Anfrage senden"}
+                  {sendState === "sending" ? reservation.sending : reservation.submit}
                 </button>
               </form>
             )}
 
             <div className="modal__meta">
               <div>
-                <strong>Direkt</strong>
+                <strong>{reservation.meta.direct}</strong>
                 <a href={`tel:${siteConfig.phone.replaceAll(" ", "")}`}>{siteConfig.phone}</a>
                 <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
               </div>
               <div>
-                <strong>Adresse</strong>
+                <strong>{reservation.meta.address}</strong>
                 <span>
                   {siteConfig.address.street}, {siteConfig.address.postalCode} {siteConfig.address.city}
                 </span>
               </div>
               <div>
-                <strong>Öffnungszeiten</strong>
+                <strong>{reservation.meta.hours}</strong>
                 <span>
                   Mo &amp; So {content.hours[0][1]} · Di–Sa ab {content.hours[1][1].split(" - ")[0]}
                 </span>

@@ -6,6 +6,9 @@ const SINGLETONS = [
   { id: "home", title: "Startseite", schemaType: "home" },
   { id: "privateEvents", title: "Private Events", schemaType: "eventPage" },
   { id: "corporateEvents", title: "Corporate Events", schemaType: "eventPage" },
+  { id: "privacyPolicy", title: "Datenschutz", schemaType: "legalPage" },
+  { id: "cookiePolicy", title: "Cookie-Richtlinie", schemaType: "legalPage" },
+  { id: "reservation", title: "Reservierung (Modal)", schemaType: "reservation" },
 ];
 
 export const structure: StructureResolver = (S) =>

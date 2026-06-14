@@ -116,11 +116,34 @@ const buildEventDoc = (id, event) => ({
   final: event.final,
 });
 
+const legalData = readJson("legal.json");
+const buildLegalDoc = (id, page) => ({
+  _id: id,
+  _type: "legalPage",
+  slug: page.slug,
+  eyebrow: page.eyebrow,
+  title: page.title,
+  description: page.description,
+  updated: page.updated,
+  sections: page.sections.map((section, i) => ({
+    _key: `s${i}`,
+    id: section.id,
+    title: section.title,
+    body: section.body,
+    ...(section.items ? { items: section.items } : {}),
+  })),
+});
+
+const reservationDoc = { _id: "reservation", _type: "reservation", ...readJson("reservation.json") };
+
 await client.createOrReplace(settingsDoc);
 await client.createOrReplace(homeDoc);
 await client.createOrReplace(buildEventDoc("privateEvents", eventsData.private));
 await client.createOrReplace(buildEventDoc("corporateEvents", eventsData.corporate));
-console.log("[sanity-seed] Seeded siteSettings + home + events. Open the Studio to review.");
+await client.createOrReplace(buildLegalDoc("privacyPolicy", legalData.privacy));
+await client.createOrReplace(buildLegalDoc("cookiePolicy", legalData.cookie));
+await client.createOrReplace(reservationDoc);
+console.log("[sanity-seed] Seeded settings + home + events + legal + reservation. Open the Studio to review.");
 
 // Minimal .env loader (Node doesn't auto-load .env files).
 function loadEnv(dir) {

@@ -1,0 +1,145 @@
+{
+  "privacy": {
+    "slug": "datenschutz",
+    "eyebrow": "Rechtliches",
+    "title": "Datenschutzerklärung",
+    "description": "Informationen zum Umgang mit personenbezogenen Daten, Hosting, Kontaktanfragen, Cookies und eingesetzten Diensten.",
+    "updated": "Stand: Juni 2026",
+    "sections": [
+      {
+        "id": "overview",
+        "title": "1. Datenschutz auf einen Blick",
+        "body": [
+          "Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.",
+          "Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich zum Beispiel um Daten handeln, die Sie in ein Kontaktformular eingeben oder uns per E-Mail senden.",
+          "Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten wie Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs."
+        ]
+      },
+      {
+        "id": "controller",
+        "title": "2. Verantwortliche Stelle",
+        "body": [
+          "Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist: Das Glockenspiel Kitzbühel, Hinterstadt 13, 6370 Kitzbühel, Telefon: +43 664 46 80 742, E-Mail: info@dasglockenspiel.at.",
+          "Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten entscheidet."
+        ]
+      },
+      {
+        "id": "rights",
+        "title": "3. Ihre Rechte",
+        "body": [
+          "Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten.",
+          "Sie haben außerdem ein Recht auf Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerruf einer erteilten Einwilligung. Des Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu.",
+          "Viele Datenverarbeitungsvorgänge sind nur mit Ihrer ausdrücklichen Einwilligung möglich. Sie können eine bereits erteilte Einwilligung jederzeit für die Zukunft widerrufen."
+        ]
+      },
+      {
+        "id": "hosting",
+        "title": "4. Hosting",
+        "body": [
+          "Die bisherige Webflow-Website wurde bei Webflow, Inc., 398 11th Street, 2nd Floor, San Francisco, CA 94103, USA gehostet. Webflow kann beim Besuch der Website verschiedene Logfiles inklusive IP-Adressen erfassen.",
+          "Webflow speichert Cookies oder sonstige Wiedererkennungstechnologien, die für die Darstellung der Seite, zur Bereitstellung bestimmter Webseitenfunktionen und zur Gewährleistung der Sicherheit erforderlich sind.",
+          "Details entnehmen Sie der Datenschutzerklärung von Webflow: https://webflow.com/legal/eu-privacy-policy."
+        ]
+      },
+      {
+        "id": "contact",
+        "title": "5. Anfrage per E-Mail, Telefon oder Formular",
+        "body": [
+          "Wenn Sie uns per E-Mail, Telefon oder Formular kontaktieren, wird Ihre Anfrage inklusive aller daraus hervorgehenden personenbezogenen Daten zum Zweck der Bearbeitung Ihres Anliegens gespeichert und verarbeitet.",
+          "Diese Daten geben wir nicht ohne Ihre Einwilligung weiter. Die Verarbeitung erfolgt je nach Art der Anfrage auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, Art. 6 Abs. 1 lit. f DSGVO oder Ihrer Einwilligung."
+        ]
+      },
+      {
+        "id": "cookies",
+        "title": "6. Cookies",
+        "body": [
+          "Unsere Internetseiten verwenden sogenannte Cookies. Cookies sind kleine Datenpakete und richten auf Ihrem Endgerät keinen Schaden an.",
+          "Sie können vorübergehend für die Dauer einer Sitzung oder dauerhaft auf Ihrem Endgerät gespeichert werden. Technisch notwendige Cookies werden auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO gespeichert, sofern keine andere Rechtsgrundlage angegeben wird.",
+          "Sofern eine Einwilligung zur Speicherung von Cookies und vergleichbaren Wiedererkennungstechnologien abgefragt wird, erfolgt die Verarbeitung ausschließlich auf Grundlage dieser Einwilligung. Die Einwilligung ist jederzeit widerrufbar."
+        ]
+      },
+      {
+        "id": "consent",
+        "title": "7. Einwilligung mit Usercentrics",
+        "body": [
+          "Die bisherige Website nutzt die Consent-Technologie von Usercentrics, um Einwilligungen zur Speicherung bestimmter Cookies oder zum Einsatz bestimmter Technologien einzuholen und datenschutzkonform zu dokumentieren.",
+          "Anbieter ist die Usercentrics GmbH, Sendlinger Straße 7, 80331 München. Beim Einsatz können unter anderem Einwilligungsstatus, IP-Adresse, Browserinformationen, Geräteinformationen, Zeitpunkt des Besuchs und Geolocation verarbeitet werden."
+        ]
+      },
+      {
+        "id": "instagram-feed",
+        "title": "8. Elfsight Instagram Feed",
+        "body": [
+          "Auf dieser Website ist ein Instagram Feed über Elfsight eingebunden. Anbieter ist Elfsight, LLC. Beim Laden des Feeds kann eine Verbindung zu Servern von Elfsight und Instagram beziehungsweise Meta hergestellt werden.",
+          "Dabei können technische Daten wie IP-Adresse, Browserinformationen, Geräteinformationen, Referrer und Nutzungsdaten verarbeitet werden. Der Feed wird eingesetzt, um aktuelle Inhalte unseres Instagram-Profils direkt auf der Website anzuzeigen.",
+          "Sofern für die Einbindung eine Einwilligung erforderlich ist, erfolgt die Verarbeitung auf Grundlage dieser Einwilligung. Weitere Informationen finden Sie in den Datenschutzhinweisen von Elfsight und Instagram."
+        ]
+      },
+      {
+        "id": "fonts",
+        "title": "9. Google Fonts",
+        "body": [
+          "Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten Google Fonts. Soweit die Fonts lokal eingebunden sind, findet keine Verbindung zu Servern von Google statt.",
+          "Weitere Informationen zu Google Fonts finden Sie unter https://developers.google.com/fonts/faq und in der Datenschutzerklärung von Google: https://policies.google.com/privacy."
+        ]
+      }
+    ]
+  },
+  "cookie": {
+    "slug": "cookies",
+    "eyebrow": "Rechtliches",
+    "title": "Cookie-Richtlinie",
+    "description": "Informationen dazu, welche Cookie-Arten auf der Website verwendet werden können und wie Sie Ihre Einstellungen verwalten.",
+    "updated": "Stand: Juni 2026",
+    "sections": [
+      {
+        "id": "what-are-cookies",
+        "title": "Was sind Cookies?",
+        "body": [
+          "Cookies sind kleine Datenpakete, die auf Ihrem Endgerät gespeichert werden. Sie können dazu dienen, eine Website technisch bereitzustellen, Einstellungen zu speichern oder bestimmte Funktionen zu ermöglichen.",
+          "Session-Cookies werden nach Ende Ihres Besuchs automatisch gelöscht. Permanente Cookies bleiben gespeichert, bis Sie diese selbst löschen oder eine automatische Löschung durch Ihren Browser erfolgt."
+        ]
+      },
+      {
+        "id": "necessary",
+        "title": "Technisch notwendige Cookies",
+        "body": [
+          "Technisch notwendige Cookies sind erforderlich, damit zentrale Funktionen der Website stabil und sicher bereitgestellt werden können.",
+          "Diese Cookies werden auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO gespeichert, sofern keine andere Rechtsgrundlage angegeben wird."
+        ]
+      },
+      {
+        "id": "optional",
+        "title": "Optionale Cookies und Dienste",
+        "body": [
+          "Optionale Cookies, Analyse-Technologien, eingebettete Inhalte oder Marketing-Dienste werden nur eingesetzt, wenn eine entsprechende Einwilligung abgefragt und erteilt wurde.",
+          "Eine erteilte Einwilligung kann jederzeit mit Wirkung für die Zukunft widerrufen werden."
+        ]
+      },
+      {
+        "id": "usercentrics",
+        "title": "Consent Management",
+        "body": [
+          "Die bisherige Webflow-Seite nutzt Usercentrics zur Verwaltung von Einwilligungen. Usercentrics kann ein Cookie speichern, um erteilte Einwilligungen oder Widerrufe zuordnen zu können.",
+          "Dabei können unter anderem Einwilligungsstatus, IP-Adresse, Browserinformationen, Geräteinformationen und Zeitpunkt des Besuchs verarbeitet werden."
+        ]
+      },
+      {
+        "id": "browser",
+        "title": "Cookies im Browser verwalten",
+        "body": [
+          "Sie können Ihren Browser so einstellen, dass Sie über das Setzen von Cookies informiert werden, Cookies nur im Einzelfall erlauben oder Cookies generell ausschließen.",
+          "Bei der Deaktivierung von Cookies kann die Funktionalität dieser Website eingeschränkt sein."
+        ]
+      },
+      {
+        "id": "elfsight-instagram",
+        "title": "Elfsight Instagram Feed",
+        "body": [
+          "Der eingebundene Instagram Feed von Elfsight kann beim Laden externe Ressourcen abrufen und Cookies oder vergleichbare Technologien nutzen.",
+          "Wenn eine Einwilligung abgefragt wird, wird der Feed erst nach Ihrer Zustimmung geladen. Ohne Zustimmung kann die Darstellung des Instagram Feeds eingeschränkt sein."
+        ]
+      }
+    ]
+  }
+}

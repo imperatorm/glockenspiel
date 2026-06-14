@@ -12,6 +12,7 @@ export const withBase = (path: string): string =>
 // shapes stay identical for every consumer (client, server, metadata, SSG).
 import eventsData from "../content/events.json";
 import homeData from "../content/home.json";
+import reservationData from "../content/reservation.json";
 import settings from "../content/settings.json";
 
 const cmsImages = settings.images;
@@ -76,6 +77,9 @@ export const marqueeItems = ["Drinks", "Bites", "Beats", "Kitzbühel", "Aperitiv
 
 // Home page content (CMS-editable via Sanity → baked to content/home.json).
 export const home = homeData;
+
+// Reservation modal copy (CMS-editable via Sanity → baked to content/reservation.json).
+export const reservation = reservationData;
 
 // Cross-page bits kept on `content`: the drinks page + structured data read
 // `content.menu`, and several components read `content.hours`.

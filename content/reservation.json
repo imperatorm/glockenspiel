@@ -1,0 +1,30 @@
+{
+  "eyebrow": "Das Glockenspiel Kitzbühel",
+  "heading": "Tisch oder Event anfragen.",
+  "occasions": ["Reservierung", "Privates Event", "Corporate Event", "Sonstiges"],
+  "fields": {
+    "name": "Name",
+    "contact": "E-Mail oder Telefon",
+    "date": "Datum",
+    "time": "Uhrzeit",
+    "guests": "Personen",
+    "occasion": "Anlass",
+    "message": "Nachricht"
+  },
+  "placeholders": {
+    "name": "Dein Name",
+    "contact": "Wie erreichen wir dich?",
+    "guests": "4",
+    "message": "Wünsche, Ablauf, Besonderheiten..."
+  },
+  "submit": "Anfrage senden",
+  "sending": "Wird gesendet…",
+  "success": "Danke! Deine Anfrage ist bei uns gelandet — wir melden uns innerhalb von 24 Stunden.",
+  "successButton": "Schließen",
+  "errorPrefix": "Ruf uns gerne direkt an:",
+  "meta": {
+    "direct": "Direkt",
+    "address": "Adresse",
+    "hours": "Öffnungszeiten"
+  }
+}

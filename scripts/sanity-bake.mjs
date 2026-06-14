@@ -84,14 +84,41 @@ const mapEvent = (event) =>
     }),
   };
 
+const legalQuery = (id) => `*[_id == "${id}"][0]{
+  slug, eyebrow, title, description, updated,
+  sections[]{ id, title, body, items }
+}`;
+
+const mapLegal = (page) =>
+  page && {
+    ...page,
+    sections: (page.sections ?? []).map((section) => ({
+      id: section.id,
+      title: section.title,
+      body: section.body ?? [],
+      ...(section.items && section.items.length ? { items: section.items } : {}),
+    })),
+  };
+
+const RESERVATION_QUERY = `*[_id == "reservation"][0]{
+  eyebrow, heading, occasions,
+  fields{ name, contact, date, time, guests, occasion, message },
+  placeholders{ name, contact, guests, message },
+  submit, sending, success, successButton, errorPrefix,
+  meta{ direct, address, hours }
+}`;
+
 const client = createClient({ projectId, dataset, apiVersion, useCdn: false });
 
 try {
-  const [settings, home, privateEvent, corporateEvent] = await Promise.all([
+  const [settings, home, privateEvent, corporateEvent, privacy, cookie, reservationDoc] = await Promise.all([
     client.fetch(SETTINGS_QUERY),
     client.fetch(HOME_QUERY),
     client.fetch(eventQuery("privateEvents")),
     client.fetch(eventQuery("corporateEvents")),
+    client.fetch(legalQuery("privacyPolicy")),
+    client.fetch(legalQuery("cookiePolicy")),
+    client.fetch(RESERVATION_QUERY),
   ]);
 
   if (settings) write("settings.json", settings);
@@ -105,6 +132,15 @@ try {
   } else {
     console.warn("[sanity-bake] missing event document(s) — keeping events.json fallback.");
   }
+
+  if (privacy && cookie) {
+    write("legal.json", { privacy: mapLegal(privacy), cookie: mapLegal(cookie) });
+  } else {
+    console.warn("[sanity-bake] missing legal document(s) — keeping legal.json fallback.");
+  }
+
+  if (reservationDoc) write("reservation.json", reservationDoc);
+  else console.warn("[sanity-bake] no reservation document — keeping reservation.json fallback.");
 } catch (error) {
   console.error(`[sanity-bake] fetch failed, keeping fallback content: ${error.message}`);
   process.exit(0);
