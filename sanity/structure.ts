@@ -4,6 +4,8 @@ import type { StructureResolver } from "sanity/structure";
 const SINGLETONS = [
   { id: "siteSettings", title: "Einstellungen", schemaType: "siteSettings" },
   { id: "home", title: "Startseite", schemaType: "home" },
+  { id: "privateEvents", title: "Private Events", schemaType: "eventPage" },
+  { id: "corporateEvents", title: "Corporate Events", schemaType: "eventPage" },
 ];
 
 export const structure: StructureResolver = (S) =>

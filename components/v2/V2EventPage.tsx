@@ -103,37 +103,41 @@ export function V2EventPage({ page }: V2EventPageProps) {
       </section>
 
       <section className="v2-sections">
-        {page.sections.map((section, index) => (
-          <article className="v2-section-row" key={`${section.eyebrow}-${section.title}`}>
-            <div className="v2-rule" data-rule />
-            <div className="v2-section-grid">
-              <div className="v2-section-meta" data-scroll data-scroll-speed="-0.05">
-                <span>0{index + 1}</span>
-                <span>{section.eyebrow}</span>
+        {page.sections.map((section, index) => {
+          const items = section.items;
+          const paragraphs = section.body ?? [];
+          return (
+            <article className="v2-section-row" key={`${section.eyebrow}-${section.title}`}>
+              <div className="v2-rule" data-rule />
+              <div className="v2-section-grid">
+                <div className="v2-section-meta" data-scroll data-scroll-speed="-0.05">
+                  <span>0{index + 1}</span>
+                  <span>{section.eyebrow}</span>
+                </div>
+                <div className="v2-section-body">
+                  <h2 className="v2-serif" data-split>
+                    {section.title}
+                  </h2>
+                  {items && items.length ? (
+                    <ul className="v2-feature-list">
+                      {items.map((item) => (
+                        <li className="reveal" key={item}>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    paragraphs.map((paragraph) => (
+                      <p className="v2-small reveal" key={paragraph}>
+                        {paragraph}
+                      </p>
+                    ))
+                  )}
+                </div>
               </div>
-              <div className="v2-section-body">
-                <h2 className="v2-serif" data-split>
-                  {section.title}
-                </h2>
-                {"items" in section ? (
-                  <ul className="v2-feature-list">
-                    {section.items.map((item) => (
-                      <li className="reveal" key={item}>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                ) : (
-                  section.body.map((paragraph) => (
-                    <p className="v2-small reveal" key={paragraph}>
-                      {paragraph}
-                    </p>
-                  ))
-                )}
-              </div>
-            </div>
-          </article>
-        ))}
+            </article>
+          );
+        })}
       </section>
 
       <section className="v2-dark">

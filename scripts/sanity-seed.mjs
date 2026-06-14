@@ -13,8 +13,15 @@ import { fileURLToPath } from "node:url";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 loadEnv(root);
 
-const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || process.env.SANITY_PROJECT_ID;
-const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || process.env.SANITY_DATASET || "production";
+const projectId =
+  process.env.NEXT_PUBLIC_SANITY_PROJECT_ID ||
+  process.env.SANITY_PROJECT_ID ||
+  process.env.SANITY_STUDIO_PROJECT_ID;
+const dataset =
+  process.env.NEXT_PUBLIC_SANITY_DATASET ||
+  process.env.SANITY_DATASET ||
+  process.env.SANITY_STUDIO_DATASET ||
+  "production";
 const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION || "2024-10-01";
 const token = process.env.SANITY_API_TOKEN;
 
@@ -82,9 +89,38 @@ const homeDoc = {
   invite: home.invite,
 };
 
+const eventsData = readJson("events.json");
+const buildEventDoc = (id, event) => ({
+  _id: id,
+  _type: "eventPage",
+  slug: event.slug,
+  eyebrow: event.eyebrow,
+  navLabel: event.navLabel,
+  title: event.title,
+  kicker: event.kicker,
+  body: event.body,
+  primaryCta: event.primaryCta,
+  secondaryCta: event.secondaryCta,
+  heroImageKey: event.heroImageKey,
+  detailImageKey: event.detailImageKey,
+  atmosphereImageKey: event.atmosphereImageKey,
+  seoTitle: event.seoTitle,
+  seoDescription: event.seoDescription,
+  facts: event.facts.map(([label, value], i) => ({ _key: `f${i}`, label, value })),
+  sections: event.sections.map((section, i) => ({
+    _key: `s${i}`,
+    eyebrow: section.eyebrow,
+    title: section.title,
+    ...(section.items ? { items: section.items } : { body: section.body }),
+  })),
+  final: event.final,
+});
+
 await client.createOrReplace(settingsDoc);
 await client.createOrReplace(homeDoc);
-console.log("[sanity-seed] Seeded siteSettings + home. Open the Studio to review.");
+await client.createOrReplace(buildEventDoc("privateEvents", eventsData.private));
+await client.createOrReplace(buildEventDoc("corporateEvents", eventsData.corporate));
+console.log("[sanity-seed] Seeded siteSettings + home + events. Open the Studio to review.");
 
 // Minimal .env loader (Node doesn't auto-load .env files).
 function loadEnv(dir) {

@@ -62,12 +62,36 @@ const HOME_QUERY = `*[_id == "home"][0]{
   invite{ text }
 }`;
 
+const eventQuery = (id) => `*[_id == "${id}"][0]{
+  slug, eyebrow, navLabel, title, kicker, body, primaryCta, secondaryCta,
+  heroImageKey, detailImageKey, atmosphereImageKey, seoTitle, seoDescription,
+  facts[]{ label, value },
+  sections[]{ eyebrow, title, body, items },
+  final{ title, body, button }
+}`;
+
+// Reshape a Sanity event doc to the content/events.json shape the app expects:
+// facts as [label, value] tuples, and each section with either body OR items.
+const mapEvent = (event) =>
+  event && {
+    ...event,
+    facts: (event.facts ?? []).map((fact) => [fact.label, fact.value]),
+    sections: (event.sections ?? []).map((section) => {
+      const base = { eyebrow: section.eyebrow, title: section.title };
+      return section.items && section.items.length
+        ? { ...base, items: section.items }
+        : { ...base, body: section.body ?? [] };
+    }),
+  };
+
 const client = createClient({ projectId, dataset, apiVersion, useCdn: false });
 
 try {
-  const [settings, home] = await Promise.all([
+  const [settings, home, privateEvent, corporateEvent] = await Promise.all([
     client.fetch(SETTINGS_QUERY),
     client.fetch(HOME_QUERY),
+    client.fetch(eventQuery("privateEvents")),
+    client.fetch(eventQuery("corporateEvents")),
   ]);
 
   if (settings) write("settings.json", settings);
@@ -75,6 +99,12 @@ try {
 
   if (home) write("home.json", home);
   else console.warn("[sanity-bake] no home document — keeping home.json fallback.");
+
+  if (privateEvent && corporateEvent) {
+    write("events.json", { private: mapEvent(privateEvent), corporate: mapEvent(corporateEvent) });
+  } else {
+    console.warn("[sanity-bake] missing event document(s) — keeping events.json fallback.");
+  }
 } catch (error) {
   console.error(`[sanity-bake] fetch failed, keeping fallback content: ${error.message}`);
   process.exit(0);

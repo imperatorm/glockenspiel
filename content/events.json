@@ -1,0 +1,144 @@
+{
+  "private": {
+    "slug": "private-events",
+    "eyebrow": "Private Events",
+    "navLabel": "Private Events",
+    "title": "Für Anlässe, die mehr verdienen als einen großen Tisch.",
+    "kicker": "Geburtstag. After Wedding Drinks. Ein Wochenende mit Freunden in Kitzbühel.",
+    "body": [
+      "Oder einfach der richtige Moment.",
+      "Von entspanntem Aperitivo bis zu längeren Nächten entwickeln wir den passenden Rahmen für Anlass, Gruppengröße und Stimmung."
+    ],
+    "primaryCta": "Privates Event anfragen",
+    "secondaryCta": "Food & Drinks",
+    "heroImageKey": "food",
+    "detailImageKey": "interior",
+    "atmosphereImageKey": "terrace",
+    "seoTitle": "Private Events im Glockenspiel Kitzbühel",
+    "seoDescription": "Private Events, Geburtstage, After Wedding Drinks und Abende mit Freunden im Das Glockenspiel Kitzbühel. Jetzt privates Event anfragen.",
+    "facts": [
+      ["Lage", "Hinterstadt 13, Altstadt"],
+      ["Format", "Aperitivo bis Late Night"],
+      ["Gruppen", "Flexibel, klein bis exklusiv"],
+      ["Antwort", "Rückmeldung innerhalb 24h"]
+    ],
+    "sections": [
+      {
+        "eyebrow": "Der Rahmen",
+        "title": "Entspannt geplant. Persönlich gefeiert.",
+        "body": [
+          "Ein privater Abend soll sich leicht anfühlen, auch wenn im Hintergrund vieles zusammenspielt.",
+          "Wir stimmen Drinks, kleine Gerichte, Musik und Ablauf so ab, dass aus einem Anlass ein Abend mit eigener Energie wird."
+        ]
+      },
+      {
+        "eyebrow": "Was euch erwartet",
+        "title": "Alles, was ein guter Abend braucht.",
+        "items": [
+          "Aperitivo zum Ankommen",
+          "Signature Cocktails, Champagner und Zero Proof Drinks",
+          "Kleine Gerichte zum Teilen",
+          "Musik und Stimmung passend zum Abend",
+          "Flexible Setups für Gruppen",
+          "Ein Ablauf, der leicht wirkt"
+        ]
+      },
+      {
+        "eyebrow": "Food & Drinks",
+        "title": "Teilen, probieren, bleiben.",
+        "body": [
+          "Kleine Gerichte, die perfekt zum Abend passen. Dazu Klassiker, Signature Drinks, ausgewählte Weine und Premium Spirits.",
+          "Alles ist darauf ausgelegt, dass der Abend in Bewegung bleibt."
+        ]
+      },
+      {
+        "eyebrow": "Stimmung",
+        "title": "Wenn der Abend Fahrt aufnimmt.",
+        "body": [
+          "Musik ist im Glockenspiel kein Hintergrund. Sie ist Teil der Energie im Raum.",
+          "Von Aperitivo bis Late Night entwickelt sich auch der Sound mit dem Abend."
+        ]
+      }
+    ],
+    "final": {
+      "title": "Plant euren privaten Abend im Glockenspiel",
+      "body": "Schickt uns Datum, Personenanzahl und Anlass. Wir melden uns zeitnah mit einem Vorschlag, der zu eurem Abend passt.",
+      "button": "Privates Event anfragen"
+    }
+  },
+  "corporate": {
+    "slug": "corporate-events",
+    "eyebrow": "Corporate Events",
+    "navLabel": "Corporate Events",
+    "title": "Der richtige Rahmen für starke Abende.",
+    "kicker": "Firmenfeier. Kundenevent. Incentive.",
+    "body": [
+      "Ein Abend mit Gästen, die mehr erwarten als Standard.",
+      "Ein Empfang, der funktioniert. Ein Setting, das Gespräche entstehen lässt. Und ein Abend, der in Erinnerung bleibt."
+    ],
+    "primaryCta": "Corporate Event anfragen",
+    "secondaryCta": "Food & Drinks",
+    "heroImageKey": "event",
+    "detailImageKey": "interior",
+    "atmosphereImageKey": "bar",
+    "seoTitle": "Corporate Events im Glockenspiel Kitzbühel",
+    "seoDescription": "Corporate Events, Firmenfeiern, Kundenevents und Incentives im Das Glockenspiel Kitzbühel. Planbar, verlässlich und auf den Punkt.",
+    "facts": [
+      ["Lage", "Hinterstadt 13, Altstadt"],
+      ["Format", "Empfang bis Networking"],
+      ["Planung", "Kurze, klare Abstimmung"],
+      ["Antwort", "Rückmeldung innerhalb 24h"]
+    ],
+    "sections": [
+      {
+        "eyebrow": "Positionierung",
+        "title": "Planbar. Verlässlich. Auf den Punkt.",
+        "body": [
+          "Ein guter Event wirkt mühelos, weil er gut vorbereitet ist.",
+          "Im Glockenspiel ist nichts dem Zufall überlassen, auch wenn es sich genau so anfühlt."
+        ]
+      },
+      {
+        "eyebrow": "Was euch erwartet",
+        "title": "Ein klarer Rahmen ohne starres Konzept",
+        "items": [
+          "Empfang mit Champagner",
+          "Signature Cocktails, Klassiker und Zero Proof Drinks",
+          "Ausgewählte Weine und Premium Spirits",
+          "Kleine Gerichte zum Teilen",
+          "Musik und DJ auf Wunsch",
+          "Ein Ablauf, der unaufdringlich ineinandergreift"
+        ]
+      },
+      {
+        "eyebrow": "Der Ablauf",
+        "title": "Einfach in der Abstimmung. Präzise in der Umsetzung.",
+        "body": [
+          "Kurze Abstimmung im Vorfeld. Schnelle Rückmeldung. Klare Struktur am Abend.",
+          "Damit ihr euch auf eure Gäste konzentrieren könnt."
+        ]
+      },
+      {
+        "eyebrow": "Food & Drinks",
+        "title": "Qualität, die auffällt, ohne laut zu sein",
+        "body": [
+          "Eine kuratierte Auswahl an Champagner, Weinen mit Charakter, Premium Spirits und Zero Proof Drinks auf gleichem Niveau.",
+          "Für Abende, bei denen jeder Gast das passende Glas in der Hand hat."
+        ]
+      },
+      {
+        "eyebrow": "Atmosphäre",
+        "title": "Der Unterschied liegt im Gefühl.",
+        "body": [
+          "Nicht zu laut. Nicht zu steif. Genau die richtige Mischung aus Gespräch, Bewegung und Stimmung.",
+          "Ein Rahmen, der Eindruck hinterlässt."
+        ]
+      }
+    ],
+    "final": {
+      "title": "Plant euren Event im Glockenspiel",
+      "body": "Schickt uns Datum, Personenanzahl, Anlass und Budget oder Vorstellungen. Wir melden uns zeitnah mit einem konkreten Vorschlag.",
+      "button": "Jetzt Corporate Event anfragen"
+    }
+  }
+}
