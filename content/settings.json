@@ -1,0 +1,39 @@
+{
+  "siteName": "Das Glockenspiel Kitzbühel",
+  "shortName": "Glockenspiel",
+  "title": "Bar Glockenspiel Kitzbühel - Tapas, Drinks & Live-Musik",
+  "description": "Das Glockenspiel in Kitzbühel: Bar, Tapas, Signature Drinks, Musik und Events mitten in der Altstadt. Jetzt Tisch reservieren oder Event anfragen.",
+  "phone": "+43 664 46 80 742",
+  "email": "info@dasglockenspiel.at",
+  "instagram": "https://www.instagram.com/glockenspielbar/",
+  "address": {
+    "street": "Hinterstadt 13",
+    "postalCode": "6370",
+    "city": "Kitzbühel",
+    "country": "AT"
+  },
+  "hours": [
+    { "day": "Montag", "hours": "16:00 - 00:00" },
+    { "day": "Dienstag", "hours": "14:00 - 00:00" },
+    { "day": "Mittwoch", "hours": "14:00 - 00:00" },
+    { "day": "Donnerstag", "hours": "14:00 - 02:00" },
+    { "day": "Freitag", "hours": "14:00 - 02:00" },
+    { "day": "Samstag", "hours": "14:00 - 02:00" },
+    { "day": "Sonntag", "hours": "16:00 - 00:00" }
+  ],
+  "menu": {
+    "pdf": "/menu/glockenspiel-karte.pdf",
+    "pageCount": 6
+  },
+  "images": {
+    "hero": { "image": "/images/hero.webp", "alt": "Abendstimmung vor dem Das Glockenspiel in der Kitzbüheler Altstadt" },
+    "interior": { "image": "/images/interior.webp", "alt": "Eingang vom Das Glockenspiel mit Außenbar und Vespa" },
+    "bar": { "image": "/images/bar.webp", "alt": "Gäste an der Bar im Das Glockenspiel bei Nacht" },
+    "event": { "image": "/images/event.webp", "alt": "Live-Event mit DJ vor dem Das Glockenspiel in Kitzbühel" },
+    "food": { "image": "/images/food.webp", "alt": "Tapas und Wein im Das Glockenspiel Kitzbühel" },
+    "terrace": { "image": "/images/terrace.webp", "alt": "Volle Terrasse vom Das Glockenspiel in der Hinterstadt" },
+    "facade": { "image": "/images/facade.webp", "alt": "Das Glockenspiel Haus in der Hinterstadt 13, Kitzbühel" },
+    "foodTwo": { "image": "/images/food-two.webp", "alt": "Flammkuchen und kleine Gerichte zum Teilen im Das Glockenspiel" },
+    "drink": { "image": "/images/drink.webp", "alt": "Aperitif und Snack auf der Terrasse vom Das Glockenspiel" }
+  }
+}

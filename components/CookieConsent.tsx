@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import {
   CONSENT_CATEGORIES,
   CONSENT_OPEN_EVENT,
@@ -16,6 +17,7 @@ import { withBase } from "@/lib/site";
 type Mode = "hidden" | "banner" | "settings";
 
 export function CookieConsent() {
+  const pathname = usePathname();
   const [mode, setMode] = useState<Mode>("hidden");
   const [draft, setDraft] = useState<ConsentState>(rejectAll());
   const dialogRef = useRef<HTMLDivElement | null>(null);
@@ -81,6 +83,7 @@ export function CookieConsent() {
     return () => document.removeEventListener("keydown", onKey);
   }, [mode]);
 
+  if (pathname.startsWith("/keystatic")) return null;
   if (mode === "hidden") return null;
 
   if (mode === "banner") {

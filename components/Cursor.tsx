@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import gsap from "gsap";
 
 export function Cursor() {
+  const pathname = usePathname();
   const dotRef = useRef<HTMLDivElement | null>(null);
   const ringRef = useRef<HTMLDivElement | null>(null);
   const labelRef = useRef<HTMLSpanElement | null>(null);
@@ -89,6 +91,8 @@ export function Cursor() {
       window.removeEventListener("mouseup", onUp);
     };
   }, []);
+
+  if (pathname.startsWith("/keystatic")) return null;
 
   return (
     <div className="cursor-layer" aria-hidden="true">

@@ -7,50 +7,56 @@ export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "/app";
 export const withBase = (path: string): string =>
   path.startsWith("/") ? `${BASE_PATH}${path}` : path;
 
+// Content edited via Keystatic (/keystatic in `npm run dev`) lives in
+// content/settings/index.json and is imported here so the existing export
+// shapes stay identical for every consumer (client, server, metadata, SSG).
+import settings from "../content/settings.json";
+
+const cmsImages = settings.images;
+
 export const assets = {
-  hero: withBase("/images/hero.webp"),
-  interior: withBase("/images/interior.webp"),
-  bar: withBase("/images/bar.webp"),
-  event: withBase("/images/event.webp"),
-  food: withBase("/images/food.webp"),
-  terrace: withBase("/images/terrace.webp"),
-  facade: withBase("/images/facade.webp"),
-  foodTwo: withBase("/images/food-two.webp"),
-  drink: withBase("/images/drink.webp"),
+  hero: withBase(cmsImages.hero.image),
+  interior: withBase(cmsImages.interior.image),
+  bar: withBase(cmsImages.bar.image),
+  event: withBase(cmsImages.event.image),
+  food: withBase(cmsImages.food.image),
+  terrace: withBase(cmsImages.terrace.image),
+  facade: withBase(cmsImages.facade.image),
+  foodTwo: withBase(cmsImages.foodTwo.image),
+  drink: withBase(cmsImages.drink.image),
 };
 
 export const menuFlipbook = {
-  pdfUrl: withBase("/menu/glockenspiel-karte.pdf"),
-  pageCount: 6,
+  pdfUrl: withBase(settings.menu.pdf),
+  pageCount: settings.menu.pageCount,
 };
 
 export const imageAlt = {
-  hero: "Abendstimmung vor dem Das Glockenspiel in der Kitzbüheler Altstadt",
-  interior: "Eingang vom Das Glockenspiel mit Außenbar und Vespa",
-  bar: "Gäste an der Bar im Das Glockenspiel bei Nacht",
-  event: "Live-Event mit DJ vor dem Das Glockenspiel in Kitzbühel",
-  food: "Tapas und Wein im Das Glockenspiel Kitzbühel",
-  terrace: "Volle Terrasse vom Das Glockenspiel in der Hinterstadt",
-  facade: "Das Glockenspiel Haus in der Hinterstadt 13, Kitzbühel",
-  foodTwo: "Flammkuchen und kleine Gerichte zum Teilen im Das Glockenspiel",
-  drink: "Aperitif und Snack auf der Terrasse vom Das Glockenspiel",
+  hero: cmsImages.hero.alt,
+  interior: cmsImages.interior.alt,
+  bar: cmsImages.bar.alt,
+  event: cmsImages.event.alt,
+  food: cmsImages.food.alt,
+  terrace: cmsImages.terrace.alt,
+  facade: cmsImages.facade.alt,
+  foodTwo: cmsImages.foodTwo.alt,
+  drink: cmsImages.drink.alt,
 };
 
 export const siteConfig = {
-  name: "Das Glockenspiel Kitzbühel",
-  shortName: "Glockenspiel",
+  name: settings.siteName,
+  shortName: settings.shortName,
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://www.dasglockenspiel.at",
-  title: "Bar Glockenspiel Kitzbühel - Tapas, Drinks & Live-Musik",
-  description:
-    "Das Glockenspiel in Kitzbühel: Bar, Tapas, Signature Drinks, Musik und Events mitten in der Altstadt. Jetzt Tisch reservieren oder Event anfragen.",
-  phone: "+43 664 46 80 742",
-  email: "info@dasglockenspiel.at",
-  instagram: "https://www.instagram.com/glockenspielbar/",
+  title: settings.title,
+  description: settings.description,
+  phone: settings.phone,
+  email: settings.email,
+  instagram: settings.instagram,
   address: {
-    street: "Hinterstadt 13",
-    postalCode: "6370",
-    city: "Kitzbühel",
-    country: "AT",
+    street: settings.address.street,
+    postalCode: settings.address.postalCode,
+    city: settings.address.city,
+    country: settings.address.country,
   },
 };
 
@@ -156,15 +162,7 @@ export const content = {
     body:
       "Komm vorbei, reserviere deinen Tisch oder frage dein Event direkt an. Gerade am Wochenende wird es schnell voll.",
   },
-  hours: [
-    ["Montag", "16:00 - 00:00"],
-    ["Dienstag", "14:00 - 00:00"],
-    ["Mittwoch", "14:00 - 00:00"],
-    ["Donnerstag", "14:00 - 02:00"],
-    ["Freitag", "14:00 - 02:00"],
-    ["Samstag", "14:00 - 02:00"],
-    ["Sonntag", "16:00 - 00:00"],
-  ],
+  hours: settings.hours.map((entry) => [entry.day, entry.hours] as [string, string]),
 };
 
 export const eventPages = {
