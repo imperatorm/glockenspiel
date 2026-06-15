@@ -98,9 +98,9 @@ const rawLabels = settings.labels as
   | null
   | undefined;
 export const labels = {
-  tagline: rawLabels?.tagline ?? "Bar · Tapas · Café — Kitzbühel",
-  heroStrip: rawLabels?.heroStrip ?? ["Bar", "Tapas", "Café"],
-  metaRow: rawLabels?.metaRow ?? ["Drinks", "Tapas", "Late Night"],
+  tagline: rawLabels?.tagline ?? "Drinks · Bites · Beats — Kitzbühel",
+  heroStrip: rawLabels?.heroStrip ?? ["Drinks", "Bites", "Beats"],
+  metaRow: rawLabels?.metaRow ?? ["Drinks", "Bites", "Late Night"],
 };
 
 // Home page content (CMS-editable via Sanity → baked to content/home.json).

@@ -37,8 +37,8 @@
     "drink": { "image": "/images/drink.webp", "alt": "Aperitif und Snack auf der Terrasse vom Das Glockenspiel" }
   },
   "labels": {
-    "tagline": "Bar · Tapas · Café — Kitzbühel",
-    "heroStrip": ["Bar", "Tapas", "Café"],
-    "metaRow": ["Drinks", "Tapas", "Late Night"]
+    "tagline": "Drinks · Bites · Beats — Kitzbühel",
+    "heroStrip": ["Drinks", "Bites", "Beats"],
+    "metaRow": ["Drinks", "Bites", "Late Night"]
   }
 }
