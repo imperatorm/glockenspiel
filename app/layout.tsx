@@ -108,7 +108,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <style
           dangerouslySetInnerHTML={{
             __html:
-              `:root{--v2-glocke:url("${BASE_PATH}/logo/glocke_b.svg");--v2-logo:url("${BASE_PATH}/logo/glockenspiel_b.svg")}` +
+              `:root{--v2-glocke:url("${BASE_PATH}/logo/glocke_b.svg");--v2-logo:url("${BASE_PATH}/logo/glockenspiel_b.svg");--v2-logo-color:url("${BASE_PATH}/logo/glockenspiel_c.svg")}` +
               `[data-theme="dark"]{--v2-glocke:url("${BASE_PATH}/logo/glocke_w.svg");--v2-logo:url("${BASE_PATH}/logo/glockenspiel_w.svg")}`,
           }}
         />

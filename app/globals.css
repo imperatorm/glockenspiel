@@ -6,7 +6,7 @@
   --muted: rgba(255, 248, 238, 0.68);
   --line: rgba(255, 196, 146, 0.2);
   --panel: rgba(255, 255, 255, 0.045);
-  --amber: #f49213;
+  --amber: #ce6a0c;
   --amber-soft: #ffc492;
   --blue: #c4e4ea;
   --serif: var(--font-fraunces), "Fraunces", Georgia, serif;
@@ -98,7 +98,7 @@ textarea {
   overflow-x: clip;
   padding-bottom: 0;
   background:
-    radial-gradient(circle at 78% 12rem, rgba(244, 146, 19, 0.14), transparent 22rem),
+    radial-gradient(circle at 78% 12rem, rgba(206, 106, 12, 0.14), transparent 22rem),
     radial-gradient(circle at 16% 46rem, rgba(196, 228, 234, 0.08), transparent 24rem),
     linear-gradient(180deg, #121014 0%, #18141a 44%, #121014 100%);
 }
@@ -448,7 +448,7 @@ h1 {
   color: #211a15;
   background: linear-gradient(135deg, var(--amber-soft), var(--amber));
   border-color: rgba(255, 196, 146, 0.92);
-  box-shadow: 0 1.2rem 2.8rem rgba(244, 146, 19, 0.35);
+  box-shadow: 0 1.2rem 2.8rem rgba(206, 106, 12, 0.35);
 }
 
 .button-ghost {
@@ -649,7 +649,7 @@ body.is-scrolled .hours-card:not(:hover):not(:focus-within) .hours-card__details
   inset: 10% -8% auto;
   z-index: -1;
   height: 24rem;
-  background: radial-gradient(circle, rgba(244, 146, 19, 0.1), transparent 68%);
+  background: radial-gradient(circle, rgba(206, 106, 12, 0.1), transparent 68%);
   pointer-events: none;
 }
 
@@ -804,7 +804,7 @@ body.is-scrolled .hours-card:not(:hover):not(:focus-within) .hours-card__details
   top: 50%;
   width: clamp(18rem, 34vw, 34rem);
   height: clamp(18rem, 34vw, 34rem);
-  background: radial-gradient(circle, rgba(244, 146, 19, 0.2), transparent 68%);
+  background: radial-gradient(circle, rgba(206, 106, 12, 0.2), transparent 68%);
   transform: translate(-50%, -50%);
   pointer-events: none;
 }
@@ -1315,7 +1315,7 @@ body.is-scrolled .hours-card:not(:hover):not(:focus-within) .hours-card__details
 
 .legal-page-shell {
   background:
-    radial-gradient(circle at 78% 10rem, rgba(244, 146, 19, 0.1), transparent 23rem),
+    radial-gradient(circle at 78% 10rem, rgba(206, 106, 12, 0.1), transparent 23rem),
     linear-gradient(180deg, #121014 0%, #18141a 48%, #121014 100%);
 }
 
@@ -1438,7 +1438,7 @@ body.is-scrolled .hours-card:not(:hover):not(:focus-within) .hours-card__details
 
 .event-page-shell {
   background:
-    radial-gradient(circle at 82% 8rem, rgba(244, 146, 19, 0.12), transparent 24rem),
+    radial-gradient(circle at 82% 8rem, rgba(206, 106, 12, 0.12), transparent 24rem),
     linear-gradient(180deg, #121014 0%, #1a1519 48%, #121014 100%);
 }
 
@@ -1795,8 +1795,8 @@ body.veil-lock {
   display: grid;
   place-items: center;
   background:
-    radial-gradient(circle at 50% 60%, rgba(244, 146, 19, 0.08), transparent 38rem),
-    #0e0c10;
+    radial-gradient(circle at 50% 60%, rgba(206, 106, 12, 0.45), transparent 40rem),
+    #973915;
   clip-path: inset(0 0 0 0);
 }
 
@@ -1824,7 +1824,7 @@ body.veil-lock {
 
 .veil-eyebrow {
   margin: 0;
-  color: rgba(255, 196, 146, 0.7);
+  color: rgba(255, 244, 233, 0.85);
   font-size: 0.7rem;
   font-weight: 900;
   letter-spacing: 0.26em;
@@ -1835,7 +1835,7 @@ body.veil-lock {
   display: block;
   width: clamp(220px, 42vw, 520px);
   height: clamp(60px, 12vw, 140px);
-  background: var(--v2-logo) center / contain no-repeat;
+  background: var(--v2-logo-color) center / contain no-repeat;
 }
 
 .veil-count {
@@ -1847,7 +1847,7 @@ body.veil-lock {
   font-size: clamp(3.4rem, 9vw, 7rem);
   font-weight: 600;
   line-height: 0.8;
-  -webkit-text-stroke: 1px rgba(255, 196, 146, 0.5);
+  -webkit-text-stroke: 1px rgba(255, 240, 224, 0.6);
   font-variant-numeric: tabular-nums;
 }
 
@@ -2691,7 +2691,7 @@ body.nav-hidden .v2-topbar {
 }
 
 .v2-button--amber {
-  color: #211a15;
+  color: #fff;
   background: var(--amber);
   border-color: var(--amber);
 }
@@ -4275,7 +4275,7 @@ body.nav-hidden .v2-topbar {
 .btn-icon-content {
   grid-column-gap: 0.5em;
   grid-row-gap: 0.5em;
-  color: #211a15;
+  color: #fff;
   background-color: var(--amber);
   border-radius: 0.25em;
   justify-content: flex-start;

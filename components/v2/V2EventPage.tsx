@@ -93,8 +93,8 @@ export function V2EventPage({ page }: V2EventPageProps) {
       <section className="v2-facts" aria-label="Eckdaten">
         <div className="v2-rule" data-rule />
         <div className="v2-facts-grid">
-          {page.facts.map(([label, value], index) => (
-            <div className="v2-fact" data-scroll data-scroll-speed={index % 2 === 0 ? 0.03 : -0.03} key={label}>
+          {page.facts.map(([label, value]) => (
+            <div className="v2-fact" key={label}>
               <span>{label}</span>
               <strong>{value}</strong>
             </div>

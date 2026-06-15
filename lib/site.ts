@@ -15,8 +15,13 @@ export const BASE_PATH =
       ? "/app"
       : "";
 
-export const withBase = (path: string): string =>
-  path.startsWith("/") ? `${BASE_PATH}${path}` : path;
+export const withBase = (path: string): string => {
+  if (!path.startsWith("/")) return path;
+  // Idempotent: a value that already carries the prefix (e.g. a CMS-entered
+  // "/app/corporate-events") must not get prefixed again into "/app/app/…".
+  if (BASE_PATH && (path === BASE_PATH || path.startsWith(`${BASE_PATH}/`))) return path;
+  return `${BASE_PATH}${path}`;
+};
 
 // Content edited via Keystatic (/keystatic in `npm run dev`) lives in
 // content/settings/index.json and is imported here so the existing export
