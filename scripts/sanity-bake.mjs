@@ -26,8 +26,40 @@ const dataset =
   "production";
 const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION || "2024-10-01";
 
+const isObject = (value) => value !== null && typeof value === "object" && !Array.isArray(value);
+
+// Drop null/undefined (and empty arrays) so a half-filled Sanity doc only
+// overrides the fields it actually has — missing fields keep the committed value.
+const pruneEmpty = (value) => {
+  if (Array.isArray(value)) return value.map(pruneEmpty);
+  if (!isObject(value)) return value;
+  const result = {};
+  for (const [key, val] of Object.entries(value)) {
+    if (val === null || val === undefined) continue;
+    if (Array.isArray(val) && val.length === 0) continue;
+    result[key] = pruneEmpty(val);
+  }
+  return result;
+};
+
+// Deep-merge Sanity data over the committed fallback. Arrays replace wholesale.
+const merge = (base, override) => {
+  if (override === undefined) return base;
+  if (isObject(base) && isObject(override)) {
+    const result = { ...base };
+    for (const [key, val] of Object.entries(override)) {
+      result[key] = key in base ? merge(base[key], val) : val;
+    }
+    return result;
+  }
+  return override;
+};
+
 const write = (file, data) => {
-  writeFileSync(join(root, "content", file), `${JSON.stringify(data, null, 2)}\n`);
+  const path = join(root, "content", file);
+  const base = existsSync(path) ? JSON.parse(readFileSync(path, "utf8")) : {};
+  const merged = merge(base, pruneEmpty(data));
+  writeFileSync(path, `${JSON.stringify(merged, null, 2)}\n`);
   console.log(`[sanity-bake] wrote content/${file}`);
 };
 
