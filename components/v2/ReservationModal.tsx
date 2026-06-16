@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { content, reservation, siteConfig, withBase } from "@/lib/site";
+import { reservation, siteConfig, withBase } from "@/lib/site";
 
 const OCCASIONS = reservation.occasions;
 
@@ -172,7 +172,7 @@ export function ReservationModal() {
               <div>
                 <strong>{reservation.meta.hours}</strong>
                 <span>
-                  Mo &amp; So {content.hours[0][1]} · Di–Sa ab {content.hours[1][1].split(" - ")[0]}
+                  Di–Fr ab 16:00 · Sa &amp; So ab 11:00 · Mo Ruhetag
                 </span>
               </div>
             </div>

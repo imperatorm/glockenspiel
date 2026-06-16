@@ -33,13 +33,12 @@ const structuredData = {
     addressCountry: siteConfig.address.country,
   },
   openingHoursSpecification: [
-    { "@type": "OpeningHoursSpecification", dayOfWeek: "Monday", opens: "16:00", closes: "00:00" },
-    { "@type": "OpeningHoursSpecification", dayOfWeek: "Tuesday", opens: "14:00", closes: "00:00" },
-    { "@type": "OpeningHoursSpecification", dayOfWeek: "Wednesday", opens: "14:00", closes: "00:00" },
-    { "@type": "OpeningHoursSpecification", dayOfWeek: "Thursday", opens: "14:00", closes: "02:00" },
-    { "@type": "OpeningHoursSpecification", dayOfWeek: "Friday", opens: "14:00", closes: "02:00" },
-    { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "14:00", closes: "02:00" },
-    { "@type": "OpeningHoursSpecification", dayOfWeek: "Sunday", opens: "16:00", closes: "00:00" },
+    { "@type": "OpeningHoursSpecification", dayOfWeek: "Tuesday", opens: "16:00", closes: "00:00" },
+    { "@type": "OpeningHoursSpecification", dayOfWeek: "Wednesday", opens: "16:00", closes: "00:00" },
+    { "@type": "OpeningHoursSpecification", dayOfWeek: "Thursday", opens: "16:00", closes: "00:00" },
+    { "@type": "OpeningHoursSpecification", dayOfWeek: "Friday", opens: "16:00", closes: "02:00" },
+    { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "11:00", closes: "02:00" },
+    { "@type": "OpeningHoursSpecification", dayOfWeek: "Sunday", opens: "11:00", closes: "21:00" },
   ],
 };
 
