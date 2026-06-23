@@ -22,8 +22,8 @@
     { "day": "Sonntag", "hours": "11:00 – 21:00 Uhr" }
   ],
   "menu": {
-    "pdf": "/menu/glockenspiel-karte.pdf",
-    "pageCount": 6
+    "pdf": "/menu/sommermenu.pdf",
+    "pageCount": 22
   },
   "images": {
     "hero": { "image": "/images/hero.webp", "alt": "Abendstimmung vor dem Das Glockenspiel in der Kitzbüheler Altstadt" },
