@@ -30,6 +30,9 @@ Thumbs.db
 # raw image sources — only the optimized .webp are committed
 public/images/*.jpg
 
+# raw video drops — host via CDN, don't bloat git until wired in
+public/videos/
+
 # local tooling / downloaded reference material
 .claude/maloot*
 .claude/settings.local.json
