@@ -79,7 +79,7 @@ export default function Home() {
 
       <section className="v2-hero">
         <div className="v2-hero-strip">
-          <img src={assets.bar} alt={imageAlt.bar} decoding="async" />
+          <img src={assets.heroStripLeft} alt={imageAlt.heroStripLeft} decoding="async" />
           <div className="v2-hero-labels" aria-label={labels.heroStrip.join(", ")}>
             <div>
               <span>{labels.heroStrip[0]}</span>
@@ -95,16 +95,16 @@ export default function Home() {
               <span>{labels.heroStrip[2]}</span>
             </div>
           </div>
-          <img src={assets.terrace} alt={imageAlt.terrace} decoding="async" />
+          <img src={assets.heroStripRight} alt={imageAlt.heroStripRight} decoding="async" />
         </div>
         <Wordmark />
       </section>
 
       <section className="v2-intro">
         <div className="v2-intro-slides reveal">
-          <img src={assets.facade} alt={imageAlt.facade} loading="lazy" decoding="async" />
-          <img className="v2-slide" src={assets.drink} alt="" loading="lazy" decoding="async" />
-          <img className="v2-slide" src={assets.foodTwo} alt="" loading="lazy" decoding="async" />
+          <img src={assets.introOne} alt={imageAlt.introOne} loading="lazy" decoding="async" />
+          <img className="v2-slide" src={assets.introTwo} alt="" loading="lazy" decoding="async" />
+          <img className="v2-slide" src={assets.introThree} alt="" loading="lazy" decoding="async" />
         </div>
         <p className="v2-serif" data-split>
           {home.intro.text}
@@ -125,7 +125,7 @@ export default function Home() {
             </a>
           </div>
           <div className="v2-dark-media" data-mask>
-            <img src={assets.bar} alt={imageAlt.bar} loading="lazy" decoding="async" />
+            <img src={assets.menuMedia} alt={imageAlt.menuMedia} loading="lazy" decoding="async" />
           </div>
         </div>
         <div className="v2-thumbs">
@@ -148,7 +148,7 @@ export default function Home() {
       </section>
 
       <section className="v2-strip" aria-label="Impressionen">
-        {[assets.hero, assets.food, assets.interior, assets.event, assets.terrace].map((src, index) => (
+        {[assets.stripOne, assets.stripTwo, assets.stripThree, assets.stripFour, assets.stripFive].map((src, index) => (
           <div data-mask key={`${src}-${index}`}>
             <img src={src} alt={`Glockenspiel Kitzbühel Impression ${index + 1}`} loading="lazy" decoding="async" />
           </div>
@@ -159,7 +159,7 @@ export default function Home() {
         <div className="v2-sets-side">
           <span className="v2-mark" aria-hidden="true" />
           <strong className="reveal">{home.sets.heading}</strong>
-          <img className="reveal" src={assets.event} alt={imageAlt.event} loading="lazy" decoding="async" />
+          <img className="reveal" src={assets.setsImage} alt={imageAlt.setsImage} loading="lazy" decoding="async" />
           <p className="v2-small reveal">{home.sets.body}</p>
         </div>
         <div className="v2-sets-table" data-follower-collection="">

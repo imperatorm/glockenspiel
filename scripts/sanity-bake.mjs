@@ -75,7 +75,9 @@ const SETTINGS_QUERY = `*[_id == "siteSettings"][0]{
   hours[]{ day, hours },
   "menu": { "pdf": menuPdf.asset->url, "pageCount": menuPageCount },
   "images": images{
-    ${["hero", "interior", "bar", "event", "food", "terrace", "facade", "foodTwo", "drink"]
+    ${["hero", "interior", "bar", "event", "food", "terrace", "facade", "foodTwo", "drink",
+      "heroStripLeft", "heroStripRight", "introOne", "introTwo", "introThree", "menuMedia",
+      "stripOne", "stripTwo", "stripThree", "stripFour", "stripFive", "setsImage", "host"]
       .map(imageProjection)
       .join(",\n    ")}
   },

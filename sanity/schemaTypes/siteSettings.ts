@@ -10,6 +10,20 @@ const imageKeys: { name: string; title: string }[] = [
   { name: "facade", title: "Fassade" },
   { name: "foodTwo", title: "Food 2" },
   { name: "drink", title: "Drink" },
+  // Per-position feature slots (home page) — independently swappable.
+  { name: "heroStripLeft", title: "Hero-Streifen links" },
+  { name: "heroStripRight", title: "Hero-Streifen rechts" },
+  { name: "introOne", title: "Intro-Slide 1" },
+  { name: "introTwo", title: "Intro-Slide 2" },
+  { name: "introThree", title: "Intro-Slide 3" },
+  { name: "menuMedia", title: "Menü-Sektion Bild" },
+  { name: "stripOne", title: "Impressionen 1" },
+  { name: "stripTwo", title: "Impressionen 2" },
+  { name: "stripThree", title: "Impressionen 3" },
+  { name: "stripFour", title: "Impressionen 4" },
+  { name: "stripFive", title: "Impressionen 5" },
+  { name: "setsImage", title: "Musik-Sektion Bild" },
+  { name: "host", title: "Gastgeber" },
 ];
 
 export const siteSettings = defineType({

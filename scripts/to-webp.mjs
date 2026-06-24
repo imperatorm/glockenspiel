@@ -16,6 +16,8 @@ const USED = {
   "01": "facade",
   "17": "food-two",
   "12": "drink",
+  "41": "billard-lounge",
+  "68": "dj-set",
 };
 
 const files = await readdir(DIR);

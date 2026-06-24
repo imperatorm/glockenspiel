@@ -43,6 +43,20 @@ export const assets = {
   facade: withBase(cmsImages.facade.image),
   foodTwo: withBase(cmsImages.foodTwo.image),
   drink: withBase(cmsImages.drink.image),
+  // Per-position feature slots (home page).
+  heroStripLeft: withBase(cmsImages.heroStripLeft.image),
+  heroStripRight: withBase(cmsImages.heroStripRight.image),
+  introOne: withBase(cmsImages.introOne.image),
+  introTwo: withBase(cmsImages.introTwo.image),
+  introThree: withBase(cmsImages.introThree.image),
+  menuMedia: withBase(cmsImages.menuMedia.image),
+  stripOne: withBase(cmsImages.stripOne.image),
+  stripTwo: withBase(cmsImages.stripTwo.image),
+  stripThree: withBase(cmsImages.stripThree.image),
+  stripFour: withBase(cmsImages.stripFour.image),
+  stripFive: withBase(cmsImages.stripFive.image),
+  setsImage: withBase(cmsImages.setsImage.image),
+  host: withBase(cmsImages.host.image),
 };
 
 export const menuFlipbook = {
@@ -60,6 +74,19 @@ export const imageAlt = {
   facade: cmsImages.facade.alt,
   foodTwo: cmsImages.foodTwo.alt,
   drink: cmsImages.drink.alt,
+  heroStripLeft: cmsImages.heroStripLeft.alt,
+  heroStripRight: cmsImages.heroStripRight.alt,
+  introOne: cmsImages.introOne.alt,
+  introTwo: cmsImages.introTwo.alt,
+  introThree: cmsImages.introThree.alt,
+  menuMedia: cmsImages.menuMedia.alt,
+  stripOne: cmsImages.stripOne.alt,
+  stripTwo: cmsImages.stripTwo.alt,
+  stripThree: cmsImages.stripThree.alt,
+  stripFour: cmsImages.stripFour.alt,
+  stripFive: cmsImages.stripFive.alt,
+  setsImage: cmsImages.setsImage.alt,
+  host: cmsImages.host.alt,
 };
 
 export const siteConfig = {

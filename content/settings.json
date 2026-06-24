@@ -34,7 +34,20 @@
     "terrace": { "image": "/images/terrace.webp", "alt": "Volle Terrasse vom Das Glockenspiel in der Hinterstadt" },
     "facade": { "image": "/images/facade.webp", "alt": "Das Glockenspiel Haus in der Hinterstadt 13, Kitzbühel" },
     "foodTwo": { "image": "/images/food-two.webp", "alt": "Flammkuchen und kleine Gerichte zum Teilen im Das Glockenspiel" },
-    "drink": { "image": "/images/drink.webp", "alt": "Aperitif und Snack auf der Terrasse vom Das Glockenspiel" }
+    "drink": { "image": "/images/drink.webp", "alt": "Aperitif und Snack auf der Terrasse vom Das Glockenspiel" },
+    "heroStripLeft": { "image": "/images/bar.webp", "alt": "Gäste an der Bar im Das Glockenspiel bei Nacht" },
+    "heroStripRight": { "image": "/images/terrace.webp", "alt": "Volle Terrasse vom Das Glockenspiel in der Hinterstadt" },
+    "introOne": { "image": "/images/facade.webp", "alt": "Das Glockenspiel Haus in der Hinterstadt 13, Kitzbühel" },
+    "introTwo": { "image": "/images/drink.webp", "alt": "Aperitif und Snack auf der Terrasse vom Das Glockenspiel" },
+    "introThree": { "image": "/images/food-two.webp", "alt": "Flammkuchen und kleine Gerichte zum Teilen im Das Glockenspiel" },
+    "menuMedia": { "image": "/images/bar.webp", "alt": "Gäste an der Bar im Das Glockenspiel bei Nacht" },
+    "stripOne": { "image": "/images/dj-set.webp", "alt": "DJ am Mischpult im Das Glockenspiel Kitzbühel" },
+    "stripTwo": { "image": "/images/food.webp", "alt": "Tapas und Wein im Das Glockenspiel Kitzbühel" },
+    "stripThree": { "image": "/images/interior.webp", "alt": "Eingang vom Das Glockenspiel mit Außenbar und Vespa" },
+    "stripFour": { "image": "/images/event.webp", "alt": "Live-Event mit DJ vor dem Das Glockenspiel in Kitzbühel" },
+    "stripFive": { "image": "/images/terrace.webp", "alt": "Volle Terrasse vom Das Glockenspiel in der Hinterstadt" },
+    "setsImage": { "image": "/images/event.webp", "alt": "Live-Event mit DJ vor dem Das Glockenspiel in Kitzbühel" },
+    "host": { "image": "/images/billard-lounge.webp", "alt": "Billard und Loungebereich im Das Glockenspiel Kitzbühel" }
   },
   "labels": {
     "tagline": "Drinks · Bites · Beats — Kitzbühel",
