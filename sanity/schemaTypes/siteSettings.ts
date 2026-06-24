@@ -24,6 +24,15 @@ const imageKeys: { name: string; title: string }[] = [
   { name: "stripFive", title: "Impressionen 5" },
   { name: "setsImage", title: "Musik-Sektion Bild" },
   { name: "host", title: "Gastgeber" },
+  // Event-Karten (Startseite) + Unterseiten-Bilder.
+  { name: "cardPrivate", title: "Karte Private Events" },
+  { name: "cardCorporate", title: "Karte Corporate Events" },
+  { name: "privateHero", title: "Private Events — Hero" },
+  { name: "privateDetail", title: "Private Events — Detail" },
+  { name: "privateAtmosphere", title: "Private Events — Atmosphäre" },
+  { name: "corporateHero", title: "Corporate Events — Hero" },
+  { name: "corporateDetail", title: "Corporate Events — Detail" },
+  { name: "corporateAtmosphere", title: "Corporate Events — Atmosphäre" },
 ];
 
 export const siteSettings = defineType({

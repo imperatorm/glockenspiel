@@ -67,14 +67,14 @@
         "title": "Private Events",
         "text": "Geburtstage, Feiern und Anlässe — exklusiv in eigener Runde.",
         "href": "/private-events",
-        "imageKey": "interior"
+        "imageKey": "cardPrivate"
       },
       {
         "eyebrow": "Business",
         "title": "Corporate Events",
         "text": "Firmenfeiern, Teamabende und Empfänge mit Stil.",
         "href": "/corporate-events",
-        "imageKey": "event"
+        "imageKey": "cardCorporate"
       }
     ]
   },

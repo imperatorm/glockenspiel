@@ -77,7 +77,9 @@ const SETTINGS_QUERY = `*[_id == "siteSettings"][0]{
   "images": images{
     ${["hero", "interior", "bar", "event", "food", "terrace", "facade", "foodTwo", "drink",
       "heroStripLeft", "heroStripRight", "introOne", "introTwo", "introThree", "menuMedia",
-      "stripOne", "stripTwo", "stripThree", "stripFour", "stripFive", "setsImage", "host"]
+      "stripOne", "stripTwo", "stripThree", "stripFour", "stripFive", "setsImage", "host",
+      "cardPrivate", "cardCorporate", "privateHero", "privateDetail", "privateAtmosphere",
+      "corporateHero", "corporateDetail", "corporateAtmosphere"]
       .map(imageProjection)
       .join(",\n    ")}
   },

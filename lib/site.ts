@@ -57,6 +57,15 @@ export const assets = {
   stripFive: withBase(cmsImages.stripFive.image),
   setsImage: withBase(cmsImages.setsImage.image),
   host: withBase(cmsImages.host.image),
+  // Event cards (home) + event subpage images.
+  cardPrivate: withBase(cmsImages.cardPrivate.image),
+  cardCorporate: withBase(cmsImages.cardCorporate.image),
+  privateHero: withBase(cmsImages.privateHero.image),
+  privateDetail: withBase(cmsImages.privateDetail.image),
+  privateAtmosphere: withBase(cmsImages.privateAtmosphere.image),
+  corporateHero: withBase(cmsImages.corporateHero.image),
+  corporateDetail: withBase(cmsImages.corporateDetail.image),
+  corporateAtmosphere: withBase(cmsImages.corporateAtmosphere.image),
 };
 
 export const menuFlipbook = {
@@ -87,6 +96,14 @@ export const imageAlt = {
   stripFive: cmsImages.stripFive.alt,
   setsImage: cmsImages.setsImage.alt,
   host: cmsImages.host.alt,
+  cardPrivate: cmsImages.cardPrivate.alt,
+  cardCorporate: cmsImages.cardCorporate.alt,
+  privateHero: cmsImages.privateHero.alt,
+  privateDetail: cmsImages.privateDetail.alt,
+  privateAtmosphere: cmsImages.privateAtmosphere.alt,
+  corporateHero: cmsImages.corporateHero.alt,
+  corporateDetail: cmsImages.corporateDetail.alt,
+  corporateAtmosphere: cmsImages.corporateAtmosphere.alt,
 };
 
 export const siteConfig = {
