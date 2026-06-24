@@ -2934,6 +2934,26 @@ body.nav-hidden .v2-topbar {
   color: rgba(var(--v2-ink-rgb), 0.72);
 }
 
+/* TEMP: nights list hidden; sets intro centered. Delete this block to restore
+   the two-column layout (left intro + right nights table). */
+.v2-sets {
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+}
+
+.v2-sets-side {
+  position: static;
+  top: auto;
+  justify-items: center;
+  text-align: center;
+  max-width: 34rem;
+}
+
+.v2-sets-table,
+.v2-sets .preview-follower {
+  display: none;
+}
+
 .v2-host {
   display: grid;
   justify-items: center;
