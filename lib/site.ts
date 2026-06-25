@@ -66,6 +66,9 @@ export const assets = {
   corporateHero: withBase(cmsImages.corporateHero.image),
   corporateDetail: withBase(cmsImages.corporateDetail.image),
   corporateAtmosphere: withBase(cmsImages.corporateAtmosphere.image),
+  thumbSignature: withBase(cmsImages.thumbSignature.image),
+  thumbKlassiker: withBase(cmsImages.thumbKlassiker.image),
+  thumbChampagner: withBase(cmsImages.thumbChampagner.image),
 };
 
 export const menuFlipbook = {
@@ -81,6 +84,13 @@ export const menuVideo = rawMenuVideo
   ? rawMenuVideo.startsWith("http")
     ? rawMenuVideo
     : withBase(rawMenuVideo)
+  : "";
+
+const rawSetsVideo = (settings as { setsVideo?: string }).setsVideo || "";
+export const setsVideo = rawSetsVideo
+  ? rawSetsVideo.startsWith("http")
+    ? rawSetsVideo
+    : withBase(rawSetsVideo)
   : "";
 
 export const imageAlt = {
@@ -114,6 +124,9 @@ export const imageAlt = {
   corporateHero: cmsImages.corporateHero.alt,
   corporateDetail: cmsImages.corporateDetail.alt,
   corporateAtmosphere: cmsImages.corporateAtmosphere.alt,
+  thumbSignature: cmsImages.thumbSignature.alt,
+  thumbKlassiker: cmsImages.thumbKlassiker.alt,
+  thumbChampagner: cmsImages.thumbChampagner.alt,
 };
 
 export const siteConfig = {

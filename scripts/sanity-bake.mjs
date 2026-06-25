@@ -75,12 +75,14 @@ const SETTINGS_QUERY = `*[_id == "siteSettings"][0]{
   hours[]{ day, hours },
   "menu": { "pdf": menuPdf.asset->url, "pageCount": menuPageCount },
   "menuVideo": menuVideo.asset->url,
+  "setsVideo": setsVideo.asset->url,
   "images": images{
     ${["hero", "interior", "bar", "event", "food", "terrace", "facade", "foodTwo", "drink",
       "heroStripLeft", "heroStripRight", "introOne", "introTwo", "introThree", "menuMedia",
       "stripOne", "stripTwo", "stripThree", "stripFour", "stripFive", "setsImage", "host",
       "cardPrivate", "cardCorporate", "privateHero", "privateDetail", "privateAtmosphere",
-      "corporateHero", "corporateDetail", "corporateAtmosphere"]
+      "corporateHero", "corporateDetail", "corporateAtmosphere",
+      "thumbSignature", "thumbKlassiker", "thumbChampagner"]
       .map(imageProjection)
       .join(",\n    ")}
   },

@@ -33,6 +33,10 @@ const imageKeys: { name: string; title: string }[] = [
   { name: "corporateHero", title: "Corporate Events — Hero" },
   { name: "corporateDetail", title: "Corporate Events — Detail" },
   { name: "corporateAtmosphere", title: "Corporate Events — Atmosphäre" },
+  // Thumb cards (Drinks-Sektion unterhalb des Videos).
+  { name: "thumbSignature", title: "Thumb Signature Drinks" },
+  { name: "thumbKlassiker", title: "Thumb Klassiker" },
+  { name: "thumbChampagner", title: "Thumb Champagner" },
 ];
 
 export const siteSettings = defineType({
@@ -83,6 +87,7 @@ export const siteSettings = defineType({
     defineField({ name: "menuPdf", title: "Getränkekarte (PDF)", type: "file", group: "media" }),
     defineField({ name: "menuPageCount", title: "Seitenanzahl", type: "number", group: "media" }),
     defineField({ name: "menuVideo", title: "Menü-Sektion Video", type: "file", group: "media" }),
+    defineField({ name: "setsVideo", title: "Musik-Sektion Video", type: "file", group: "media" }),
     defineField({
       name: "images",
       title: "Bilder",

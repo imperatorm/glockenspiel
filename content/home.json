@@ -10,10 +10,10 @@
     "button": "Essen und Trinken"
   },
   "thumbs": [
-    { "label": "Signature Drinks", "imageKey": "bar", "icon": "/images/icons/cocktails.png" },
+    { "label": "Signature Drinks", "imageKey": "thumbSignature", "icon": "/images/icons/cocktails.png" },
     { "label": "Tapas", "imageKey": "food", "icon": "/images/icons/tapas.png" },
-    { "label": "Klassiker", "imageKey": "interior", "icon": "/images/icons/wine.png" },
-    { "label": "Champagner", "imageKey": "terrace", "icon": "/images/icons/star.png" }
+    { "label": "Klassiker", "imageKey": "thumbKlassiker", "icon": "/images/icons/wine.png" },
+    { "label": "Champagner", "imageKey": "thumbChampagner", "icon": "/images/icons/star.png" }
   ],
   "statement": "Ein Ort, an dem jedes Detail Wärme ausstrahlt — durchzogen von einer Energie, die mit der Nacht wächst.",
   "sets": {
