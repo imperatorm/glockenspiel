@@ -1825,7 +1825,7 @@ body.veil-lock {
 .veil-eyebrow {
   margin: 0;
   color: rgba(255, 244, 233, 0.85);
-  font-size: 0.7rem;
+  font-size: 0.875rem;
   font-weight: 900;
   letter-spacing: 0.26em;
   text-transform: uppercase;
@@ -1833,8 +1833,8 @@ body.veil-lock {
 
 .veil-logo {
   display: block;
-  width: clamp(220px, 42vw, 520px);
-  height: clamp(60px, 12vw, 140px);
+  width: clamp(275px, 52.5vw, 650px);
+  height: clamp(75px, 15vw, 175px);
   background: var(--v2-logo-color) center / contain no-repeat;
 }
 
