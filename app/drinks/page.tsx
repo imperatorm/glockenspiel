@@ -56,10 +56,10 @@ const breadcrumbData = {
 };
 
 const thumbs = [
-  { image: assets.bar, alt: imageAlt.bar, label: "Signature Drinks" },
+  { image: assets.thumbSignature, alt: imageAlt.thumbSignature, label: "Signature Drinks" },
   { image: assets.food, alt: imageAlt.food, label: "Tapas" },
-  { image: assets.interior, alt: imageAlt.interior, label: "Klassiker" },
-  { image: assets.terrace, alt: imageAlt.terrace, label: "Champagner" },
+  { image: assets.thumbKlassiker, alt: imageAlt.thumbKlassiker, label: "Klassiker" },
+  { image: assets.thumbChampagner, alt: imageAlt.thumbChampagner, label: "Champagner" },
 ];
 
 export default function DrinksPage() {

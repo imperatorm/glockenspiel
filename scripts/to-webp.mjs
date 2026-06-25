@@ -20,6 +20,7 @@ const USED = {
   "68": "dj-set",
   "09": "terrace-day",
   "81": "guests-bar",
+  "18": "strip-two",
   // Polaroid positions
   "39": "polaroid-1",
   "70": "polaroid-3",
