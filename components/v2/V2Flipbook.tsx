@@ -41,8 +41,7 @@ export function V2Flipbook({ pdfUrl, pageCount }: V2FlipbookProps) {
         </strong>
       </div>
 
-      <div className="v2-flip-stage" aria-live="polite" data-cursor="Blättern">
-        <button className="v2-flip-hit v2-flip-hit--prev" type="button" onClick={goPrev} aria-label="Vorherige Seite" />
+      <div className="v2-flip-stage" aria-live="polite">
         <div className="v2-flip-page" key={page}>
           <iframe
             src={`${pdfUrl}#page=${page}&zoom=page-fit&toolbar=0&navpanes=0&scrollbar=0`}
@@ -50,28 +49,6 @@ export function V2Flipbook({ pdfUrl, pageCount }: V2FlipbookProps) {
             loading="lazy"
           />
         </div>
-        <button className="v2-flip-hit v2-flip-hit--next" type="button" onClick={goNext} aria-label="Nächste Seite" />
-      </div>
-
-      <div className="v2-flip-controls">
-        <button className="v2-button" type="button" onClick={goPrev}>
-          Zurück
-        </button>
-        <div className="v2-flip-dots" aria-label="Seiten">
-          {pages.map((item) => (
-            <button
-              type="button"
-              key={item}
-              className={item === page ? "is-active" : undefined}
-              onClick={() => goTo(item, item > page ? "next" : "prev")}
-              aria-label={`Seite ${item} öffnen`}
-              aria-current={item === page ? "page" : undefined}
-            />
-          ))}
-        </div>
-        <button className="v2-button" type="button" onClick={goNext}>
-          Weiter
-        </button>
       </div>
     </div>
   );
