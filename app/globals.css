@@ -2804,7 +2804,7 @@ body.nav-hidden .v2-topbar {
 
 .v2-thumbs img {
   width: 100%;
-  height: clamp(6rem, 10vw, 9rem);
+  height: clamp(7.2rem, 12vw, 10.8rem);
   object-fit: cover;
   display: block;
 }
