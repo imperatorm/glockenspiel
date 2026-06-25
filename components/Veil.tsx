@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import gsap from "gsap";
 import { prefersReducedMotion } from "@/lib/motion";
-import { labels } from "@/lib/site";
+import { BASE_PATH, labels } from "@/lib/site";
 
 declare global {
   interface Window {
@@ -125,7 +125,14 @@ export function Veil() {
           clipPath: "inset(0% 0 0 0)",
           duration: 0.7,
           ease: REVEAL_EASE,
-          onComplete: () => router.push(href),
+          onComplete: () => {
+            // Strip the mount-path prefix — Next router paths are relative to the app root.
+            const routerPath =
+              BASE_PATH && href.startsWith(BASE_PATH)
+                ? href.slice(BASE_PATH.length) || "/"
+                : href;
+            router.push(routerPath);
+          },
         },
       );
     };
