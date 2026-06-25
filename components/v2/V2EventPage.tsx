@@ -168,14 +168,6 @@ export function V2EventPage({ page }: V2EventPageProps) {
         </div>
       </section>
 
-      <section className="v2-strip v2-strip--three" aria-label="Impressionen">
-        {[page.detailImage, page.heroImage, page.atmosphereImage].map((src, index) => (
-          <div data-mask key={`${src}-${index}`}>
-            <img src={src} alt={`${page.navLabel} Impression ${index + 1}`} loading="lazy" decoding="async" />
-          </div>
-        ))}
-      </section>
-
       <V2Map />
 
       <V2Footer />

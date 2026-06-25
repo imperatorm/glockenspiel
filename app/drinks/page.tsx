@@ -107,8 +107,8 @@ export default function DrinksPage() {
 
       <section className="v2-dark">
         <div className="v2-thumbs">
-          {thumbs.map((thumb, index) => (
-            <figure data-scroll data-scroll-speed={index % 2 === 0 ? 0.04 : -0.04} key={thumb.label}>
+          {thumbs.map((thumb) => (
+            <figure key={thumb.label}>
               <img src={thumb.image} alt={thumb.alt} loading="lazy" decoding="async" />
               <figcaption>{thumb.label}</figcaption>
             </figure>
