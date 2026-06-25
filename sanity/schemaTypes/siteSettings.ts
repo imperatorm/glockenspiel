@@ -82,6 +82,7 @@ export const siteSettings = defineType({
     }),
     defineField({ name: "menuPdf", title: "Getränkekarte (PDF)", type: "file", group: "media" }),
     defineField({ name: "menuPageCount", title: "Seitenanzahl", type: "number", group: "media" }),
+    defineField({ name: "menuVideo", title: "Menü-Sektion Video", type: "file", group: "media" }),
     defineField({
       name: "images",
       title: "Bilder",

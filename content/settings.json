@@ -25,6 +25,7 @@
     "pdf": "/menu/sommermenu.pdf",
     "pageCount": 22
   },
+  "menuVideo": "/videos/Cocktail Barkeeper_1.webm",
   "images": {
     "hero": { "image": "/images/hero.webp", "alt": "Abendstimmung vor dem Das Glockenspiel in der Kitzbüheler Altstadt" },
     "interior": { "image": "/images/interior.webp", "alt": "Eingang vom Das Glockenspiel mit Außenbar und Vespa" },

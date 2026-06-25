@@ -74,6 +74,7 @@ const SETTINGS_QUERY = `*[_id == "siteSettings"][0]{
   address{ street, postalCode, city, country },
   hours[]{ day, hours },
   "menu": { "pdf": menuPdf.asset->url, "pageCount": menuPageCount },
+  "menuVideo": menuVideo.asset->url,
   "images": images{
     ${["hero", "interior", "bar", "event", "food", "terrace", "facade", "foodTwo", "drink",
       "heroStripLeft", "heroStripRight", "introOne", "introTwo", "introThree", "menuMedia",

@@ -73,6 +73,16 @@ export const menuFlipbook = {
   pageCount: settings.menu.pageCount,
 };
 
+// Menu/dark-section video (CMS-editable → Sanity CDN url after bake, local path
+// in the committed fallback). Absolute CDN urls are used as-is; local paths get
+// the mount-path prefix. Empty when unset, so the section falls back to the image.
+const rawMenuVideo = (settings as { menuVideo?: string }).menuVideo || "";
+export const menuVideo = rawMenuVideo
+  ? rawMenuVideo.startsWith("http")
+    ? rawMenuVideo
+    : withBase(rawMenuVideo)
+  : "";
+
 export const imageAlt = {
   hero: cmsImages.hero.alt,
   interior: cmsImages.interior.alt,

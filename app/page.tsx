@@ -5,7 +5,7 @@ import { V2Footer } from "@/components/v2/V2Footer";
 import { V2HoursPill } from "@/components/v2/V2HoursPill";
 import { V2Map } from "@/components/v2/V2Map";
 import { V2Topbar } from "@/components/v2/V2Topbar";
-import { assets, home, imageAlt, labels, siteConfig, withBase } from "@/lib/site";
+import { assets, home, imageAlt, labels, menuVideo, siteConfig, withBase } from "@/lib/site";
 
 const assetFor = (key: string) => assets[key as keyof typeof assets];
 const altFor = (key: string) => imageAlt[key as keyof typeof imageAlt];
@@ -125,7 +125,20 @@ export default function Home() {
             </a>
           </div>
           <div className="v2-dark-media" data-mask>
-            <img src={assets.menuMedia} alt={imageAlt.menuMedia} loading="lazy" decoding="async" />
+            {menuVideo ? (
+              <video
+                src={menuVideo}
+                poster={assets.menuMedia}
+                aria-label={imageAlt.menuMedia}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+              />
+            ) : (
+              <img src={assets.menuMedia} alt={imageAlt.menuMedia} loading="lazy" decoding="async" />
+            )}
           </div>
         </div>
         <div className="v2-thumbs">
