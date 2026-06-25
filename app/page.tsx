@@ -247,16 +247,16 @@ export default function Home() {
       <section id="ueber" className="v2-about">
         <div className="v2-polaroids reveal" aria-hidden="true">
           {[
-            { image: assets.food, start: -6, end: -4 },
-            { image: assets.interior, start: 5, end: 3 },
-            { image: assets.bar, start: -4, end: -2 },
-            { image: assets.drink, start: 6, end: 4 },
-            { image: assets.foodTwo, start: -5, end: -3 },
-            { image: assets.event, start: 4, end: 6 },
-            { image: assets.facade, start: -6, end: -4 },
-            { image: assets.terrace, start: 5, end: 3 },
-            { image: assets.hero, start: -4, end: -6 },
-            { image: assets.drink, start: 6, end: 4 },
+            { image: assets.polaroidOne, start: -6, end: -4 },
+            { image: assets.polaroidTwo, start: 5, end: 3 },
+            { image: assets.polaroidThree, start: -4, end: -2 },
+            { image: assets.polaroidFour, start: 6, end: 4 },
+            { image: assets.polaroidFive, start: -5, end: -3 },
+            { image: assets.polaroidSix, start: 4, end: 6 },
+            { image: assets.polaroidSeven, start: -6, end: -4 },
+            { image: assets.polaroidEight, start: 5, end: 3 },
+            { image: assets.polaroidNine, start: -4, end: -6 },
+            { image: assets.polaroidTen, start: 6, end: 4 },
           ].map((polaroid, index) => (
             <div
               className="v2-polaroid"

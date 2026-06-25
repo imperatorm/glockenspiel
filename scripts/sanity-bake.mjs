@@ -82,7 +82,9 @@ const SETTINGS_QUERY = `*[_id == "siteSettings"][0]{
       "stripOne", "stripTwo", "stripThree", "stripFour", "stripFive", "setsImage", "host",
       "cardPrivate", "cardCorporate", "privateHero", "privateDetail", "privateAtmosphere",
       "corporateHero", "corporateDetail", "corporateAtmosphere",
-      "thumbSignature", "thumbKlassiker", "thumbChampagner"]
+      "thumbSignature", "thumbKlassiker", "thumbChampagner",
+      "polaroidOne", "polaroidTwo", "polaroidThree", "polaroidFour", "polaroidFive",
+      "polaroidSix", "polaroidSeven", "polaroidEight", "polaroidNine", "polaroidTen"]
       .map(imageProjection)
       .join(",\n    ")}
   },

@@ -20,12 +20,26 @@ const USED = {
   "68": "dj-set",
   "09": "terrace-day",
   "81": "guests-bar",
+  // Polaroid positions
+  "39": "polaroid-1",
+  "70": "polaroid-3",
+  "14": "polaroid-4",
+  "83": "polaroid-7",
+  "74": "polaroid-8",
+  "28": "polaroid-9",
+  // Event cards
+  "23": "card-corporate",
+  "07": "card-private",
 };
 
 const files = await readdir(DIR);
 let done = 0;
 for (const [num, slug] of Object.entries(USED)) {
-  const src = files.find((f) => f === `20260604_dasGlockenspiel_${num}_c_MartinMathes (2).jpg`);
+  const src = files.find(
+    (f) =>
+      f === `20260604_dasGlockenspiel_${num}_c_MartinMathes (2).jpg` ||
+      f === `20260604_dasGlockenspiel_${num}_c_MartinMathes.jpg`,
+  );
   if (!src) {
     console.warn(`! missing source for ${num}`);
     continue;

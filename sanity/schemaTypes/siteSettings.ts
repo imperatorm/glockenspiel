@@ -37,6 +37,17 @@ const imageKeys: { name: string; title: string }[] = [
   { name: "thumbSignature", title: "Thumb Signature Drinks" },
   { name: "thumbKlassiker", title: "Thumb Klassiker" },
   { name: "thumbChampagner", title: "Thumb Champagner" },
+  // Polaroid wall (Über-uns-Sektion) — 10 per-position slots.
+  { name: "polaroidOne", title: "Polaroid 1" },
+  { name: "polaroidTwo", title: "Polaroid 2" },
+  { name: "polaroidThree", title: "Polaroid 3" },
+  { name: "polaroidFour", title: "Polaroid 4" },
+  { name: "polaroidFive", title: "Polaroid 5" },
+  { name: "polaroidSix", title: "Polaroid 6" },
+  { name: "polaroidSeven", title: "Polaroid 7" },
+  { name: "polaroidEight", title: "Polaroid 8" },
+  { name: "polaroidNine", title: "Polaroid 9" },
+  { name: "polaroidTen", title: "Polaroid 10" },
 ];
 
 export const siteSettings = defineType({

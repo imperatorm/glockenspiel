@@ -69,6 +69,16 @@ export const assets = {
   thumbSignature: withBase(cmsImages.thumbSignature.image),
   thumbKlassiker: withBase(cmsImages.thumbKlassiker.image),
   thumbChampagner: withBase(cmsImages.thumbChampagner.image),
+  polaroidOne: withBase(cmsImages.polaroidOne.image),
+  polaroidTwo: withBase(cmsImages.polaroidTwo.image),
+  polaroidThree: withBase(cmsImages.polaroidThree.image),
+  polaroidFour: withBase(cmsImages.polaroidFour.image),
+  polaroidFive: withBase(cmsImages.polaroidFive.image),
+  polaroidSix: withBase(cmsImages.polaroidSix.image),
+  polaroidSeven: withBase(cmsImages.polaroidSeven.image),
+  polaroidEight: withBase(cmsImages.polaroidEight.image),
+  polaroidNine: withBase(cmsImages.polaroidNine.image),
+  polaroidTen: withBase(cmsImages.polaroidTen.image),
 };
 
 export const menuFlipbook = {
@@ -127,6 +137,16 @@ export const imageAlt = {
   thumbSignature: cmsImages.thumbSignature.alt,
   thumbKlassiker: cmsImages.thumbKlassiker.alt,
   thumbChampagner: cmsImages.thumbChampagner.alt,
+  polaroidOne: cmsImages.polaroidOne.alt,
+  polaroidTwo: cmsImages.polaroidTwo.alt,
+  polaroidThree: cmsImages.polaroidThree.alt,
+  polaroidFour: cmsImages.polaroidFour.alt,
+  polaroidFive: cmsImages.polaroidFive.alt,
+  polaroidSix: cmsImages.polaroidSix.alt,
+  polaroidSeven: cmsImages.polaroidSeven.alt,
+  polaroidEight: cmsImages.polaroidEight.alt,
+  polaroidNine: cmsImages.polaroidNine.alt,
+  polaroidTen: cmsImages.polaroidTen.alt,
 };
 
 export const siteConfig = {
