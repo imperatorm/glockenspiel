@@ -13,23 +13,41 @@ type V2AutoVideoProps = {
   priority?: boolean;
 };
 
-// Autoplay-muted-loop videos download in full even on phones — here that's ~17 MB of
-// .webm that tanks the mobile payload and LCP. So the video only loads on desktop
-// pointers; phones (and data-saver) keep the lightweight poster image. The component
-// renders a single <img> or <video> so existing .v2-dark-media / .v2-sets-side CSS
-// keeps matching, and SSR always emits the poster <img> so the LCP element is in the
-// initial HTML, discoverable, and not lazy-loaded.
+// Autoplay-muted-loop videos download in full (~17 MB of .webm) so we never want
+// that in the initial payload. SSR always emits the poster <img> as the LCP element
+// (in the initial HTML, discoverable, not lazy-loaded), then we swap in a <video>
+// once the poster scrolls near the viewport — phones included. The <video> reuses
+// the same poster as its still frame, so it shows the frozen image until the first
+// video frame paints, giving "still frame, then playback once loaded" with no flash.
+// Honours Save-Data. The component renders a single <img> or <video> so existing
+// .v2-dark-media / .v2-sets-side CSS keeps matching.
 export function V2AutoVideo({ src, poster, alt, className, priority }: V2AutoVideoProps) {
   const ref = useRef<HTMLImageElement | HTMLVideoElement | null>(null);
   const [showVideo, setShowVideo] = useState(false);
 
   useEffect(() => {
     if (!src) return;
-    const bigScreen = window.matchMedia("(min-width: 768px) and (pointer: fine)").matches;
-    if (!bigScreen) return;
     const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
     if (connection?.saveData) return;
-    setShowVideo(true);
+
+    const el = ref.current;
+    if (!el || !("IntersectionObserver" in window)) {
+      setShowVideo(true);
+      return;
+    }
+    // Start fetching a little before the section enters view so playback is ready by
+    // the time the user reaches it.
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          setShowVideo(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "300px" },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
   }, [src]);
 
   if (showVideo && src) {
@@ -44,7 +62,7 @@ export function V2AutoVideo({ src, poster, alt, className, priority }: V2AutoVid
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="auto"
       />
     );
   }
