@@ -2892,11 +2892,13 @@ body.nav-hidden .v2-topbar {
   text-transform: uppercase;
 }
 
-.v2-sets-side img {
+.v2-sets-side img,
+.v2-sets-side video {
   width: 100%;
   max-width: 17rem;
   aspect-ratio: 4 / 5;
   object-fit: cover;
+  display: block;
 }
 
 .v2-sets-table {
@@ -3963,8 +3965,20 @@ body.nav-hidden .v2-topbar {
     font-size: 0.66rem;
   }
 
+  /* The fixed topbar wraps to two rows on phones (nav + actions), so reserve
+     extra space or the hero photo slides up under it. */
+  .v2-shell {
+    padding-top: 6.4rem;
+  }
+
   .v2-hero-logo {
     width: min(94%, 24rem);
+  }
+
+  /* Trim the stack to the first five on phones — the rest only padded the
+     editorial column that no longer sits beside them. */
+  .v2-polaroid:nth-child(n + 6) {
+    display: none;
   }
 
   .v2-serif {
