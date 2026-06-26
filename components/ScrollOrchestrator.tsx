@@ -17,7 +17,6 @@ function splitIntoWords(el: HTMLElement) {
   if (el.dataset.splitReady) return;
   el.dataset.splitReady = "true";
   const text = (el.textContent || "").replace(/\s+/g, " ").trim();
-  el.setAttribute("aria-label", text);
 
   const walk = (parent: Element) => {
     Array.from(parent.childNodes).forEach((node) => {
@@ -46,6 +45,14 @@ function splitIntoWords(el: HTMLElement) {
   };
 
   walk(el);
+
+  // The visible words are aria-hidden (each is its own animated span), so expose the
+  // full text to assistive tech via an sr-only copy. aria-label on a <p>/<h2> is
+  // prohibited by ARIA-in-HTML and was failing the Lighthouse a11y audit.
+  const srText = document.createElement("span");
+  srText.className = "sr-only";
+  srText.textContent = text;
+  el.insertBefore(srText, el.firstChild);
 }
 
 // Osmo Supply — Image Preview Cursor Follower (adapted: React lifecycle + cleanup)
@@ -199,15 +206,38 @@ export function ScrollOrchestrator() {
       return () => window.removeEventListener("scroll", onScroll);
     }
 
-    // Locomotive Scroll v5 (Lenis core) — also drives [data-scroll-speed] parallax
-    const scroller = new LocomotiveScroll({
-      lenisOptions: {
-        duration: 1.1,
-        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      },
-    });
-    const lenis = (scroller as unknown as { lenisInstance?: LenisLike }).lenisInstance;
+    // Locomotive Scroll v5 (Lenis core) runs a per-frame rAF loop to drive smooth
+    // scrolling + [data-scroll-speed] parallax. That's meaningful main-thread work on
+    // phones for little gain over native momentum scrolling, so it's desktop-only.
+    // On touch we fall back to native scroll; GSAP ScrollTrigger reads window scroll
+    // either way, so the scroll-driven animations keep working.
+    const scroller = pointerFine
+      ? new LocomotiveScroll({
+          lenisOptions: {
+            duration: 1.1,
+            easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          },
+        })
+      : null;
+    const lenis = (scroller as unknown as { lenisInstance?: LenisLike } | null)?.lenisInstance;
     lenis?.on("scroll", ScrollTrigger.update);
+
+    const scrollToTarget = (target: HTMLElement) => {
+      if (scroller) {
+        scroller.scrollTo(target, { offset: -16 });
+      } else {
+        const top = target.getBoundingClientRect().top + window.scrollY - 16;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
+    };
+    const lockScroll = () => {
+      if (scroller) scroller.stop();
+      else document.body.classList.add("scroll-locked");
+    };
+    const unlockScroll = () => {
+      if (scroller) scroller.start();
+      else document.body.classList.remove("scroll-locked");
+    };
 
     const onAnchorClick = (event: MouseEvent) => {
       const anchor = (event.target as HTMLElement).closest<HTMLAnchorElement>('a[href^="#"]');
@@ -215,12 +245,12 @@ export function ScrollOrchestrator() {
       const target = document.querySelector(anchor.getAttribute("href") || "");
       if (!target) return;
       event.preventDefault();
-      scroller.scrollTo(target as HTMLElement, { offset: -16 });
+      scrollToTarget(target as HTMLElement);
     };
     document.addEventListener("click", onAnchorClick);
 
-    const onModalOpen = () => scroller.stop();
-    const onModalClose = () => scroller.start();
+    const onModalOpen = () => lockScroll();
+    const onModalClose = () => unlockScroll();
     window.addEventListener("modal:open", onModalOpen);
     window.addEventListener("modal:close", onModalClose);
 
@@ -475,28 +505,6 @@ export function ScrollOrchestrator() {
         );
       }
 
-      // ----- v2: looping intro slideshow -----
-      const slides = gsap.utils.toArray<HTMLElement>(".v2-intro-slides .v2-slide");
-      if (slides.length) {
-        const slideshow = gsap.timeline({ paused: true, repeat: -1, repeatDelay: 1.6 });
-        slideshow.fromTo(
-          slides,
-          { scale: 0.74, autoAlpha: 0 },
-          { scale: 1, autoAlpha: 1, duration: 1, ease: EASE, stagger: 1.6 },
-        );
-        slideshow.to({}, { duration: 1.2 });
-        slideshow.set(slides, { autoAlpha: 0 });
-        ScrollTrigger.create({
-          trigger: ".v2-intro",
-          start: "top 85%",
-          end: "bottom top",
-          onEnter: () => slideshow.play(),
-          onEnterBack: () => slideshow.play(),
-          onLeave: () => slideshow.pause(),
-          onLeaveBack: () => slideshow.pause(),
-        });
-      }
-
       // ----- v2: polaroids rotate + drift on scroll -----
       gsap.utils.toArray<HTMLElement>(".v2-polaroid").forEach((card, index) => {
         const startRotate = parseFloat(card.dataset.rotateStart || "0");
@@ -612,7 +620,8 @@ export function ScrollOrchestrator() {
       window.removeEventListener("modal:close", onModalClose);
       window.removeEventListener("scroll", onScroll);
       document.body.classList.remove("nav-hidden");
-      scroller.destroy();
+      document.body.classList.remove("scroll-locked");
+      scroller?.destroy();
     };
   }, []);
 

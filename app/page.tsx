@@ -5,7 +5,10 @@ import { V2Footer } from "@/components/v2/V2Footer";
 import { V2HoursPill } from "@/components/v2/V2HoursPill";
 import { V2Map } from "@/components/v2/V2Map";
 import { V2Topbar } from "@/components/v2/V2Topbar";
+import { V2IntroDeck } from "@/components/v2/V2IntroDeck";
+import { V2AutoVideo } from "@/components/v2/V2AutoVideo";
 import { assets, home, imageAlt, labels, menuVideo, setsVideo, siteConfig, withBase } from "@/lib/site";
+import { sized } from "@/lib/img";
 
 const assetFor = (key: string) => assets[key as keyof typeof assets];
 const altFor = (key: string) => imageAlt[key as keyof typeof imageAlt];
@@ -49,15 +52,27 @@ const nights = home.nights.map((night) => ({
   href: night.link === "email" ? `mailto:${siteConfig.email}` : siteConfig.instagram,
   external: night.link !== "email",
   hot: Boolean(night.hot),
-  image: assetFor(night.imageKey),
+  image: sized(assetFor(night.imageKey), 600),
 }));
 
 const thumbs = home.thumbs.map((thumb) => ({
-  image: assetFor(thumb.imageKey),
+  image: sized(assetFor(thumb.imageKey), 560),
   alt: altFor(thumb.imageKey),
   label: thumb.label,
   icon: withBase(thumb.icon),
 }));
+
+// Auto-playing intro card deck — atmospheric shots fanned and cycled. The first
+// image keeps a descriptive alt for SEO/a11y; the rest are decorative.
+const introDeck = [
+  { src: sized(assets.introOne, 720), alt: imageAlt.introOne },
+  { src: sized(assets.introTwo, 720), alt: "" },
+  { src: sized(assets.food, 720), alt: "" },
+  { src: sized(assets.introThree, 720), alt: "" },
+  { src: sized(assets.bar, 720), alt: "" },
+  { src: sized(assets.terrace, 720), alt: "" },
+  { src: sized(assets.drink, 720), alt: "" },
+];
 
 function Wordmark() {
   return (
@@ -79,7 +94,7 @@ export default function Home() {
 
       <section className="v2-hero">
         <div className="v2-hero-strip">
-          <img src={assets.heroStripLeft} alt={imageAlt.heroStripLeft} decoding="async" />
+          <img src={sized(assets.heroStripLeft, 520)} alt={imageAlt.heroStripLeft} decoding="async" />
           <div className="v2-hero-labels" aria-label={labels.heroStrip.join(", ")}>
             <div>
               <span>{labels.heroStrip[0]}</span>
@@ -95,16 +110,14 @@ export default function Home() {
               <span>{labels.heroStrip[2]}</span>
             </div>
           </div>
-          <img src={assets.heroStripRight} alt={imageAlt.heroStripRight} decoding="async" />
+          <img src={sized(assets.heroStripRight, 520)} alt={imageAlt.heroStripRight} decoding="async" />
         </div>
         <Wordmark />
       </section>
 
       <section className="v2-intro">
-        <div className="v2-intro-slides reveal">
-          <img src={assets.introOne} alt={imageAlt.introOne} loading="lazy" decoding="async" />
-          <img className="v2-slide" src={assets.introTwo} alt="" loading="lazy" decoding="async" />
-          <img className="v2-slide" src={assets.introThree} alt="" loading="lazy" decoding="async" />
+        <div className="reveal">
+          <V2IntroDeck images={introDeck} />
         </div>
         <p className="v2-serif" data-split>
           {home.intro.text}
@@ -125,20 +138,12 @@ export default function Home() {
             </a>
           </div>
           <div className="v2-dark-media" data-mask>
-            {menuVideo ? (
-              <video
-                src={menuVideo}
-                poster={assets.menuMedia}
-                aria-label={imageAlt.menuMedia}
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-              />
-            ) : (
-              <img src={assets.menuMedia} alt={imageAlt.menuMedia} loading="lazy" decoding="async" />
-            )}
+            <V2AutoVideo
+              src={menuVideo}
+              poster={sized(assets.menuMedia, 900)}
+              alt={imageAlt.menuMedia}
+              priority
+            />
           </div>
         </div>
         <div className="v2-thumbs">
@@ -163,7 +168,7 @@ export default function Home() {
       <section className="v2-strip" aria-label="Impressionen">
         {[assets.stripOne, assets.stripTwo, assets.stripThree, assets.stripFour, assets.stripFive].map((src, index) => (
           <div data-mask key={`${src}-${index}`}>
-            <img src={src} alt={`Glockenspiel Kitzbühel Impression ${index + 1}`} loading="lazy" decoding="async" />
+            <img src={sized(src, 760)} alt={`Glockenspiel Kitzbühel Impression ${index + 1}`} loading="lazy" decoding="async" />
           </div>
         ))}
       </section>
@@ -172,21 +177,12 @@ export default function Home() {
         <div className="v2-sets-side">
           <span className="v2-mark" aria-hidden="true" />
           <strong className="reveal">{home.sets.heading}</strong>
-          {setsVideo ? (
-            <video
-              src={setsVideo}
-              poster={assets.setsImage}
-              aria-label={imageAlt.setsImage}
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              className="reveal"
-            />
-          ) : (
-            <img className="reveal" src={assets.setsImage} alt={imageAlt.setsImage} loading="lazy" decoding="async" />
-          )}
+          <V2AutoVideo
+            src={setsVideo}
+            poster={sized(assets.setsImage, 760)}
+            alt={imageAlt.setsImage}
+            className="reveal"
+          />
           <p className="v2-small reveal">{home.sets.body}</p>
         </div>
         <div className="v2-sets-table" data-follower-collection="">
@@ -207,7 +203,7 @@ export default function Home() {
                 {night.cta}
               </a>
               <div data-follower-visual="" className="preview-item__visual" aria-hidden="true">
-                <img src={night.image} alt="" decoding="async" className="preview-item__visual-img" />
+                <img src={night.image} alt="" loading="lazy" decoding="async" className="preview-item__visual-img" />
               </div>
             </div>
           ))}
@@ -223,7 +219,7 @@ export default function Home() {
 
       <section className="v2-host">
         <figure data-mask>
-          <img src={assetFor(home.host.imageKey)} alt={altFor(home.host.imageKey)} loading="lazy" decoding="async" />
+          <img src={sized(assetFor(home.host.imageKey), 1200)} alt={altFor(home.host.imageKey)} loading="lazy" decoding="async" />
           <figcaption>{home.host.caption}</figcaption>
         </figure>
       </section>
@@ -264,7 +260,7 @@ export default function Home() {
               data-rotate-end={polaroid.end}
               key={`${polaroid.image}-${index}`}
             >
-              <img src={polaroid.image} alt="" loading="lazy" decoding="async" />
+              <img src={sized(polaroid.image, 380)} alt="" loading="lazy" decoding="async" />
             </div>
           ))}
         </div>
@@ -288,7 +284,7 @@ export default function Home() {
             {home.about.cards.map((card) => (
               <a className="v2-event-card" href={withBase(card.href)} key={card.href}>
                 <span className="v2-event-card-media">
-                  <img src={assetFor(card.imageKey)} alt="" loading="lazy" decoding="async" />
+                  <img src={sized(assetFor(card.imageKey), 680)} alt="" loading="lazy" decoding="async" />
                 </span>
                 <span className="v2-event-card-body">
                   <span className="v2-event-card-eyebrow">{card.eyebrow}</span>

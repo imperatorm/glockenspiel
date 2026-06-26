@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import gsap from "gsap";
-import { prefersReducedMotion } from "@/lib/motion";
+import { prefersReducedData, prefersReducedMotion } from "@/lib/motion";
 import { BASE_PATH, labels } from "@/lib/site";
 
 declare global {
@@ -31,7 +31,9 @@ export function Veil() {
     const root = rootRef.current;
     if (!root) return;
 
-    const reduceMotion = prefersReducedMotion();
+    // Skip the loader animation entirely for reduced-motion and constrained-network
+    // users so content paints immediately instead of waiting out the ~2s intro.
+    const lite = prefersReducedMotion() || prefersReducedData();
 
     const finish = () => {
       root.dataset.state = "hidden";
@@ -41,7 +43,7 @@ export function Veil() {
 
     const reveal = (withCounter: boolean) => {
       gsap.killTweensOf(root);
-      if (reduceMotion) {
+      if (lite) {
         gsap.set(root, { clipPath: "inset(0 0 100% 0)" });
         dispatchVeilDone();
         finish();
@@ -87,7 +89,7 @@ export function Veil() {
     const root = rootRef.current;
     if (!root) return;
 
-    const reduceMotion = prefersReducedMotion();
+    const lite = prefersReducedMotion() || prefersReducedData();
 
     const onClick = (event: MouseEvent) => {
       if (
@@ -108,7 +110,7 @@ export function Veil() {
       const url = new URL(href, window.location.href);
       // Same-page hash navigation stays with Lenis.
       if (url.pathname === window.location.pathname) return;
-      if (covering.current || reduceMotion) {
+      if (covering.current || lite) {
         return; // let Next handle it natively
       }
 

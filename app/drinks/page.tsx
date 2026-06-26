@@ -6,6 +6,7 @@ import { V2Footer } from "@/components/v2/V2Footer";
 import { V2HoursPill } from "@/components/v2/V2HoursPill";
 import { V2Topbar } from "@/components/v2/V2Topbar";
 import { assets, content, imageAlt, menuFlipbook, siteConfig, withBase } from "@/lib/site";
+import { sized } from "@/lib/img";
 
 export const metadata: Metadata = {
   title: "Getränkekarte — Drinks & Winter Menu",
@@ -56,10 +57,10 @@ const breadcrumbData = {
 };
 
 const thumbs = [
-  { image: assets.thumbSignature, alt: imageAlt.thumbSignature, label: "Signature Drinks" },
-  { image: assets.food, alt: imageAlt.food, label: "Tapas" },
-  { image: assets.thumbKlassiker, alt: imageAlt.thumbKlassiker, label: "Klassiker" },
-  { image: assets.thumbChampagner, alt: imageAlt.thumbChampagner, label: "Champagner" },
+  { image: sized(assets.thumbSignature, 560), alt: imageAlt.thumbSignature, label: "Signature Drinks" },
+  { image: sized(assets.food, 560), alt: imageAlt.food, label: "Tapas" },
+  { image: sized(assets.thumbKlassiker, 560), alt: imageAlt.thumbKlassiker, label: "Klassiker" },
+  { image: sized(assets.thumbChampagner, 560), alt: imageAlt.thumbChampagner, label: "Champagner" },
 ];
 
 export default function DrinksPage() {

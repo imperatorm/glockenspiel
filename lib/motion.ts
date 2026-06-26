@@ -10,3 +10,16 @@ export function prefersReducedMotion(): boolean {
   }
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
+
+// True when the user is on Data Saver or a slow/metered connection. Used to skip
+// the non-essential intro/loader animation so first paint (FCP/LCP) isn't held back
+// for people who can least afford the wait.
+export function prefersReducedData(): boolean {
+  if (typeof navigator === "undefined") return false;
+  const conn = (
+    navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } }
+  ).connection;
+  if (!conn) return false;
+  if (conn.saveData) return true;
+  return conn.effectiveType === "slow-2g" || conn.effectiveType === "2g" || conn.effectiveType === "3g";
+}

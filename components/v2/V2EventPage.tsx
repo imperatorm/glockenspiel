@@ -5,6 +5,7 @@ import { V2HoursPill } from "@/components/v2/V2HoursPill";
 import { V2Map } from "@/components/v2/V2Map";
 import { V2Topbar } from "@/components/v2/V2Topbar";
 import { eventPages, siteConfig, withBase } from "@/lib/site";
+import { sized } from "@/lib/img";
 
 type EventPageData = (typeof eventPages)[keyof typeof eventPages];
 
@@ -86,7 +87,7 @@ export function V2EventPage({ page }: V2EventPageProps) {
       </section>
 
       <section className="v2-subhero-media" data-mask data-scroll data-scroll-speed="0.05">
-        <img src={page.heroImage} alt={`${page.navLabel} im ${siteConfig.name}`} decoding="async" />
+        <img src={sized(page.heroImage, 1400)} alt={`${page.navLabel} im ${siteConfig.name}`} decoding="async" />
         <span className="v2-photo-tag">{page.eyebrow}</span>
       </section>
 
@@ -163,7 +164,7 @@ export function V2EventPage({ page }: V2EventPageProps) {
             </div>
           </div>
           <div className="v2-dark-media" data-mask>
-            <img src={page.atmosphereImage} alt={`Atmosphäre im ${siteConfig.name}`} loading="lazy" decoding="async" />
+            <img src={sized(page.atmosphereImage, 900)} alt={`Atmosphäre im ${siteConfig.name}`} loading="lazy" decoding="async" />
           </div>
         </div>
       </section>

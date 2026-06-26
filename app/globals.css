@@ -1788,6 +1788,11 @@ body.veil-lock {
   overflow: hidden;
 }
 
+/* Native-scroll fallback for the modal lock when Locomotive isn't running (touch). */
+body.scroll-locked {
+  overflow: hidden;
+}
+
 .veil {
   position: fixed;
   inset: 0;
@@ -2710,23 +2715,40 @@ body.nav-hidden .v2-topbar {
   text-align: center;
 }
 
-.v2-intro-slides {
+/* Auto-playing intro card deck: cards are centred and fanned via GSAP transforms;
+   the container is wide and un-clipped so neighbours splay beyond the active card. */
+.v2-intro-deck {
   position: relative;
-  width: clamp(10rem, 17vw, 14rem);
-  aspect-ratio: 3 / 4;
-  overflow: hidden;
+  width: min(78vw, 26rem);
+  aspect-ratio: 4 / 3;
+  margin-inline: auto;
 }
 
-.v2-intro-slides img {
+.v2-intro-deck__card {
   position: absolute;
   inset: 0;
+  margin: auto;
+  width: clamp(11rem, 21vw, 15rem);
+  aspect-ratio: 3 / 4;
+  border-radius: 0.85rem;
+  overflow: hidden;
+  box-shadow: 0 1.4rem 3rem -1.2rem rgba(21, 18, 22, 0.55);
+  will-change: transform, opacity;
+  /* Pre-JS / no-JS fallback: only the lead card shows, so the section never breaks. */
+  opacity: 0;
+}
+
+.v2-intro-deck__card:first-child {
+  opacity: 1;
+}
+
+.v2-intro-deck__card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.v2-intro-slides .v2-slide {
-  opacity: 0;
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: none;
 }
 
 .v2-dark {

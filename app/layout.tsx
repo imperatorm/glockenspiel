@@ -99,6 +99,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="de-AT" className={`${inter.variable} ${fraunces.variable}`} suppressHydrationWarning>
       <head>
+        {/* Images are served from the Sanity CDN — open the connection early so the
+            first (often LCP) image isn't blocked on DNS + TLS handshake. */}
+        <link rel="preconnect" href="https://cdn.sanity.io" crossOrigin="" />
+        <link rel="dns-prefetch" href="https://cdn.sanity.io" />
         <script
           dangerouslySetInnerHTML={{
             __html: `try{var t=localStorage.getItem("glocken-theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}`,
