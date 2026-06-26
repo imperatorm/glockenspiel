@@ -34,15 +34,20 @@ export async function POST(request: Request) {
   ];
   const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact);
 
-  try {
-    const response = await fetch("https://api.resend.com/emails", {
+  // Resend's shared sandbox sender is always verified, so it's the fallback when the
+  // configured custom domain hasn't been verified yet (Resend rejects those with 403).
+  const SANDBOX_FROM = "Glockenspiel Website <onboarding@resend.dev>";
+  const configuredFrom = process.env.RESEND_FROM || SANDBOX_FROM;
+
+  const send = (from: string) =>
+    fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${apiKey}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: process.env.RESEND_FROM || "Glockenspiel Website <onboarding@resend.dev>",
+        from,
         to: process.env.RESERVATION_TO || siteConfig.email,
         ...(isEmail ? { reply_to: contact } : {}),
         subject: `${occasion}: ${name}`,
@@ -50,8 +55,19 @@ export async function POST(request: Request) {
       }),
     });
 
+  try {
+    let response = await send(configuredFrom);
+
+    // 403 = sender domain not verified. Retry from the sandbox sender so the form
+    // still works before the domain's DNS records are verified in Resend.
+    if (response.status === 403 && configuredFrom !== SANDBOX_FROM) {
+      const detail = await response.text().catch(() => "");
+      console.error(`[reserve] Resend 403 for "${configuredFrom}", retrying via sandbox: ${detail}`);
+      response = await send(SANDBOX_FROM);
+    }
+
     if (!response.ok) {
-      // Surface the real reason (e.g. unverified sender domain) in the runtime logs.
+      // Surface the real reason (e.g. unverified domain, recipient restriction) in logs.
       const detail = await response.text().catch(() => "");
       console.error(`[reserve] Resend ${response.status}: ${detail}`);
       return NextResponse.json({ error: "Die Anfrage konnte nicht gesendet werden." }, { status: 502 });
