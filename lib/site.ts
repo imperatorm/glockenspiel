@@ -3,17 +3,13 @@
 // url(), internal <a href>, client fetch) must include it. Next only auto-prefixes
 // next/link|image|script.
 //
-// An explicit non-empty NEXT_PUBLIC_BASE_PATH always wins. Otherwise (unset OR an
-// empty string — e.g. a leaked empty value in a production build) fall back by
-// environment: "/app" in production, "" for local dev. Keying off NODE_ENV instead
-// of an empty string makes this robust against build envs that inject "".
+// An explicit non-empty NEXT_PUBLIC_BASE_PATH always wins (e.g. set it to "/app"
+// on Webflow Cloud where the app is mounted under that prefix). Otherwise the
+// base path is "" — assets are served from root, which is correct on Vercel and
+// standard Next.js deployments.
 const envBasePath = process.env.NEXT_PUBLIC_BASE_PATH;
 export const BASE_PATH =
-  envBasePath !== undefined && envBasePath !== ""
-    ? envBasePath
-    : process.env.NODE_ENV === "production"
-      ? "/app"
-      : "";
+  envBasePath !== undefined && envBasePath !== "" ? envBasePath : "";
 
 export const withBase = (path: string): string => {
   if (!path.startsWith("/")) return path;
