@@ -11,11 +11,18 @@ export function V2Footer() {
         <span>
           {siteConfig.address.street}, {siteConfig.address.postalCode} {siteConfig.address.city}
         </span>
-        <span>© 2026 Das Glockenspiel</span>
+        <span>
+          © 2026 Das Glockenspiel — designed by{" "}
+          <a href="https://wesimply.at" target="_blank" rel="noreferrer">
+            wesimply GmbH
+          </a>{" "}
+          <span aria-hidden="true">♥</span>
+        </span>
         <div className="v2-footer-links">
           <a href={siteConfig.instagram} target="_blank" rel="noreferrer">
             Instagram
           </a>
+          <a href={withBase("/impressum")}>Impressum</a>
           <a href={withBase("/datenschutz")}>Datenschutz</a>
           <a href={withBase("/cookies")}>Cookies</a>
           <CookieSettingsButton className="v2-footer-cookie-btn" />
