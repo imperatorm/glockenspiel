@@ -541,6 +541,12 @@ body.is-scrolled .hours-card:not(:hover):not(:focus-within) .hours-card__details
   animation: dotPulse 2.4s ease-in-out infinite;
 }
 
+.status-dot.is-closed {
+  background: #e0392b;
+  box-shadow: 0 0 0 0 rgba(224, 57, 43, 0.5);
+  animation: none;
+}
+
 @keyframes dotPulse {
   0%,
   100% {
