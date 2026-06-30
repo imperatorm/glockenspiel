@@ -76,6 +76,8 @@ const SETTINGS_QUERY = `*[_id == "siteSettings"][0]{
   "menu": { "pdf": menuPdf.asset->url, "pageCount": menuPageCount },
   "menuVideo": menuVideo.asset->url,
   "setsVideo": setsVideo.asset->url,
+  "heroStripLeftVideo": heroStripLeftVideo.asset->url,
+  "heroStripRightVideo": heroStripRightVideo.asset->url,
   "images": images{
     ${["hero", "interior", "bar", "event", "food", "terrace", "facade", "foodTwo", "drink",
       "heroStripLeft", "heroStripRight", "introOne", "introTwo", "introThree", "menuMedia",

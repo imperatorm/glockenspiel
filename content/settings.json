@@ -13,68 +13,228 @@
     "country": "AT"
   },
   "hours": [
-    { "day": "Montag", "hours": "Ruhetag" },
-    { "day": "Dienstag", "hours": "16:00 – 00:00 Uhr" },
-    { "day": "Mittwoch", "hours": "16:00 – 00:00 Uhr" },
-    { "day": "Donnerstag", "hours": "16:00 – 00:00 Uhr" },
-    { "day": "Freitag", "hours": "16:00 – 02:00 Uhr" },
-    { "day": "Samstag", "hours": "11:00 – 02:00 Uhr" },
-    { "day": "Sonntag", "hours": "11:00 – 21:00 Uhr" }
+    {
+      "day": "Montag",
+      "hours": "16:00 – 00:00 Uhr"
+    },
+    {
+      "day": "Dienstag",
+      "hours": "16:00 – 00:00 Uhr"
+    },
+    {
+      "day": "Mittwoch",
+      "hours": "16:00 – 00:00 Uhr"
+    },
+    {
+      "day": "Donnerstag",
+      "hours": "16:00 – 00:00 Uhr"
+    },
+    {
+      "day": "Freitag",
+      "hours": "16:00 – 02:00 Uhr"
+    },
+    {
+      "day": "Samstag",
+      "hours": "11:00 – 02:00 Uhr"
+    },
+    {
+      "day": "Sonntag",
+      "hours": "11:00 – 21:00 Uhr"
+    }
   ],
   "menu": {
-    "pdf": "/menu/sommermenu.pdf",
+    "pdf": "https://cdn.sanity.io/files/7t1m8zq8/production/829ace746fc29112f341e3e39f9d18c9fa7b6d93.pdf",
     "pageCount": 9
   },
-  "menuVideo": "/videos/Cocktail Barkeeper_1.webm",
+  "menuVideo": "https://cdn.sanity.io/files/7t1m8zq8/production/6db19be1afa3c317e5d82db357e2c14794cde1cc.webm",
+  "heroStripLeftVideo": "https://cdn.sanity.io/files/7t1m8zq8/production/f016c910f143b930e8c0d5f692b571b05d34fb39.webm",
+  "heroStripRightVideo": "https://cdn.sanity.io/files/7t1m8zq8/production/45e8b8c48b57e7f6b82c0197071ce24d4fda9c3b.webm",
   "images": {
-    "hero": { "image": "/images/hero.webp", "alt": "Abendstimmung vor dem Das Glockenspiel in der Kitzbüheler Altstadt" },
-    "interior": { "image": "/images/interior.webp", "alt": "Eingang vom Das Glockenspiel mit Außenbar und Vespa" },
-    "bar": { "image": "/images/bar.webp", "alt": "Gäste an der Bar im Das Glockenspiel bei Nacht" },
-    "event": { "image": "/images/event.webp", "alt": "Live-Event mit DJ vor dem Das Glockenspiel in Kitzbühel" },
-    "food": { "image": "/images/food.webp", "alt": "Tapas und Wein im Das Glockenspiel Kitzbühel" },
-    "terrace": { "image": "/images/terrace.webp", "alt": "Volle Terrasse vom Das Glockenspiel in der Hinterstadt" },
-    "facade": { "image": "/images/facade.webp", "alt": "Das Glockenspiel Haus in der Hinterstadt 13, Kitzbühel" },
-    "foodTwo": { "image": "/images/food-two.webp", "alt": "Flammkuchen und kleine Gerichte zum Teilen im Das Glockenspiel" },
-    "drink": { "image": "/images/drink.webp", "alt": "Aperitif und Snack auf der Terrasse vom Das Glockenspiel" },
-    "heroStripLeft": { "image": "/images/bar.webp", "alt": "Gäste an der Bar im Das Glockenspiel bei Nacht" },
-    "heroStripRight": { "image": "/images/terrace.webp", "alt": "Volle Terrasse vom Das Glockenspiel in der Hinterstadt" },
-    "introOne": { "image": "/images/facade.webp", "alt": "Das Glockenspiel Haus in der Hinterstadt 13, Kitzbühel" },
-    "introTwo": { "image": "/images/drink.webp", "alt": "Aperitif und Snack auf der Terrasse vom Das Glockenspiel" },
-    "introThree": { "image": "/images/food-two.webp", "alt": "Flammkuchen und kleine Gerichte zum Teilen im Das Glockenspiel" },
-    "menuMedia": { "image": "/images/bar.webp", "alt": "Gäste an der Bar im Das Glockenspiel bei Nacht" },
-    "stripOne": { "image": "/images/dj-set.webp", "alt": "DJ am Mischpult im Das Glockenspiel Kitzbühel" },
-    "stripTwo": { "image": "/images/strip-two.webp", "alt": "Impression vom Das Glockenspiel Kitzbühel" },
-    "stripThree": { "image": "/images/interior.webp", "alt": "Eingang vom Das Glockenspiel mit Außenbar und Vespa" },
-    "stripFour": { "image": "/images/event.webp", "alt": "Live-Event mit DJ vor dem Das Glockenspiel in Kitzbühel" },
-    "stripFive": { "image": "/images/terrace.webp", "alt": "Volle Terrasse vom Das Glockenspiel in der Hinterstadt" },
-    "setsImage": { "image": "/images/event.webp", "alt": "Live-Event mit DJ vor dem Das Glockenspiel in Kitzbühel" },
-    "host": { "image": "/images/billard-lounge.webp", "alt": "Billard und Loungebereich im Das Glockenspiel Kitzbühel" },
-    "cardPrivate": { "image": "/images/card-private.webp", "alt": "Private Events im Das Glockenspiel Kitzbühel" },
-    "cardCorporate": { "image": "/images/card-corporate.webp", "alt": "Corporate Events im Das Glockenspiel Kitzbühel" },
-    "privateHero": { "image": "/images/interior.webp", "alt": "Eingang vom Das Glockenspiel mit Außenbar und Vespa" },
-    "privateDetail": { "image": "/images/interior.webp", "alt": "Eingang vom Das Glockenspiel mit Außenbar und Vespa" },
-    "privateAtmosphere": { "image": "/images/terrace.webp", "alt": "Volle Terrasse vom Das Glockenspiel in der Hinterstadt" },
-    "corporateHero": { "image": "/images/card-corporate.webp", "alt": "Corporate Events im Das Glockenspiel Kitzbühel" },
-    "corporateDetail": { "image": "/images/interior.webp", "alt": "Eingang vom Das Glockenspiel mit Außenbar und Vespa" },
-    "corporateAtmosphere": { "image": "/images/bar.webp", "alt": "Gäste an der Bar im Das Glockenspiel bei Nacht" },
-    "thumbSignature": { "image": "/images/guests-bar.webp", "alt": "Gäste mit Drinks an der Bar im Das Glockenspiel Kitzbühel" },
-    "thumbKlassiker": { "image": "/images/drink.webp", "alt": "Klassische Drinks und Aperitif im Das Glockenspiel Kitzbühel" },
-    "thumbChampagner": { "image": "/images/terrace-day.webp", "alt": "Terrasse und Außenbereich vom Das Glockenspiel am Tag" },
-    "polaroidOne": { "image": "/images/polaroid-1.webp", "alt": "Impression vom Das Glockenspiel Kitzbühel" },
-    "polaroidTwo": { "image": "/images/interior.webp", "alt": "Eingang vom Das Glockenspiel mit Außenbar und Vespa" },
-    "polaroidThree": { "image": "/images/polaroid-3.webp", "alt": "Impression vom Das Glockenspiel Kitzbühel" },
-    "polaroidFour": { "image": "/images/polaroid-4.webp", "alt": "Impression vom Das Glockenspiel Kitzbühel" },
-    "polaroidFive": { "image": "/images/food-two.webp", "alt": "Flammkuchen und kleine Gerichte zum Teilen im Das Glockenspiel" },
-    "polaroidSix": { "image": "/images/event.webp", "alt": "Live-Event mit DJ vor dem Das Glockenspiel in Kitzbühel" },
-    "polaroidSeven": { "image": "/images/polaroid-7.webp", "alt": "Impression vom Das Glockenspiel Kitzbühel" },
-    "polaroidEight": { "image": "/images/polaroid-8.webp", "alt": "Impression vom Das Glockenspiel Kitzbühel" },
-    "polaroidNine": { "image": "/images/polaroid-9.webp", "alt": "Impression vom Das Glockenspiel Kitzbühel" },
-    "polaroidTen": { "image": "/images/drink.webp", "alt": "Aperitif und Snack auf der Terrasse vom Das Glockenspiel" }
+    "hero": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/0a4723368af284759658bc460673719676fc17a6-1521x1061.webp",
+      "alt": "Abendstimmung vor dem Das Glockenspiel in der Kitzbüheler Altstadt"
+    },
+    "interior": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/b8006c6ffef19932566271d8e9936e0b796cc851-1521x1014.webp",
+      "alt": "Eingang vom Das Glockenspiel mit Außenbar und Vespa"
+    },
+    "bar": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/64ea4f3464e73fa57d90e607f1e0248ba51963c9-1521x1014.webp",
+      "alt": "Gäste an der Bar im Das Glockenspiel bei Nacht"
+    },
+    "event": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/f121fbe24d3c22272c15c0bddde2537675ae67f5-1521x1014.webp",
+      "alt": "Live-Event mit DJ vor dem Das Glockenspiel in Kitzbühel"
+    },
+    "food": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/9087fdba319974e675ce1ca45abd85285aa6e983-1521x2282.webp",
+      "alt": "Tapas und Wein im Das Glockenspiel Kitzbühel"
+    },
+    "terrace": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/c5f6edeaac6c39ddbcaffa79819350492dadf248-1521x1014.webp",
+      "alt": "Volle Terrasse vom Das Glockenspiel in der Hinterstadt"
+    },
+    "facade": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/4b1551ab26099f0c3e64a108bc568eeecf3eae9c-1521x1993.webp",
+      "alt": "Das Glockenspiel Haus in der Hinterstadt 13, Kitzbühel"
+    },
+    "foodTwo": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/9176afed4e78b826213ae668148f91426212a6c7-1521x1014.webp",
+      "alt": "Flammkuchen und kleine Gerichte zum Teilen im Das Glockenspiel"
+    },
+    "drink": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/1bec6143c26f7207f8b38e5a1425663575aec19a-1521x2282.webp",
+      "alt": "Aperitif und Snack auf der Terrasse vom Das Glockenspiel"
+    },
+    "heroStripLeft": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/d7cc7e8c8173271482506e1fcd50c4f5f793b6ff-806x1209.jpg",
+      "alt": "Gäste an der Bar im Das Glockenspiel bei Nacht"
+    },
+    "heroStripRight": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/c5f6edeaac6c39ddbcaffa79819350492dadf248-1521x1014.webp",
+      "alt": "Volle Terrasse vom Das Glockenspiel in der Hinterstadt"
+    },
+    "introOne": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/4b1551ab26099f0c3e64a108bc568eeecf3eae9c-1521x1993.webp",
+      "alt": "Das Glockenspiel Haus in der Hinterstadt 13, Kitzbühel"
+    },
+    "introTwo": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/1bec6143c26f7207f8b38e5a1425663575aec19a-1521x2282.webp",
+      "alt": "Aperitif und Snack auf der Terrasse vom Das Glockenspiel"
+    },
+    "introThree": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/9176afed4e78b826213ae668148f91426212a6c7-1521x1014.webp",
+      "alt": "Flammkuchen und kleine Gerichte zum Teilen im Das Glockenspiel"
+    },
+    "menuMedia": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/64ea4f3464e73fa57d90e607f1e0248ba51963c9-1521x1014.webp",
+      "alt": "Gäste an der Bar im Das Glockenspiel bei Nacht"
+    },
+    "stripOne": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/9d7a8a44190b474042d858db87172fdda4b1424a-1521x2282.webp",
+      "alt": "DJ am Mischpult im Das Glockenspiel Kitzbühel"
+    },
+    "stripTwo": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/ef0c2b4ad1a89b072e48b40a9d0282da6d6bda07-1521x1014.webp",
+      "alt": "Impression vom Das Glockenspiel Kitzbühel"
+    },
+    "stripThree": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/b8006c6ffef19932566271d8e9936e0b796cc851-1521x1014.webp",
+      "alt": "Eingang vom Das Glockenspiel mit Außenbar und Vespa"
+    },
+    "stripFour": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/f121fbe24d3c22272c15c0bddde2537675ae67f5-1521x1014.webp",
+      "alt": "Live-Event mit DJ vor dem Das Glockenspiel in Kitzbühel"
+    },
+    "stripFive": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/c5f6edeaac6c39ddbcaffa79819350492dadf248-1521x1014.webp",
+      "alt": "Volle Terrasse vom Das Glockenspiel in der Hinterstadt"
+    },
+    "setsImage": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/f121fbe24d3c22272c15c0bddde2537675ae67f5-1521x1014.webp",
+      "alt": "Live-Event mit DJ vor dem Das Glockenspiel in Kitzbühel"
+    },
+    "host": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/b7f48d8b601e5a855b17e5db11b74bef9fd9542b-1521x1014.webp",
+      "alt": "Billard und Loungebereich im Das Glockenspiel Kitzbühel"
+    },
+    "cardPrivate": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/a36219de85e135475e9be7e633adf3316e16c08b-1521x2282.webp",
+      "alt": "Private Events im Das Glockenspiel Kitzbühel"
+    },
+    "cardCorporate": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/516bf925fa2f2647c3ba1453c2e1f81bbffc98a8-1521x2282.webp",
+      "alt": "Corporate Events im Das Glockenspiel Kitzbühel"
+    },
+    "privateHero": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/b8006c6ffef19932566271d8e9936e0b796cc851-1521x1014.webp",
+      "alt": "Eingang vom Das Glockenspiel mit Außenbar und Vespa"
+    },
+    "privateDetail": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/b8006c6ffef19932566271d8e9936e0b796cc851-1521x1014.webp",
+      "alt": "Eingang vom Das Glockenspiel mit Außenbar und Vespa"
+    },
+    "privateAtmosphere": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/c5f6edeaac6c39ddbcaffa79819350492dadf248-1521x1014.webp",
+      "alt": "Volle Terrasse vom Das Glockenspiel in der Hinterstadt"
+    },
+    "corporateHero": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/516bf925fa2f2647c3ba1453c2e1f81bbffc98a8-1521x2282.webp",
+      "alt": "Corporate Events im Das Glockenspiel Kitzbühel"
+    },
+    "corporateDetail": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/b8006c6ffef19932566271d8e9936e0b796cc851-1521x1014.webp",
+      "alt": "Eingang vom Das Glockenspiel mit Außenbar und Vespa"
+    },
+    "corporateAtmosphere": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/64ea4f3464e73fa57d90e607f1e0248ba51963c9-1521x1014.webp",
+      "alt": "Gäste an der Bar im Das Glockenspiel bei Nacht"
+    },
+    "thumbSignature": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/d87f9d230fcc3d3a85f37491238c1c87a2724acd-1521x2282.webp",
+      "alt": "Gäste mit Drinks an der Bar im Das Glockenspiel Kitzbühel"
+    },
+    "thumbKlassiker": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/1bec6143c26f7207f8b38e5a1425663575aec19a-1521x2282.webp",
+      "alt": "Klassische Drinks und Aperitif im Das Glockenspiel Kitzbühel"
+    },
+    "thumbChampagner": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/70fefeaa8650f5e13e01d00e302aaa56984a9203-1521x2282.webp",
+      "alt": "Terrasse und Außenbereich vom Das Glockenspiel am Tag"
+    },
+    "polaroidOne": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/b0b77f938e70d5637827f878c2839f4862c91779-1521x1014.webp",
+      "alt": "Impression vom Das Glockenspiel Kitzbühel"
+    },
+    "polaroidTwo": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/b8006c6ffef19932566271d8e9936e0b796cc851-1521x1014.webp",
+      "alt": "Eingang vom Das Glockenspiel mit Außenbar und Vespa"
+    },
+    "polaroidThree": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/cdd965729edb40a5bd97dded914e4e6cc04a607d-1521x2282.webp",
+      "alt": "Impression vom Das Glockenspiel Kitzbühel"
+    },
+    "polaroidFour": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/d0c77651eb9678ca8b711754b4d2820208264314-1521x1014.webp",
+      "alt": "Impression vom Das Glockenspiel Kitzbühel"
+    },
+    "polaroidFive": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/9176afed4e78b826213ae668148f91426212a6c7-1521x1014.webp",
+      "alt": "Flammkuchen und kleine Gerichte zum Teilen im Das Glockenspiel"
+    },
+    "polaroidSix": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/f121fbe24d3c22272c15c0bddde2537675ae67f5-1521x1014.webp",
+      "alt": "Live-Event mit DJ vor dem Das Glockenspiel in Kitzbühel"
+    },
+    "polaroidSeven": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/124300eba50cda3d8043386d7deb4511db5c42a8-1521x1014.webp",
+      "alt": "Impression vom Das Glockenspiel Kitzbühel"
+    },
+    "polaroidEight": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/3d58d641c5da6bf9ae0dcbbc9d6794ad9429c87b-1521x1014.webp",
+      "alt": "Impression vom Das Glockenspiel Kitzbühel"
+    },
+    "polaroidNine": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/1384643af367816a2c275fa32c62c0f9ba478943-1521x1014.webp",
+      "alt": "Impression vom Das Glockenspiel Kitzbühel"
+    },
+    "polaroidTen": {
+      "image": "https://cdn.sanity.io/images/7t1m8zq8/production/1bec6143c26f7207f8b38e5a1425663575aec19a-1521x2282.webp",
+      "alt": "Aperitif und Snack auf der Terrasse vom Das Glockenspiel"
+    }
   },
-  "setsVideo": "/videos/Party People Überblick.webm",
+  "setsVideo": "https://cdn.sanity.io/files/7t1m8zq8/production/6fb52bf55901f5a42143cc5d01e023aeff02a87c.webm",
   "labels": {
     "tagline": "Drinks · Bites · Beats — Kitzbühel",
-    "heroStrip": ["Drinks", "Bites", "Beats"],
-    "metaRow": ["Drinks", "Bites", "Late Night"]
+    "heroStrip": [
+      "Drinks",
+      "Bites",
+      "Beats"
+    ],
+    "metaRow": [
+      "Drinks",
+      "Bites",
+      "Late Night"
+    ]
   }
 }

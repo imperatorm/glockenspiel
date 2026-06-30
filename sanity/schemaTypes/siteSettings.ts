@@ -99,6 +99,8 @@ export const siteSettings = defineType({
     defineField({ name: "menuPageCount", title: "Seitenanzahl", type: "number", group: "media" }),
     defineField({ name: "menuVideo", title: "Menü-Sektion Video", type: "file", group: "media" }),
     defineField({ name: "setsVideo", title: "Musik-Sektion Video", type: "file", group: "media" }),
+    defineField({ name: "heroStripLeftVideo", title: "Hero-Strip Video (links)", type: "file", group: "media" }),
+    defineField({ name: "heroStripRightVideo", title: "Hero-Strip Video (rechts)", type: "file", group: "media" }),
     defineField({
       name: "images",
       title: "Bilder",

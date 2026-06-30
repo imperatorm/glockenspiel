@@ -1,7 +1,12 @@
 {
   "eyebrow": "Das Glockenspiel Kitzbühel",
   "heading": "Tisch oder Event anfragen.",
-  "occasions": ["Reservierung", "Privates Event", "Corporate Event", "Sonstiges"],
+  "occasions": [
+    "Reservierung",
+    "Privates Event",
+    "Corporate Event",
+    "Sonstiges"
+  ],
   "fields": {
     "name": "Name",
     "contact": "E-Mail oder Telefon",

@@ -99,6 +99,18 @@ export const setsVideo = rawSetsVideo
     : withBase(rawSetsVideo)
   : "";
 
+// Hero-strip feature videos (left/right of the Drinks · Bites · Beats labels).
+// Same resolution rule as menu/sets video; empty → the strip falls back to its
+// poster image.
+const resolveVideo = (raw: string) =>
+  raw ? (raw.startsWith("http") ? raw : withBase(raw)) : "";
+export const heroStripLeftVideo = resolveVideo(
+  (settings as { heroStripLeftVideo?: string }).heroStripLeftVideo || "",
+);
+export const heroStripRightVideo = resolveVideo(
+  (settings as { heroStripRightVideo?: string }).heroStripRightVideo || "",
+);
+
 export const imageAlt = {
   hero: cmsImages.hero.alt,
   interior: cmsImages.interior.alt,

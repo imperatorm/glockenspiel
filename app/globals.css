@@ -2602,9 +2602,10 @@ body.nav-hidden .v2-topbar {
   align-items: stretch;
 }
 
-.v2-hero-strip img {
+.v2-hero-strip-media {
   width: 100%;
-  height: clamp(9rem, 16vw, 13.5rem);
+  min-width: 0;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   display: block;
 }
@@ -3365,12 +3366,16 @@ body.nav-hidden .v2-topbar {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .v2-hero-strip img:last-of-type {
+  .v2-hero-strip-media:last-child {
     display: none;
   }
 
-  .v2-hero-strip img {
-    height: clamp(10rem, 38vw, 14rem);
+  .v2-hero-strip-media {
+    /* Shrink the strip on short viewports so the logo below stays fully in
+       view on load; caps at 420px on tall phones. ~460px reserves room for the
+       topbar, labels and the wordmark beneath it. */
+    aspect-ratio: auto;
+    height: clamp(200px, calc(100dvh - 460px), 420px);
   }
 
   .v2-dark-grid,

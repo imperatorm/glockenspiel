@@ -10,10 +10,26 @@
     "button": "Essen und Trinken"
   },
   "thumbs": [
-    { "label": "Signature Drinks", "imageKey": "thumbSignature", "icon": "/images/icons/cocktails.png" },
-    { "label": "Tapas", "imageKey": "food", "icon": "/images/icons/tapas.png" },
-    { "label": "Klassiker", "imageKey": "thumbKlassiker", "icon": "/images/icons/wine.png" },
-    { "label": "Champagner", "imageKey": "thumbChampagner", "icon": "/images/icons/star.png" }
+    {
+      "icon": "/images/icons/cocktails.png",
+      "imageKey": "thumbSignature",
+      "label": "Signature Drinks"
+    },
+    {
+      "icon": "/images/icons/tapas.png",
+      "imageKey": "food",
+      "label": "Tapas"
+    },
+    {
+      "icon": "/images/icons/wine.png",
+      "imageKey": "thumbKlassiker",
+      "label": "Klassiker"
+    },
+    {
+      "icon": "/images/icons/star.png",
+      "imageKey": "thumbChampagner",
+      "label": "Champagner"
+    }
   ],
   "statement": "Ein Ort, an dem jedes Detail Wärme ausstrahlt — durchzogen von einer Energie, die mit der Nacht wächst.",
   "sets": {
@@ -22,12 +38,54 @@
     "followerLabel": "Glockenspiel Nights"
   },
   "nights": [
-    { "name": "Party Saturday", "date": "Jeden Samstag", "cta": "Ansehen", "link": "instagram", "hot": false, "imageKey": "bar" },
-    { "name": "Dance into May", "date": "30. April", "cta": "Ansehen", "link": "instagram", "hot": false, "imageKey": "event" },
-    { "name": "Mothers Day Lunch", "date": "Mai", "cta": "Ansehen", "link": "instagram", "hot": false, "imageKey": "food" },
-    { "name": "Aperitivo Sessions", "date": "Do — Sa", "cta": "Anfragen", "link": "email", "hot": true, "imageKey": "drink" },
-    { "name": "Winter zu Besuch", "date": "Dezember", "cta": "Ansehen", "link": "instagram", "hot": false, "imageKey": "facade" },
-    { "name": "Resident DJ Nights", "date": "Late Night", "cta": "Anfragen", "link": "email", "hot": false, "imageKey": "interior" }
+    {
+      "cta": "Ansehen",
+      "date": "Jeden Samstag",
+      "hot": false,
+      "imageKey": "bar",
+      "link": "instagram",
+      "name": "Party Saturday"
+    },
+    {
+      "cta": "Ansehen",
+      "date": "30. April",
+      "hot": false,
+      "imageKey": "event",
+      "link": "instagram",
+      "name": "Dance into May"
+    },
+    {
+      "cta": "Ansehen",
+      "date": "Mai",
+      "hot": false,
+      "imageKey": "food",
+      "link": "instagram",
+      "name": "Mothers Day Lunch"
+    },
+    {
+      "cta": "Anfragen",
+      "date": "Do — Sa",
+      "hot": true,
+      "imageKey": "drink",
+      "link": "email",
+      "name": "Aperitivo Sessions"
+    },
+    {
+      "cta": "Ansehen",
+      "date": "Dezember",
+      "hot": false,
+      "imageKey": "facade",
+      "link": "instagram",
+      "name": "Winter zu Besuch"
+    },
+    {
+      "cta": "Anfragen",
+      "date": "Late Night",
+      "hot": false,
+      "imageKey": "interior",
+      "link": "email",
+      "name": "Resident DJ Nights"
+    }
   ],
   "host": {
     "caption": "Gastgeber Johannes Lehberger — inspiriert von Bars in London, Paris, Wien und München.",
@@ -42,39 +100,39 @@
     "eyebrow": "Über uns",
     "blocks": [
       {
-        "heading": "Gute Musik, gute Drinks und eine Atmosphäre, in der man bleibt. Unsere Abende leben von Klassikern, Signature Drinks und kleinen Gerichten zum Teilen.",
         "body": [
           "Nach einem Tag am Berg. Nach dem Dinner. Oder einfach, weil du weißt, dass hier etwas los ist. Im Glockenspiel trifft man sich auf einen Drink, auf zwei oder auf einen Abend, der nicht geplant war."
-        ]
+        ],
+        "heading": "Gute Musik, gute Drinks und eine Atmosphäre, in der man bleibt. Unsere Abende leben von Klassikern, Signature Drinks und kleinen Gerichten zum Teilen."
       },
       {
-        "heading": "Inspiriert von Bars in London, Paris, Wien und München. Gemacht für Kitzbühel.",
         "body": [
           "Hier ist nichts zufällig. Gastgeber Johannes Lehberger verbindet internationale Einflüsse mit einer Form von Gastlichkeit, die man hier schätzt: unaufgeregt, aufmerksam und auf den Punkt."
-        ]
+        ],
+        "heading": "Inspiriert von Bars in London, Paris, Wien und München. Gemacht für Kitzbühel."
       },
       {
-        "heading": "Vom ersten Aperitivo bis zur letzten Runde — jeder Abend findet hier seinen eigenen Rhythmus.",
         "body": [
           "Signature Cocktails, kleine Gerichte zum Teilen, Champagner, Weine und Premium Spirits. Für Abende, die genau so verlaufen, wie sie sollen.",
           "Die Musik passt. Die Stimmung auch. Alles wirkt leicht. Und genau das ist kein Zufall."
-        ]
+        ],
+        "heading": "Vom ersten Aperitivo bis zur letzten Runde — jeder Abend findet hier seinen eigenen Rhythmus."
       }
     ],
     "cards": [
       {
         "eyebrow": "Privat",
-        "title": "Private Events",
-        "text": "Geburtstage, Feiern und Anlässe — exklusiv in eigener Runde.",
         "href": "/private-events",
-        "imageKey": "cardPrivate"
+        "imageKey": "cardPrivate",
+        "text": "Geburtstage, Feiern und Anlässe — exklusiv in eigener Runde.",
+        "title": "Private Events"
       },
       {
         "eyebrow": "Business",
-        "title": "Corporate Events",
-        "text": "Firmenfeiern, Teamabende und Empfänge mit Stil.",
         "href": "/corporate-events",
-        "imageKey": "cardCorporate"
+        "imageKey": "cardCorporate",
+        "text": "Firmenfeiern, Teamabende und Empfänge mit Stil.",
+        "title": "Corporate Events"
       }
     ]
   },

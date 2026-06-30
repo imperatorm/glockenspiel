@@ -34,8 +34,35 @@ const client = createClient({ projectId, dataset, apiVersion, token, useCdn: fal
 const readJson = (file) => JSON.parse(readFileSync(join(root, "content", file), "utf8"));
 const withKeys = (arr, prefix) => arr.map((item, i) => ({ _key: `${prefix}${i}`, ...item }));
 
+function sanityRefFromCdnUrl(kind, url) {
+  // Reconstruct a Sanity asset reference from a cdn.sanity.io URL so that
+  // reseeding with baked URLs doesn't wipe the existing Sanity references.
+  if (kind === "image") {
+    // https://cdn.sanity.io/images/{proj}/{dataset}/{hash}-{w}x{h}.{ext}
+    const m = url.match(/\/images\/[^/]+\/[^/]+\/([a-f0-9]+-\d+x\d+\.\w+)$/);
+    if (m) {
+      const id = "image-" + m[1].replace(".", "-").replace(/(\w+)$/, "$1");
+      // Sanity image asset _id format: image-{hash}-{w}x{h}-{ext}
+      const id2 = "image-" + m[1].replace(/\.(\w+)$/, "-$1");
+      return { _type: kind, asset: { _type: "reference", _ref: id2 } };
+    }
+  } else {
+    // https://cdn.sanity.io/files/{proj}/{dataset}/{hash}.{ext}
+    const m = url.match(/\/files\/[^/]+\/[^/]+\/([a-f0-9]+\.\w+)$/);
+    if (m) {
+      const id2 = "file-" + m[1].replace(/\.(\w+)$/, "-$1");
+      return { _type: kind, asset: { _type: "reference", _ref: id2 } };
+    }
+  }
+  return undefined;
+}
+
 async function upload(kind, localPath) {
-  if (!localPath || /^https?:\/\//.test(localPath)) return undefined; // already remote
+  if (!localPath) return undefined;
+  if (/^https?:\/\/cdn\.sanity\.io\//.test(localPath)) {
+    return sanityRefFromCdnUrl(kind, localPath);
+  }
+  if (/^https?:\/\//.test(localPath)) return undefined; // other remote URL, skip
   const abs = join(root, "public", localPath.replace(/^\//, ""));
   if (!existsSync(abs)) {
     console.warn(`[sanity-seed] missing ${kind}: ${abs}`);
@@ -69,6 +96,8 @@ const settingsDoc = {
   menuPageCount: settings.menu.pageCount,
   menuVideo: await upload("file", settings.menuVideo),
   setsVideo: await upload("file", settings.setsVideo),
+  heroStripLeftVideo: await upload("file", settings.heroStripLeftVideo),
+  heroStripRightVideo: await upload("file", settings.heroStripRightVideo),
   images,
   labels: settings.labels,
 };

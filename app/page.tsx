@@ -7,7 +7,7 @@ import { V2Map } from "@/components/v2/V2Map";
 import { V2Topbar } from "@/components/v2/V2Topbar";
 import { V2IntroDeck } from "@/components/v2/V2IntroDeck";
 import { V2AutoVideo } from "@/components/v2/V2AutoVideo";
-import { assets, home, imageAlt, labels, menuVideo, setsVideo, siteConfig, withBase } from "@/lib/site";
+import { assets, heroStripLeftVideo, heroStripRightVideo, home, imageAlt, labels, menuVideo, setsVideo, siteConfig, withBase } from "@/lib/site";
 import { sized } from "@/lib/img";
 
 const assetFor = (key: string) => assets[key as keyof typeof assets];
@@ -94,7 +94,13 @@ export default function Home() {
 
       <section className="v2-hero">
         <div className="v2-hero-strip">
-          <img src={sized(assets.heroStripLeft, 520)} alt={imageAlt.heroStripLeft} decoding="async" />
+          <V2AutoVideo
+            src={heroStripLeftVideo}
+            poster={sized(assets.heroStripLeft, 520)}
+            alt={imageAlt.heroStripLeft}
+            className="v2-hero-strip-media"
+            priority
+          />
           <div className="v2-hero-labels" aria-label={labels.heroStrip.join(", ")}>
             <div>
               <span>{labels.heroStrip[0]}</span>
@@ -110,7 +116,13 @@ export default function Home() {
               <span>{labels.heroStrip[2]}</span>
             </div>
           </div>
-          <img src={sized(assets.heroStripRight, 520)} alt={imageAlt.heroStripRight} decoding="async" />
+          <V2AutoVideo
+            src={heroStripRightVideo}
+            poster={sized(assets.heroStripRight, 520)}
+            alt={imageAlt.heroStripRight}
+            className="v2-hero-strip-media"
+            priority
+          />
         </div>
         <Wordmark />
       </section>
