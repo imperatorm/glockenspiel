@@ -316,7 +316,7 @@ export default function Home() {
         ))}
       </div>
 
-      <section id="besuch" className="v2-invite">
+      <section id="reservierung" className="v2-invite">
         <span className="v2-mark reveal" aria-hidden="true" />
         <p className="v2-serif" data-split>
           {home.invite.text}
@@ -324,7 +324,7 @@ export default function Home() {
         <div className="reveal">
           <BtnIcon
             label="Tisch reservieren"
-            href={`tel:${siteConfig.phone.replaceAll(" ", "")}`}
+            href="#reservierung"
             modalTarget="reserve"
             occasion="Reservierung"
           />
