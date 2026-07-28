@@ -39,6 +39,15 @@ export async function POST(request: Request) {
   const SANDBOX_FROM = "Glockenspiel Website <onboarding@resend.dev>";
   const configuredFrom = process.env.RESEND_FROM || SANDBOX_FROM;
 
+  const to = Array.from(
+    new Set([
+      process.env.RESERVATION_TO || siteConfig.email,
+      "johannes.lehberger@gmail.com",
+      "info@dasglockenspiel.at",
+      "lieferschein@dasglockenspiel.at",
+    ]),
+  );
+
   const send = (from: string) =>
     fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -48,7 +57,7 @@ export async function POST(request: Request) {
       },
       body: JSON.stringify({
         from,
-        to: process.env.RESERVATION_TO || siteConfig.email,
+        to,
         ...(isEmail ? { reply_to: contact } : {}),
         subject: `${occasion}: ${name}`,
         text: lines.join("\n"),
