@@ -19,7 +19,8 @@ export const reservation = defineType({
       type: "object",
       fields: [
         { name: "name", title: "Name", type: "string" },
-        { name: "contact", title: "Kontakt", type: "string" },
+        { name: "email", title: "E-Mail", type: "string" },
+        { name: "telefon", title: "Telefon", type: "string" },
         { name: "date", title: "Datum", type: "string" },
         { name: "time", title: "Uhrzeit", type: "string" },
         { name: "guests", title: "Personen", type: "string" },
@@ -33,7 +34,8 @@ export const reservation = defineType({
       type: "object",
       fields: [
         { name: "name", title: "Name", type: "string" },
-        { name: "contact", title: "Kontakt", type: "string" },
+        { name: "email", title: "E-Mail", type: "string" },
+        { name: "telefon", title: "Telefon", type: "string" },
         { name: "guests", title: "Personen", type: "string" },
         { name: "message", title: "Nachricht", type: "string" },
       ],

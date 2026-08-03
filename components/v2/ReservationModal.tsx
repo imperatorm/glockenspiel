@@ -116,8 +116,12 @@ export function ReservationModal() {
                   <input name="name" required placeholder={reservation.placeholders.name} autoComplete="name" />
                 </label>
                 <label>
-                  {reservation.fields.contact}
-                  <input name="contact" required placeholder={reservation.placeholders.contact} autoComplete="email" />
+                  {reservation.fields.email}
+                  <input name="email" type="email" required placeholder={reservation.placeholders.email} autoComplete="email" />
+                </label>
+                <label>
+                  {reservation.fields.telefon}
+                  <input name="telefon" type="tel" required placeholder={reservation.placeholders.telefon} autoComplete="tel" />
                 </label>
                 <label>
                   {reservation.fields.date}
