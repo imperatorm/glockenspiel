@@ -9,7 +9,19 @@ export async function POST(request: Request) {
   const name = typeof data?.name === "string" ? data.name.trim() : "";
   const email = typeof data?.email === "string" ? data.email.trim() : "";
   const telefon = typeof data?.telefon === "string" ? data.telefon.trim() : "";
-  if (!name || !email || !telefon) {
+  const str = (value: unknown) => (typeof value === "string" ? value.trim() : "");
+  // "event" = embedded Firmenevent/Weihnachtsfeier inquiry: company, date and
+  // guest count are required there, phone is optional.
+  const isEvent = data?.kind === "event";
+  const firma = str(data?.firma);
+  if (isEvent) {
+    if (!name || !firma || !email || !str(data?.date) || !str(data?.guests)) {
+      return NextResponse.json(
+        { error: "Name, Firma, E-Mail, Wunschdatum und Personenanzahl sind erforderlich." },
+        { status: 400 },
+      );
+    }
+  } else if (!name || !email || !telefon) {
     return NextResponse.json({ error: "Name, E-Mail und Telefon sind erforderlich." }, { status: 400 });
   }
 
@@ -24,12 +36,16 @@ export async function POST(request: Request) {
   const occasion = typeof data?.occasion === "string" ? data.occasion : "Reservierung";
   const lines = [
     `Name: ${name}`,
+    ...(isEvent ? [`Firma: ${firma}`] : []),
     `E-Mail: ${email}`,
-    `Telefon: ${telefon}`,
+    `Telefon: ${telefon || "-"}`,
     `Anlass: ${occasion}`,
     `Datum: ${data?.date || "-"}`,
-    `Uhrzeit: ${data?.time || "-"}`,
+    ...(isEvent ? [] : [`Uhrzeit: ${data?.time || "-"}`]),
     `Personen: ${data?.guests || "-"}`,
+    ...(isEvent
+      ? [`Budgetrahmen: ${str(data?.budget) || "-"}`, `Aufmerksam geworden durch: ${str(data?.source) || "-"}`]
+      : []),
     "",
     `Nachricht:`,
     `${data?.message || "-"}`,
@@ -60,7 +76,7 @@ export async function POST(request: Request) {
         from,
         to,
         reply_to: email,
-        subject: `${occasion}: ${name}`,
+        subject: `${occasion}: ${isEvent ? `${firma} – ` : ""}${name}`,
         text: lines.join("\n"),
       }),
     });

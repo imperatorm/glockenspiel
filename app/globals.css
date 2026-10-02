@@ -5056,3 +5056,284 @@ body.nav-hidden .v2-topbar {
     transition: none;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Firmenevents & Weihnachtsfeier (briefing Sep 2026): Quick Facts, FAQ,
+   package cards, embedded inquiry. CI accents: Terracotta only for the
+   "Angebot anfragen" buttons, Pine Green for quiet labels.
+   ------------------------------------------------------------------------- */
+:root {
+  --ci-pine: #1f3b2c;
+  --ci-terracotta: #b5603e;
+  --ci-cream: #f6f0e4;
+}
+
+.v2-button--terracotta {
+  color: var(--ci-cream);
+  background: var(--ci-terracotta);
+  border-color: var(--ci-terracotta);
+  cursor: pointer;
+}
+
+.v2-button--terracotta:hover {
+  color: var(--v2-bg);
+  background: var(--v2-ink);
+  border-color: var(--v2-ink);
+}
+
+.v2-xmas-hero-cta {
+  margin-top: 0.6rem;
+}
+
+.v2-qf {
+  display: grid;
+  gap: clamp(1.4rem, 3vw, 2rem);
+  padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1rem, 3vw, 2.5rem);
+}
+
+.v2-qf-grid {
+  display: grid;
+  grid-template-columns: minmax(8rem, 0.28fr) minmax(0, 1fr);
+  gap: clamp(1.2rem, 4vw, 3rem);
+  align-items: start;
+}
+
+/* Single text label here, not the numbered "01" meta of the section rows. */
+.v2-qf .v2-section-meta span:first-child {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  color: var(--amber);
+}
+
+.v2-qf .v2-serif {
+  max-width: 30ch;
+  font-size: clamp(1.5rem, 2.8vw, 2.4rem);
+}
+
+.v2-qf-list {
+  display: grid;
+  margin: 1.2rem 0 0;
+}
+
+.v2-qf-row {
+  display: grid;
+  grid-template-columns: minmax(9rem, 0.32fr) minmax(0, 1fr);
+  gap: 0.4rem 1.5rem;
+  padding: 0.95rem 0;
+  border-bottom: 1px solid var(--v2-line);
+}
+
+.v2-qf-row:first-child {
+  border-top: 1px solid var(--v2-line);
+}
+
+.v2-qf-row dt {
+  color: rgba(var(--v2-ink-rgb), 0.55);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding-top: 0.2rem;
+}
+
+.v2-qf-row dd {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
+.v2-faq {
+  display: grid;
+  margin-top: 1.2rem;
+  border-top: 1px solid var(--v2-line);
+}
+
+.v2-faq-item {
+  border-bottom: 1px solid var(--v2-line);
+}
+
+.v2-faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.05rem 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.v2-faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.v2-faq-item summary::after {
+  content: "+";
+  flex: none;
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  line-height: 1;
+  color: rgba(var(--v2-ink-rgb), 0.55);
+  transition: transform 240ms ease;
+}
+
+.v2-faq-item[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.v2-faq-item h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.v2-faq-item p {
+  margin: 0 0 1.2rem;
+  max-width: 68ch;
+  color: rgba(var(--v2-ink-rgb), 0.78);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.v2-crosslink .v2-button {
+  margin-top: 0.4rem;
+}
+
+.v2-packages {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.8rem, 1.6vw, 1.2rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.v2-package {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: clamp(1.1rem, 1.8vw, 1.5rem);
+  background: var(--v2-paper);
+  border: 1px solid rgba(var(--v2-ink-rgb), 0.12);
+  border-radius: 1rem;
+}
+
+.v2-package h3 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(1.2rem, 1.7vw, 1.45rem);
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.v2-package-tag {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.6rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ci-pine);
+}
+
+[data-theme="dark"] .v2-package-tag {
+  color: #8fb39d;
+}
+
+.v2-package-desc {
+  margin: 0;
+  flex: 1;
+  color: rgba(var(--v2-ink-rgb), 0.72);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.v2-package-price {
+  margin: 0;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--v2-line);
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.v2-inquiry-body {
+  display: grid;
+  gap: 1.2rem;
+  width: 100%;
+  max-width: 46rem;
+  margin-top: 0.6rem;
+}
+
+.v2-inquiry-success {
+  padding: 1.4rem 0;
+}
+
+.v2-inquiry-phone {
+  margin: 0;
+  font-size: 0.92rem;
+  color: rgba(var(--v2-ink-rgb), 0.72);
+}
+
+.v2-inquiry-phone a {
+  color: var(--v2-ink);
+  font-weight: 800;
+}
+
+.v2-xmas-link {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 0.9rem;
+  padding: 1rem 0 0.2rem;
+  color: var(--v2-ink);
+  font-family: var(--serif);
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  text-decoration: none;
+}
+
+.v2-xmas-link::after {
+  content: "→";
+}
+
+.v2-xmas-link span {
+  color: var(--amber);
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.v2-xmas-link:hover {
+  color: var(--ci-terracotta);
+}
+
+@media (max-width: 1100px) {
+  .v2-packages {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .v2-qf-grid,
+  .v2-qf-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .v2-packages {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .v2-inquiry-form {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

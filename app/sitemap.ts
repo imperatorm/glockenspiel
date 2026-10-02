@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { WEIHNACHTSFEIER_SLUG } from "@/lib/firmenevents";
 import { cookiePolicy, privacyPolicy } from "@/lib/legal";
 import { eventPages, siteConfig } from "@/lib/site";
 
@@ -27,6 +28,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.82,
+    },
+    {
+      url: `${siteConfig.siteUrl}/${WEIHNACHTSFEIER_SLUG}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
     },
     {
       url: `${siteConfig.siteUrl}/${privacyPolicy.slug}`,
