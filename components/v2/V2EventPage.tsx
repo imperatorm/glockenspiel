@@ -16,9 +16,11 @@ type V2EventPageProps = {
   children?: ReactNode;
   /** Replaces the default Event JSON-LD (e.g. with BarOrPub + FAQPage). */
   structuredData?: ReactNode;
+  /** CSS object-position for the hero crop (the slot is wide, sources are often portrait). */
+  heroPosition?: string;
 };
 
-export function V2EventPage({ page, children, structuredData }: V2EventPageProps) {
+export function V2EventPage({ page, children, structuredData, heroPosition }: V2EventPageProps) {
   const occasion = page.slug === "private-events" ? "Privates Event" : "Corporate Event";
   const eventStructuredData = {
     "@context": "https://schema.org",
@@ -94,7 +96,7 @@ export function V2EventPage({ page, children, structuredData }: V2EventPageProps
       </section>
 
       <section className="v2-subhero-media" data-mask data-scroll data-scroll-speed="0.05">
-        <img src={sized(page.heroImage, 1400)} alt={`${page.navLabel} im ${siteConfig.name}`} decoding="async" />
+        <img src={sized(page.heroImage, 1400)} alt={`${page.navLabel} im ${siteConfig.name}`} decoding="async" style={heroPosition ? { objectPosition: heroPosition } : undefined} />
         <span className="v2-photo-tag">{page.eyebrow}</span>
       </section>
 

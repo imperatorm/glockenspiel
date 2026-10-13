@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 
 export default function CorporateEventsPage() {
   return (
-    <V2EventPage page={page} structuredData={<FirmeneventsSchema />}>
+    <V2EventPage page={page} structuredData={<FirmeneventsSchema />} heroPosition="center 20%">
       <V2QuickFacts />
       <V2Faq />
       <section className="v2-qf v2-crosslink">
