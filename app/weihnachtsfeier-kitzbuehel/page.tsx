@@ -7,13 +7,11 @@ import { V2HoursPill } from "@/components/v2/V2HoursPill";
 import { V2Map } from "@/components/v2/V2Map";
 import { V2Topbar } from "@/components/v2/V2Topbar";
 import { WEIHNACHTSFEIER_SLUG, weihnachtsfeier as page } from "@/lib/firmenevents";
-import { sized } from "@/lib/img";
-import { assets, eventPages, siteConfig, withBase } from "@/lib/site";
+import { eventPages, siteConfig, withBase } from "@/lib/site";
 
 const url = `${siteConfig.siteUrl}/${WEIHNACHTSFEIER_SLUG}`;
-// Placeholder imagery until the dedicated event photos arrive (see briefing).
-const heroImage = assets.corporateHero;
-const heroAlt = "Firmen-Weihnachtsfeier an der Bar im Glockenspiel Kitzbühel";
+const heroImage = withBase("/images/weihnachtsfeier-kitzbuehel-glockenspiel.webp");
+const heroAlt = "Abendstimmung vor dem Glockenspiel in der Kitzbüheler Hinterstadt mit Gästen und Live-Musik";
 
 export const metadata: Metadata = {
   // Absolute: the briefing's title tag must not get the layout's "| Das Glockenspiel Kitzbühel" suffix.
@@ -71,7 +69,7 @@ export default function WeihnachtsfeierPage() {
       </section>
 
       <section className="v2-subhero-media" data-mask data-scroll data-scroll-speed="0.05">
-        <img src={sized(heroImage, 1400)} alt={heroAlt} decoding="async" />
+        <img src={heroImage} alt={heroAlt} decoding="async" style={{ objectPosition: "center 40%" }} />
         <span className="v2-photo-tag">{page.eyebrow}</span>
       </section>
 
