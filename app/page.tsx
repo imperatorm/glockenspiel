@@ -7,11 +7,28 @@ import { V2Map } from "@/components/v2/V2Map";
 import { V2Topbar } from "@/components/v2/V2Topbar";
 import { V2IntroDeck } from "@/components/v2/V2IntroDeck";
 import { V2AutoVideo } from "@/components/v2/V2AutoVideo";
-import { assets, heroStripLeftVideo, heroStripRightVideo, home, imageAlt, labels, menuVideo, setsVideo, siteConfig, withBase } from "@/lib/site";
+import { assets, content, heroStripLeftVideo, heroStripRightVideo, home, imageAlt, labels, menuVideo, setsVideo, siteConfig, withBase } from "@/lib/site";
 import { sized } from "@/lib/img";
 
 const assetFor = (key: string) => assets[key as keyof typeof assets];
 const altFor = (key: string) => imageAlt[key as keyof typeof imageAlt];
+
+// Derived from the same settings.hours list the hours pill and modal use, so the
+// schema can't drift from the visible opening hours.
+const DAY_EN: Record<string, string> = {
+  Montag: "Monday",
+  Dienstag: "Tuesday",
+  Mittwoch: "Wednesday",
+  Donnerstag: "Thursday",
+  Freitag: "Friday",
+  Samstag: "Saturday",
+  Sonntag: "Sunday",
+};
+const openingHoursSpecification = content.hours.flatMap(([day, time]) => {
+  const match = time.match(/(\d{1,2}:\d{2})\s*[–-]\s*(\d{1,2}:\d{2})/);
+  if (!match || !DAY_EN[day]) return [];
+  return [{ "@type": "OpeningHoursSpecification", dayOfWeek: DAY_EN[day], opens: match[1], closes: match[2] }];
+});
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -35,14 +52,7 @@ const structuredData = {
     addressLocality: siteConfig.address.city,
     addressCountry: siteConfig.address.country,
   },
-  openingHoursSpecification: [
-    { "@type": "OpeningHoursSpecification", dayOfWeek: "Tuesday", opens: "16:00", closes: "00:00" },
-    { "@type": "OpeningHoursSpecification", dayOfWeek: "Wednesday", opens: "16:00", closes: "00:00" },
-    { "@type": "OpeningHoursSpecification", dayOfWeek: "Thursday", opens: "16:00", closes: "00:00" },
-    { "@type": "OpeningHoursSpecification", dayOfWeek: "Friday", opens: "16:00", closes: "02:00" },
-    { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "11:00", closes: "02:00" },
-    { "@type": "OpeningHoursSpecification", dayOfWeek: "Sunday", opens: "11:00", closes: "21:00" },
-  ],
+  openingHoursSpecification,
 };
 
 const nights = home.nights.map((night) => ({
@@ -306,6 +316,10 @@ export default function Home() {
                 </span>
               </a>
             ))}
+            <a className="v2-xmas-link" href={withBase("/weihnachtsfeier-kitzbuehel")}>
+              <span>Saison</span>
+              Weihnachtsfeier in Kitzbühel — Pakete, Preise &amp; Termine
+            </a>
           </div>
         </div>
       </section>
@@ -316,7 +330,7 @@ export default function Home() {
         ))}
       </div>
 
-      <section id="besuch" className="v2-invite">
+      <section id="reservierung" className="v2-invite">
         <span className="v2-mark reveal" aria-hidden="true" />
         <p className="v2-serif" data-split>
           {home.invite.text}
@@ -324,7 +338,7 @@ export default function Home() {
         <div className="reveal">
           <BtnIcon
             label="Tisch reservieren"
-            href={`tel:${siteConfig.phone.replaceAll(" ", "")}`}
+            href="#reservierung"
             modalTarget="reserve"
             occasion="Reservierung"
           />

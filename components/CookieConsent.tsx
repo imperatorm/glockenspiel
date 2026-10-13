@@ -43,11 +43,6 @@ export function CookieConsent() {
     lastFocused.current?.focus?.();
   }, []);
 
-  const openSettings = () => {
-    setDraft(readConsent() ?? rejectAll());
-    setMode("settings");
-  };
-
   // Focus management + Esc handling for the settings dialog.
   useEffect(() => {
     if (mode !== "settings") return;
@@ -89,26 +84,20 @@ export function CookieConsent() {
         <div className="cc-banner-text">
           <p className="cc-title">Wir respektieren deine Privatsphäre</p>
           <p className="cc-body">
-            Wir verwenden notwendige Cookies, damit die Seite funktioniert. Mit deiner Einwilligung laden wir
-            zusätzlich eingebettete Inhalte wie den Instagram-Feed. Mehr dazu in der{" "}
-            <a href={withBase("/cookies")}>Cookie-Richtlinie</a> und im{" "}
+            Wir verwenden ausschließlich notwendige Cookies, damit die Seite funktioniert — etwa für deine
+            Cookie-Auswahl und Theme-Einstellung. Es werden keine Tracking- oder Marketing-Cookies gesetzt.
+            Mehr dazu in der <a href={withBase("/cookies")}>Cookie-Richtlinie</a> und im{" "}
             <a href={withBase("/datenschutz")}>Datenschutz</a>.
           </p>
         </div>
         <div className="cc-actions">
-          <button type="button" className="cc-btn cc-btn--ghost" onClick={openSettings}>
-            Einstellungen
-          </button>
-          <button type="button" className="cc-btn cc-btn--ghost" onClick={() => persist(rejectAll())}>
-            Nur notwendige
-          </button>
           <button
             type="button"
             className="cc-btn cc-btn--primary"
             data-autofocus
             onClick={() => persist(acceptAll())}
           >
-            Alle akzeptieren
+            Verstanden
           </button>
         </div>
       </div>
@@ -129,8 +118,8 @@ export function CookieConsent() {
           Cookie-Einstellungen
         </h2>
         <p className="cc-body">
-          Wähle aus, welche Cookies du zulassen möchtest. Deine Auswahl kannst du jederzeit über den Link
-          „Cookie-Einstellungen“ im Footer ändern.
+          Diese Website verwendet ausschließlich notwendige Cookies. Es gibt daher nichts zu deaktivieren —
+          die Übersicht zeigt dir, was gesetzt wird.
         </p>
 
         <div className="cc-categories">
@@ -154,14 +143,8 @@ export function CookieConsent() {
         </div>
 
         <div className="cc-actions cc-actions--modal">
-          <button type="button" className="cc-btn cc-btn--ghost" onClick={() => persist(rejectAll())}>
-            Nur notwendige
-          </button>
-          <button type="button" className="cc-btn cc-btn--ghost" onClick={() => persist(draft)} data-autofocus>
-            Auswahl speichern
-          </button>
-          <button type="button" className="cc-btn cc-btn--primary" onClick={() => persist(acceptAll())}>
-            Alle akzeptieren
+          <button type="button" className="cc-btn cc-btn--primary" onClick={() => persist(acceptAll())} data-autofocus>
+            Verstanden
           </button>
         </div>
       </div>

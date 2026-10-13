@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { reservation, siteConfig, withBase } from "@/lib/site";
+import { content, reservation, siteConfig, withBase } from "@/lib/site";
 
 const OCCASIONS = reservation.occasions;
 
@@ -116,8 +116,12 @@ export function ReservationModal() {
                   <input name="name" required placeholder={reservation.placeholders.name} autoComplete="name" />
                 </label>
                 <label>
-                  {reservation.fields.contact}
-                  <input name="contact" required placeholder={reservation.placeholders.contact} autoComplete="email" />
+                  {reservation.fields.email}
+                  <input name="email" type="email" required placeholder={reservation.placeholders.email} autoComplete="email" />
+                </label>
+                <label>
+                  {reservation.fields.telefon}
+                  <input name="telefon" type="tel" required placeholder={reservation.placeholders.telefon} autoComplete="tel" />
                 </label>
                 <label>
                   {reservation.fields.date}
@@ -171,9 +175,7 @@ export function ReservationModal() {
               </div>
               <div>
                 <strong>{reservation.meta.hours}</strong>
-                <span>
-                  Di–Fr ab 16:00 · Sa &amp; So ab 11:00 · Mo Ruhetag
-                </span>
+                <span>{content.hoursSummary}</span>
               </div>
             </div>
           </div>

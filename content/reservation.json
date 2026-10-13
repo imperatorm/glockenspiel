@@ -9,7 +9,8 @@
   ],
   "fields": {
     "name": "Name",
-    "contact": "E-Mail oder Telefon",
+    "email": "E-Mail",
+    "telefon": "Telefon",
     "date": "Datum",
     "time": "Uhrzeit",
     "guests": "Personen",
@@ -18,7 +19,8 @@
   },
   "placeholders": {
     "name": "Dein Name",
-    "contact": "Wie erreichen wir dich?",
+    "email": "deine@email.at",
+    "telefon": "Deine Telefonnummer",
     "guests": "4",
     "message": "Wünsche, Ablauf, Besonderheiten..."
   },

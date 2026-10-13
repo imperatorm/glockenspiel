@@ -146,8 +146,8 @@ const mapLegal = (page) =>
 
 const RESERVATION_QUERY = `*[_id == "reservation"][0]{
   eyebrow, heading, occasions,
-  fields{ name, contact, date, time, guests, occasion, message },
-  placeholders{ name, contact, guests, message },
+  fields{ name, email, telefon, date, time, guests, occasion, message },
+  placeholders{ name, email, telefon, guests, message },
   submit, sending, success, successButton, errorPrefix,
   meta{ direct, address, hours }
 }`;

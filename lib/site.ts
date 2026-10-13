@@ -204,8 +204,45 @@ export const home = homeData;
 // Reservation modal copy (CMS-editable via Sanity → baked to content/reservation.json).
 export const reservation = reservationData;
 
+// Compact, human-readable opening-hours line derived from the SAME source as the
+// full week list (settings.hours), so the hours pill and the reservation modal
+// can never drift apart again. Consecutive days that share the same hours are
+// grouped: e.g. "Mo–Do 16:00 – 00:00 Uhr · Fr 16:00 – 02:00 Uhr · Sa …". A day
+// whose hours read "Ruhetag"/"geschlossen" is rendered as a closed day.
+const DAY_ABBR: Record<string, string> = {
+  Montag: "Mo",
+  Dienstag: "Di",
+  Mittwoch: "Mi",
+  Donnerstag: "Do",
+  Freitag: "Fr",
+  Samstag: "Sa",
+  Sonntag: "So",
+};
+const dayAbbr = (day: string) => DAY_ABBR[day] ?? day.slice(0, 2);
+const isClosedDay = (time: string) => /ruhetag|geschlossen|closed/i.test(time);
+
+const formatHoursSummary = (hours: { day: string; hours: string }[]): string => {
+  const groups: { days: string[]; time: string }[] = [];
+  for (const { day, hours: time } of hours) {
+    const last = groups[groups.length - 1];
+    if (last && last.time === time) last.days.push(day);
+    else groups.push({ days: [day], time });
+  }
+  return groups
+    .map(({ days, time }) => {
+      const label =
+        days.length === 1
+          ? dayAbbr(days[0])
+          : days.length === 2
+            ? `${dayAbbr(days[0])} & ${dayAbbr(days[1])}`
+            : `${dayAbbr(days[0])}–${dayAbbr(days[days.length - 1])}`;
+      return isClosedDay(time) ? `${label} Ruhetag` : `${label} ${time}`;
+    })
+    .join(" · ");
+};
+
 // Cross-page bits kept on `content`: the drinks page + structured data read
-// `content.menu`, and several components read `content.hours`.
+// `content.menu`, and several components read `content.hours` / `content.hoursSummary`.
 export const content = {
   menu: {
     eyebrow: homeData.menu.eyebrow,
@@ -214,6 +251,7 @@ export const content = {
     button: homeData.menu.button,
   },
   hours: settings.hours.map((entry) => [entry.day, entry.hours] as [string, string]),
+  hoursSummary: formatHoursSummary(settings.hours),
 };
 
 // Event pages — CMS-editable via Sanity → baked to content/events.json.

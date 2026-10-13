@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { ScrollOrchestrator } from "@/components/ScrollOrchestrator";
 import { BtnIcon } from "@/components/v2/BtnIcon";
 import { V2Footer } from "@/components/v2/V2Footer";
@@ -11,9 +12,13 @@ type EventPageData = (typeof eventPages)[keyof typeof eventPages];
 
 type V2EventPageProps = {
   page: EventPageData;
+  /** Extra blocks rendered directly below the section rows (e.g. Quick Facts + FAQ). */
+  children?: ReactNode;
+  /** Replaces the default Event JSON-LD (e.g. with BarOrPub + FAQPage). */
+  structuredData?: ReactNode;
 };
 
-export function V2EventPage({ page }: V2EventPageProps) {
+export function V2EventPage({ page, children, structuredData }: V2EventPageProps) {
   const occasion = page.slug === "private-events" ? "Privates Event" : "Corporate Event";
   const eventStructuredData = {
     "@context": "https://schema.org",
@@ -53,10 +58,12 @@ export function V2EventPage({ page }: V2EventPageProps) {
 
   return (
     <main id="top" className="page-shell v2-shell">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(eventStructuredData) }}
-      />
+      {structuredData ?? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(eventStructuredData) }}
+        />
+      )}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbData) }}
@@ -140,6 +147,8 @@ export function V2EventPage({ page }: V2EventPageProps) {
           );
         })}
       </section>
+
+      {children}
 
       <section className="v2-dark">
         <div className="v2-dark-grid">

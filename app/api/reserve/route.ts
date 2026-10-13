@@ -7,9 +7,22 @@ import { siteConfig } from "@/lib/site";
 export async function POST(request: Request) {
   const data = await request.json().catch(() => null);
   const name = typeof data?.name === "string" ? data.name.trim() : "";
-  const contact = typeof data?.contact === "string" ? data.contact.trim() : "";
-  if (!name || !contact) {
-    return NextResponse.json({ error: "Name und Kontakt sind erforderlich." }, { status: 400 });
+  const email = typeof data?.email === "string" ? data.email.trim() : "";
+  const telefon = typeof data?.telefon === "string" ? data.telefon.trim() : "";
+  const str = (value: unknown) => (typeof value === "string" ? value.trim() : "");
+  // "event" = embedded Firmenevent/Weihnachtsfeier inquiry: company, date and
+  // guest count are required there, phone is optional.
+  const isEvent = data?.kind === "event";
+  const firma = str(data?.firma);
+  if (isEvent) {
+    if (!name || !firma || !email || !str(data?.date) || !str(data?.guests)) {
+      return NextResponse.json(
+        { error: "Name, Firma, E-Mail, Wunschdatum und Personenanzahl sind erforderlich." },
+        { status: 400 },
+      );
+    }
+  } else if (!name || !email || !telefon) {
+    return NextResponse.json({ error: "Name, E-Mail und Telefon sind erforderlich." }, { status: 400 });
   }
 
   const apiKey = process.env.RESEND_API_KEY;
@@ -23,21 +36,34 @@ export async function POST(request: Request) {
   const occasion = typeof data?.occasion === "string" ? data.occasion : "Reservierung";
   const lines = [
     `Name: ${name}`,
-    `Kontakt: ${contact}`,
+    ...(isEvent ? [`Firma: ${firma}`] : []),
+    `E-Mail: ${email}`,
+    `Telefon: ${telefon || "-"}`,
     `Anlass: ${occasion}`,
     `Datum: ${data?.date || "-"}`,
-    `Uhrzeit: ${data?.time || "-"}`,
+    ...(isEvent ? [] : [`Uhrzeit: ${data?.time || "-"}`]),
     `Personen: ${data?.guests || "-"}`,
+    ...(isEvent
+      ? [`Budgetrahmen: ${str(data?.budget) || "-"}`, `Aufmerksam geworden durch: ${str(data?.source) || "-"}`]
+      : []),
     "",
     `Nachricht:`,
     `${data?.message || "-"}`,
   ];
-  const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact);
 
   // Resend's shared sandbox sender is always verified, so it's the fallback when the
   // configured custom domain hasn't been verified yet (Resend rejects those with 403).
   const SANDBOX_FROM = "Glockenspiel Website <onboarding@resend.dev>";
   const configuredFrom = process.env.RESEND_FROM || SANDBOX_FROM;
+
+  const to = Array.from(
+    new Set([
+      process.env.RESERVATION_TO || siteConfig.email,
+      "johannes.lehberger@gmail.com",
+      "info@dasglockenspiel.at",
+      "lieferschein@dasglockenspiel.at",
+    ]),
+  );
 
   const send = (from: string) =>
     fetch("https://api.resend.com/emails", {
@@ -48,9 +74,9 @@ export async function POST(request: Request) {
       },
       body: JSON.stringify({
         from,
-        to: process.env.RESERVATION_TO || siteConfig.email,
-        ...(isEmail ? { reply_to: contact } : {}),
-        subject: `${occasion}: ${name}`,
+        to,
+        reply_to: email,
+        subject: `${occasion}: ${isEvent ? `${firma} – ` : ""}${name}`,
         text: lines.join("\n"),
       }),
     });

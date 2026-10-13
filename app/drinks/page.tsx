@@ -90,7 +90,7 @@ export default function DrinksPage() {
           <div className="v2-about-links reveal">
             <BtnIcon
               label="Tisch reservieren"
-              href={`tel:${siteConfig.phone.replaceAll(" ", "")}`}
+              href="#reservierung"
               modalTarget="reserve"
               occasion="Reservierung"
             />
@@ -117,7 +117,7 @@ export default function DrinksPage() {
         </div>
       </section>
 
-      <section className="v2-invite">
+      <section id="reservierung" className="v2-invite">
         <span className="v2-mark reveal" aria-hidden="true" />
         <p className="v2-serif" data-split>
           Lieber direkt am Tresen entscheiden?
@@ -125,7 +125,7 @@ export default function DrinksPage() {
         <div className="reveal">
           <BtnIcon
             label="Tisch reservieren"
-            href={`tel:${siteConfig.phone.replaceAll(" ", "")}`}
+            href="#reservierung"
             modalTarget="reserve"
             occasion="Reservierung"
           />
